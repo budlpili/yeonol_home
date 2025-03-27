@@ -1,0 +1,230 @@
+<%- include('partials/header'); %>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./imges/logo_some_50_56.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <!-- <div class="header">
+                <div class="left">
+                    <h1>유저관리</h1>
+                </div>
+            </div> -->
+
+            <div class="sales-management">
+
+                <!-- 썸푸닝 매출  -->
+                <div class="sales-list">
+
+                    <div class="header">
+                        <i class='bx bx-coin-stack'></i>
+                        <h3>썸푸닝 매출</h3>
+
+                        <!-- 기간 설정  -->
+
+                        <div class="date-box">
+                            <div>
+                                <span id="cal">
+                                    <input type="date" id="startDate" class="input_type">
+                                    <span class="hypen"> &nbsp ~ &nbsp</span> 
+                                    <input type="date" id="endDate" class="input_type">
+                                    <button class="search_btn">검색</button>
+                                </span>
+                                
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <table id="myTable1" class="some-sales-table">
+                        <thead>
+                            <tr>
+                                <th class="data data-year"><a href="#">년</a></th>
+                                <th class="data data-month"><a href="#">월</a></th>
+                                <th class="data data-day"><a href="#">일</a></th>
+                                <th class="data data-day-sales"><a href="#">일매출액</a></th>
+                                <th class="data data-month-sales"><a href="#">매출누적액</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% 
+                                let num = 0;
+                                revenueDates.forEach((date) => {
+                                    
+                                    
+                            %>
+                            <tr>
+                                <td><%= date.split('-')[0] %>년</td>
+                                <td><%= date.split('-')[1] %>월</td>
+                                <td><%= date.split('-')[2] %>일</td>
+                                <td><%= revenueDays[num].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %>원</td>
+                                <td><%= cumulative[num].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %>원</td>
+                            </tr>
+                            <% 
+                                    num++;
+                                });
+                            %>
+                        </tbody>
+                    </table>
+
+
+                    <!-- pagination -->
+                    <!-- <div class="chat-page">
+                        <div class="showing-count">
+                            <span>Showing:</span>
+                            <span>1 - 10</span>
+                            <span>of</span>
+                            <span>78</span>
+                        </div>
+                        <ul class="pagination">
+                            <li><a href="#"><i class='bx bx-chevrons-left' ></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevron-left' ></i></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#"><i class='bx bx-chevron-right' ></i></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevrons-right' ></i></a></li>
+                            
+                        </ul>
+                    </div> -->
+                </div>
+
+
+
+                <!-- 유저별 매출 -->
+                <div class="user-sales-list">
+
+                    <div class="header">
+                        <i class='bx bx-coin-stack'></i>
+                        <h3>유저별 매출</h3>
+<!-- 
+                        <div class="search-box">
+                            <input type="text" class="input-search" placeholder="이름을 입력해주세요">
+                            <button class="btn-search"><i class="bx bx-search"></i></button>
+                        </div> -->
+                    </div>
+
+                    <table id="myTable2" class="user-sales-table">
+                        <thead>
+                            <tr>
+                                <th class="data data-name"><a href="#">이름</a></th>
+                                <th class="data data-userid"><a href="#">유저ID</a></th>
+                                <th class="data data-day"><a href="#">금일매출액</a></th>
+                                <th class="data data-sales"><a href="#">누적매출액</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% 
+                                let i = 0;
+                                revenues.forEach((revenue) => { 
+                            %>
+                                <tr>
+                                    <td><%= revenue.username %></td>
+                                    <td><%= revenue.userId %></td>
+                                    <td><%= revenue.todayRevenue %></td>
+                                    <td><%= revenue.totalRevenue %></td>
+                                </tr>
+                            <% 
+                                });
+                            %>
+                            
+                        </tbody>
+                    </table>
+
+
+                    <!-- pagination -->
+                    <!-- <div class="chat-page">
+                        <div class="showing-count">
+                            <span>Showing:</span>
+                            <span>1 - 10</span>
+                            <span>of</span>
+                            <span>78</span>
+                        </div>
+                        <ul class="pagination">
+                            <li><a href="#"><i class='bx bx-chevrons-left' ></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevron-left' ></i></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#"><i class='bx bx-chevron-right' ></i></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevrons-right' ></i></a></li>
+                            
+                        </ul>
+                    </div> -->
+                </div>
+
+
+
+                
+
+            </div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+<script>
+
+    new DataTable('#myTable1', {
+        responsive: true
+    });
+    
+    new DataTable('#myTable2', {
+        responsive: true
+    });
+    
+    
+    
+    document.querySelector('.search_btn').addEventListener('click', function() {
+        var startDate = document.getElementById('startDate').value;
+        var endDate = document.getElementById('endDate').value;
+        
+        if(startDate === undefined || startDate === null || startDate === '') {
+            alert('시작일을 입력하세요.')
+            return;
+        }
+        
+        if(endDate === undefined || endDate === null || endDate === '') {
+            alert('종료일을 입력하세요.')
+            return;
+        }
+        
+        location.assign('/sales?start=' + startDate + '&end=' + endDate);
+    })
+</script>
+
+
+
+<%- include('partials/footer'); %>

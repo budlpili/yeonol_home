@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="imges/logo_some.png">
+    <title>SOMEPOONING_Dashboard</title>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar <%= sidebar ? '' : 'close' %>">
+        <a href="/" class="logo">
+            <img src="imges/logo_some.png" alt="로고 42*47">
+            <div class="logo-name">
+                SOME<span>POONING</span>
+            </div>
+        </a>
+        
+        <ul class="side-menu">
+            <li class="<%= activeMenu === 'menu1' ? 'active' : '' %>"><a href="/"><i class='bx bxs-dashboard'></i>대쉬보드</a></li>
+            <li class="<%= activeMenu === 'menu2' ? 'active' : '' %>"><a href="/sp_users.html"><i class='bx bx-group'></i>유저관리</a></li>
+            <li class="<%= activeMenu === 'menu3' ? 'active' : '' %>"><a href="/chatting.html"><i class='bx bx-message-square-dots'></i>채팅관리</a></li>
+            <li class="<%= activeMenu === 'menu4' ? 'active' : '' %>"><a href="/party.html"><i class='bx bx-party'></i>파티관리</a></li>
+            <li class="<%= activeMenu === 'menu5' ? 'active' : '' %>"><a href="/shorts_gram.html"><i class='bx bx-video-recording'></i>쇼츠&그램</a></li>
+            <li class="<%= activeMenu === 'menu6' ? 'active' : '' %>"><a href="/sales.html"><i class='bx bx-coin-stack'></i>매출관리</a></li>
+            <li class="<%= activeMenu === 'menu7' ? 'active' : '' %>"><a href="/coupon.html"><i class='bx bx-edit-alt'></i>쿠폰관리</a></li>
+            <li class="<%= activeMenu === 'menu8' ? 'active' : '' %>"><a href="/push.html"><i class='bx bx-down-arrow-circle'></i>푸쉬관리</a></li>
+            <li class="<%= activeMenu === 'menu9' ? 'active' : '' %>"><a href="/announcement.html"><i class='bx bx-edit-alt'></i>공지관리</a></li>
+            <li class="<%= activeMenu === 'menu10' ? 'active' : '' %>"><a href="/report.html"><i class='bx bx-no-entry'></i>신고관리</a></li>
+            <li class="<%= activeMenu === 'menu10' ? 'active' : '' %>"><a href="/guide.html"><i class='bx bx-book-open'></i>썸푸닝가이드</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="/logout" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./imges/logo_some_50_56.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <!-- <div class="header">
+                <div class="left">
+                    <h1>유저관리</h1>
+                </div>
+            </div> -->
+
+            <div class="report-management">
+                <div class="report-list">
+
+                    <div class="header">
+                        <i class='bx bx-no-entry'></i>
+                        <h3>신고사항</h3>
+
+                        <div class="search-box">
+                            <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                            <button class="btn-search"><i class="bx bx-search"></i></button>
+                        </div>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="all-check"></th>
+                                <th class="data data-num">신고번호</th>
+                                <th class="data data-report-user">신고자</th>
+                                <th class="data data-con">신고내용</th>
+                                <th class="data data-datetime">신고일시</th>
+                                <th class="data data-status">처리여부</th>
+                                <th class="data data-status">비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="checkbox"><input type="checkbox" class="one-check"></td>
+                                <td data-label="checkbox">123</td>
+                                <td  data-label="checkbox" class="profile-name">
+                                    
+                                    <a href="./user-profile.html">
+                                        <img src="./imges/avatar/Avatar=10.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td data-label="checkbox">
+                                    <div class="report-item">
+                                        <div class="report-pro">
+                                            [<a href="./user-profile.html" style="display: flex; align-items: center;">
+                                                <img src="./imges/avatar/Avatar=3.png">
+                                                <p>음란마귀</p>
+                                            </a>]
+                                        </div>
+                                        <span>에 대한 음란신고 접수되었습니다.</span>
+                                    </div>
+
+                                </td>
+                                <td data-label="checkbox">2024/04/01, 16:44:62</td>
+                                <td data-label="checkbox">
+                                
+                                    <div class="wrapper-send">
+                                        <input type="text" placeholder="신고자에게 보낼 메세지를 입력해주세요" class="report-send">
+                                        <i class='bx bx-send'></i>
+                                    </div>
+                                    
+                                </td>
+                                <td data-label="checkbox">처리중</td>
+                                
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <!-- pagination -->
+                    <div class="chat-page">
+                        <div class="showing-count">
+                            <span>Showing:</span>
+                            <span>1 - 8</span>
+                            <span>of</span>
+                            <span>78</span>
+                        </div>
+                        <ul class="pagination">
+                            <li><a href="#"><i class='bx bx-chevrons-left' ></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevron-left' ></i></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#"><i class='bx bx-chevron-right' ></i></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevrons-right' ></i></a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <span>Copyright</span>
+                    <span>&copy;</span>
+                    <span><a href="#">NexParan</a> </span>
+                    <span>2024 SOMEPOONING</span>
+                </div>
+                <div class="version">v1.4.2</div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/select-list.js"></script>
+</body>
+
+</html>

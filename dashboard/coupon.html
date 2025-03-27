@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/datatable.css">
+        <link rel="icon" href="imges/logo_some.png">
+        <title>SOMEPOONING_Dashboard</title>
+    </head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar <%= sidebar ? '' : 'close' %>">
+        <a href="/" class="logo">
+            <img src="imges/logo_some.png" alt="로고 42*47">
+            <div class="logo-name">
+                SOME<span>POONING</span>
+            </div>
+        </a>
+        
+        <ul class="side-menu">
+            <li class="<%= activeMenu === 'menu1' ? 'active' : '' %>"><a href="/"><i class='bx bxs-dashboard'></i>대쉬보드</a></li>
+            <li class="<%= activeMenu === 'menu2' ? 'active' : '' %>"><a href="/sp_users.html"><i class='bx bx-group'></i>유저관리</a></li>
+            <li class="<%= activeMenu === 'menu3' ? 'active' : '' %>"><a href="/chatting.html"><i class='bx bx-message-square-dots'></i>채팅관리</a></li>
+            <li class="<%= activeMenu === 'menu4' ? 'active' : '' %>"><a href="/party.html"><i class='bx bx-party'></i>파티관리</a></li>
+            <li class="<%= activeMenu === 'menu5' ? 'active' : '' %>"><a href="/shorts_gram.html"><i class='bx bx-video-recording'></i>쇼츠&그램</a></li>
+            <li class="<%= activeMenu === 'menu6' ? 'active' : '' %>"><a href="/sales.html"><i class='bx bx-coin-stack'></i>매출관리</a></li>
+            <li class="<%= activeMenu === 'menu7' ? 'active' : '' %>"><a href="/coupon.html"><i class='bx bxs-coupon'></i>쿠폰관리</a></li>
+            <li class="<%= activeMenu === 'menu8' ? 'active' : '' %>"><a href="/push.html"><i class='bx bx-down-arrow-circle'></i>푸쉬관리</a></li>
+            <li class="<%= activeMenu === 'menu9' ? 'active' : '' %>"><a href="/announcement.html"><i class='bx bx-edit-alt'></i>공지관리</a></li>
+            <li class="<%= activeMenu === 'menu10' ? 'active' : '' %>"><a href="/report.html"><i class='bx bx-no-entry'></i>신고관리</a></li>
+            <li class="<%= activeMenu === 'menu10' ? 'active' : '' %>"><a href="/guide.html"><i class='bx bx-book-open'></i>썸푸닝가이드</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="/logout" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./imges/logo_some_50_56.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <div class="coupon-management">
+
+                <!-- 쿠폰리스트 -->
+                <div class="coupon-list">
+
+                    <div class="header">
+                        
+                        <div class="title-wrap">
+                            <i class='bx bxs-coupon'></i>
+                            <h3>쿠폰</h3>
+                        </div>                        
+                    </div>
+
+                    <div class="coupon-wrap">
+                        <button class="coupon" onclick="change_btn(event)">
+                            <div class="coupon-left">
+                                <div>SomePooning</div>
+                            </div>
+
+                            <div class="coupon-center">
+                                <div>
+                                    <div class="text">
+                                        <h2>데일리</h2>
+                                        <h3>Coupon</h3>
+                                    </div>
+                                    
+                                    <small>Valid until May 2024</small>
+                                </div>
+                            </div>
+                            <div class="coupon-right">
+                            </div>
+                        </button>
+                        <button class="coupon like" onclick="change_btn(event)">
+                            <div class="coupon-left">
+                                <div>SomePooning</div>
+                            </div>
+
+                            <div class="coupon-center">
+                                <div>
+                                    <div class="text">
+                                        <h2>좋아요</h2>
+                                        <h3>Coupon</h3>
+                                    </div>
+                                    
+                                    <small>Valid until May 2024</small>
+                                </div>
+                            </div>
+                            <div class="coupon-right">
+                            </div>
+                        </button>
+                        <button class="coupon super-like" onclick="change_btn(event)">
+                            <div class="coupon-left">
+                                <div>SomePooning</div>
+                            </div>
+
+                            <div class="coupon-center">
+                                <div>
+                                    <div class="text">
+                                        <h2>슈퍼 좋아요</h2>
+                                        <h3>Coupon</h3>
+                                    </div>
+                                    
+                                    <small>Valid until May 2024</small>
+                                </div>
+                            </div>
+                            <div class="coupon-right">
+                            </div>
+                        </button>
+                        <button class="coupon profile-view" onclick="change_btn(event)">
+                            <div class="coupon-left">
+                                <div>SomePooning</div>
+                            </div>
+
+                            <div class="coupon-center">
+                                <div>
+                                    <div class="text">
+                                        <h2>상세프로필 보기</h2>
+                                        <h3>Coupon</h3>
+                                    </div>
+                                    
+                                    <small>Valid until May 2024</small>
+                                </div>
+                            </div>
+                            <div class="coupon-right">
+                            </div>
+                        </button>
+                        
+                    </div>
+                </div>
+
+                <!-- 쿠폰 유저 리스트 -->
+                <div class="coupon-user-list">
+
+                    <div class="header">
+                        <div class="title-wrap">
+                            <i class='bx bx-group'></i>
+                            <h3>유저리스트</h3>
+                        </div>
+                        
+                        <div class="search-send-wrap">
+                            <div class="search-box">
+                                <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                            </div>
+                            <button class="search-btn-plus">
+                                <span>검색</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table class="coupon-users">
+                            <thead>
+                                <tr>
+                                    <th class="all-check">
+                                        <input type='checkbox'
+                                        name='user_all' 
+                                        value='selectAll'
+                                        onclick='selectAll(this)'>
+                                    </th>
+                                    <th class="name"><a href="#">이름</a></th>
+                                    <th class="user-id"><a href="#">유저ID</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" 
+                                        name="user_one" 
+                                        class="user-check"
+                                        value="user"
+                                        onclick='getCheckedCnt()'>
+                                    </td>
+                                    <td class="user-1">
+                                        <img src="./imges/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" 
+                                        name="user_one" 
+                                        class="user-check"
+                                        value="user"
+                                        onclick='getCheckedCnt()'>
+                                    </td>
+                                    <td class="user-1">
+                                        <img src="./imges/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" 
+                                        name="user_one" 
+                                        class="user-check"
+                                        value="user"
+                                        onclick='getCheckedCnt()'>
+                                    </td>
+                                    <td class="user-1">
+                                        <img src="./imges/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" 
+                                        name="user_one" 
+                                        class="user-check"
+                                        value="user"
+                                        onclick='getCheckedCnt()'>
+                                    </td>
+                                    <td class="user-1">
+                                        <img src="./imges/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" 
+                                        name="user_one" 
+                                        class="user-check"
+                                        value="user"
+                                        onclick='getCheckedCnt()'>
+                                    </td>
+                                    <td class="user-1">
+                                        <img src="./imges/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" 
+                                        name="user_one" 
+                                        class="user-check"
+                                        value="user"
+                                        onclick='getCheckedCnt()'>
+                                    </td>
+                                    <td class="user-1">
+                                        <img src="./imges/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" 
+                                        name="user_one" 
+                                        class="user-check"
+                                        value="user"
+                                        onclick='getCheckedCnt()'>
+                                    </td>
+                                    <td class="user-1">
+                                        <img src="./imges/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" 
+                                        name="user_one" 
+                                        class="user-check"
+                                        value="user"
+                                        onclick='getCheckedCnt()'>
+                                    </td>
+                                    <td class="user-1">
+                                        <img src="./imges/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" 
+                                        name="user_one" 
+                                        class="user-check"
+                                        value="user"
+                                        onclick='getCheckedCnt()'>
+                                    </td>
+                                    <td class="user-1">
+                                        <img src="./imges/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" 
+                                        name="user_one" 
+                                        class="user-check"
+                                        value="user"
+                                        onclick='getCheckedCnt()'>
+                                    </td>
+                                    <td class="user-1">
+                                        <img src="./imges/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="send-btn-wrap">
+                        <span class="user-count" id="user_result">0</span> 
+                        <span class="text">명 선택하셨습니다.</span> 
+                        <button class="coupon-send-btn">보내기</button>
+                    </div>
+                    
+                </div>
+
+                <!-- 쿠폰보낸내역  -->
+                <div class="coupon-send-list">
+                    <div class="header">
+                        <div class="title-wrap">
+                            <i class='bx bx-list-ul' ></i>
+                            <h3>쿠폰 보낸 내역</h3>
+                        </div>
+                        
+                        <div class="search-send-wrap">
+                            <div class="search-box">
+                                <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                            </div>
+                            <button class="search-btn-plus">
+                                <span>검색</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table id="myTable">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" class="all-check"></th>
+                                    <th class="data data-name"><a href="#" data-sort="name">이름</a></th>
+                                    <th class="data data-phone"><a href="#" data-sort="phone">핸드폰</a></th>
+                                    <th class="data data-coupon-num"><a href="#" data-sort="coupon-num">쿠폰번호</a></th>
+                                    <th class="data data-coupon-kind"><a href="#" data-sort="coupon-kind">쿠폰종류</a></th>
+                                    <th class="data data-coupon-use-status"><a href="#" data-sort="coupon-use-status">쿠폰사용여부</a></th>
+                                    <th class="data data-coupon-use-date"><a href="#" data-sort="coupon-use-date">쿠폰사용기한</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="profile-name">
+                                        <a href="user-profile.html">
+                                            <img src="./imges/avatar/Avatar=10.png">
+                                            <p>너에요</p>
+                                        </a>
+                                    </td>
+                                    <td>010-8888-8888</td>
+                                    <td>12354-25525-25582</td>
+                                    <td>좋아요</td>
+                                    <td class="coupon-use-status use-not">미사용</td>
+                                    <td>2024.10.16 까지</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="profile-name">
+                                        <a href="user-profile.html">
+                                            <img src="./imges/avatar/Avatar=10.png">
+                                            <p>너에요</p>
+                                        </a>
+                                    </td>
+                                    <td>010-8888-8888</td>
+                                    <td>12354-25525-25582</td>
+                                    <td>좋아요</td>
+                                    <td class="coupon-use-status use-not">미사용</td>
+                                    <td>2024.10.16 까지</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="profile-name">
+                                        <a href="user-profile.html">
+                                            <img src="./imges/avatar/Avatar=10.png">
+                                            <p>너에요</p>
+                                        </a>
+                                    </td>
+                                    <td>010-8888-8888</td>
+                                    <td>12354-25525-25582</td>
+                                    <td>좋아요</td>
+                                    <td class="coupon-use-status use-not">미사용</td>
+                                    <td>2024.10.16 까지</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="profile-name">
+                                        <a href="user-profile.html">
+                                            <img src="./imges/avatar/Avatar=10.png">
+                                            <p>너에요</p>
+                                        </a>
+                                    </td>
+                                    <td>010-8888-8888</td>
+                                    <td>12354-25525-25582</td>
+                                    <td>좋아요</td>
+                                    <td class="coupon-use-status use-not">미사용</td>
+                                    <td>2024.10.16 까지</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="profile-name">
+                                        <a href="user-profile.html">
+                                            <img src="./imges/avatar/Avatar=10.png">
+                                            <p>너에요</p>
+                                        </a>
+                                    </td>
+                                    <td>010-8888-8888</td>
+                                    <td>12354-25525-25582</td>
+                                    <td>좋아요</td>
+                                    <td class="coupon-use-status use-not">미사용</td>
+                                    <td>2024.10.16 까지</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="profile-name">
+                                        <a href="user-profile.html">
+                                            <img src="./imges/avatar/Avatar=10.png">
+                                            <p>너에요</p>
+                                        </a>
+                                    </td>
+                                    <td>010-8888-8888</td>
+                                    <td>12354-25525-25582</td>
+                                    <td>좋아요</td>
+                                    <td class="coupon-use-status use-not">미사용</td>
+                                    <td>2024.10.16 까지</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="profile-name">
+                                        <a href="user-profile.html">
+                                            <img src="./imges/avatar/Avatar=10.png">
+                                            <p>너에요</p>
+                                        </a>
+                                    </td>
+                                    <td>010-8888-8888</td>
+                                    <td>12354-25525-25582</td>
+                                    <td>좋아요</td>
+                                    <td class="coupon-use-status use-not">미사용</td>
+                                    <td>2024.10.16 까지</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="profile-name">
+                                        <a href="user-profile.html">
+                                            <img src="./imges/avatar/Avatar=10.png">
+                                            <p>너에요</p>
+                                        </a>
+                                    </td>
+                                    <td>010-8888-8888</td>
+                                    <td>12354-25525-25582</td>
+                                    <td>좋아요</td>
+                                    <td class="coupon-use-status use-not">미사용</td>
+                                    <td>2024.10.16 까지</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="profile-name">
+                                        <a href="user-profile.html">
+                                            <img src="./imges/avatar/Avatar=10.png">
+                                            <p>너에요</p>
+                                        </a>
+                                    </td>
+                                    <td>010-8888-8888</td>
+                                    <td>12354-25525-25582</td>
+                                    <td>좋아요</td>
+                                    <td class="coupon-use-status use-not">미사용</td>
+                                    <td>2024.10.16 까지</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="profile-name">
+                                        <a href="user-profile.html">
+                                            <img src="./imges/avatar/Avatar=10.png">
+                                            <p>너에요</p>
+                                        </a>
+                                    </td>
+                                    <td>010-8888-8888</td>
+                                    <td>12354-25525-25582</td>
+                                    <td>좋아요</td>
+                                    <td class="coupon-use-status use-not">미사용</td>
+                                    <td>2024.10.16 까지</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <span>Copyright</span>
+                    <span>&copy;</span>
+                    <span><a href="#">NexParan</a> </span>
+                    <span>2024 SOMEPOONING</span>
+                </div>
+                <div class="version">v1.4.2</div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            new DataTable('#myTable', {
+                responsive: true
+            });
+        });
+    </script>
+</body>
+
+</html>

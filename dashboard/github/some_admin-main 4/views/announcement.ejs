@@ -1,0 +1,211 @@
+<%- include('partials/header'); %>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./imges/logo_some_50_56.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+        
+        <main>
+            <!-- <div class="header">
+                <div class="left">
+                    <h1>유저관리</h1>
+                </div>
+            </div> -->
+
+            <div class="announcement-management">
+                <div class="announcement-list">
+                    <div class="wrap1">
+                        <div class="header">
+                        <i class='bx bx-edit-alt'></i>
+                        <h3>공지사항</h3>
+                    </div>
+                    
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                <th class="input"><input type="checkbox" class="all-check"></th>
+                                <th class="data data-class"><a href="#" data-sort="name">분류</a></th>
+                                <th class="data data-title"><a href="#" data-sort="email">제목</a></th>
+                                <th class="data data-anndate"><a href="#" data-sort="phone">공지 일시</a></th>
+                                <th class="data data-btn"><a href="#" data-sort="userid">상태</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% notices.forEach((notice) => {  %>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="event">[ 공지 ]</td>
+                                    <td><%= notice.title %></td>
+                                    <td><%= notice.regDate.toDate().toLocaleString() %></td>
+                                    <td style="text-align: center;">
+                                        <a href="/announcement-edit?docId=<%= notice.docId %>" class="angry-btn" id="notice_edit"><i class='bx bx-edit-alt' style="color:red"></i></a>
+                                        <a href="/deleteNotice/<%= notice.docId %>">
+                                            <button class="trash-btn"><i class='bx bx-trash' style="color:green"></i></button>
+                                        </a>
+                                    </td>
+                                    
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                    
+                    
+                    
+                    <form action="/addNotice" method="POST">
+                        <div class="editor-wrap">
+                            <div class="dropdown-wrap">
+                                <div class="class-title-wrap">
+                                    <input type="text" class="class-title" name="title" id="notice_title" required placeholder="제목을 입력해주세요">
+                                </div>
+                                <div class="editor-btn-wrap">
+                                    <button type="submit" class="editor-btn">공지올리기</button>
+                                </div>
+                            </div>
+                            
+                            <div class="editor-container">
+                                <div class="options">
+                                    <div class="option-wrap">
+                                        <!-- Text Format -->
+                                        <button id="bold" class="option-button format">
+                                            <i class="fa-solid fa-bold"></i>
+                                        </button>
+                                        <button id="italic" class="option-button format">
+                                            <i class="fa-solid fa-italic"></i>
+                                        </button>
+                                        <button id="underline" class="option-button format">
+                                            <i class="fa-solid fa-underline"></i>
+                                        </button>
+                                        <button id="strikethrough" class="option-button format">
+                                            <i class="fa-solid fa-strikethrough"></i>
+                                        </button>
+                                        <button id="superscript" class="option-button script">
+                                            <i class="fa-solid fa-superscript"></i>
+                                        </button>
+                                        <button id="subscript" class="option-button script">
+                                            <i class="fa-solid fa-subscript"></i>
+                                        </button>
+                                
+                                        <!-- List -->
+                                        <button id="insertOrderedList" class="option-button">
+                                            <div class="fa-solid fa-list-ol"></div>
+                                        </button>
+                                        <button id="insertUnorderedList" class="option-button">
+                                            <i class="fa-solid fa-list"></i>
+                                        </button>
+                                        <!-- Undo/Redo -->
+                                        <button id="undo" class="option-button">
+                                            <i class="fa-solid fa-rotate-left"></i>
+                                        </button>
+                                        <button id="redo" class="option-button">
+                                            <i class="fa-solid fa-rotate-right"></i>
+                                        </button>
+                                
+                                        <!-- Link -->
+                                        <button id="createLink" class="adv-option-button">
+                                            <i class="fa fa-link"></i>
+                                        </button>
+                                        <button id="unlink" class="option-button">
+                                            <i class="fa fa-unlink"></i>
+                                        </button>
+                                    </div>
+        
+                                    <div class="option-wrap">
+                                        <!-- Alignment -->
+                                        <button id="justifyLeft" class="option-button align">
+                                            <i class="fa-solid fa-align-left"></i>
+                                        </button>
+                                        <button id="justifyCenter" class="option-button align">
+                                            <i class="fa-solid fa-align-center"></i>
+                                        </button>
+                                        <button id="justifyRight" class="option-button align">
+                                            <i class="fa-solid fa-align-right"></i>
+                                        </button>
+                                        <button id="justifyFull" class="option-button align">
+                                            <i class="fa-solid fa-align-justify"></i>
+                                        </button>
+                                        <button id="indent" class="option-button spacing">
+                                            <i class="fa-solid fa-indent"></i>
+                                        </button>
+                                        <button id="outdent" class="option-button spacing">
+                                            <i class="fa-solid fa-outdent"></i>
+                                        </button>
+                                    </div>
+        
+                                    <div class="option-wrap">
+                                        <!-- Headings -->
+                                        <select id="formatBlock" class="adv-option-button">
+                                            <option value="H1">H1</option>
+                                            <option value="H2">H2</option>
+                                            <option value="H3">H3</option>
+                                            <option value="H4">H4</option>
+                                            <option value="H5">H5</option>
+                                            <option value="H6">H6</option>
+                                        </select>
+                                
+                                        <!-- Font -->
+                                        <select id="fontName" class="adv-option-button"></select>
+                                        <select id="fontSize" class="adv-option-button"></select>
+                                
+                                    </div>
+        
+                                    <div class="option-wrap">
+                                        <!-- Color -->
+                                        <div class="input-wrapper">
+                                            <input type="color" id="foreColor" class="adv-option-button" />
+                                            <label for="foreColor">Font Color</label>
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <input type="color" id="backColor" class="adv-option-button" />
+                                            <label for="backColor">Highlight Color</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <textarea id="text-input" contenteditable="true" required name="content" ></textarea>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+<script src="js/text_editor.js"></script>  
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+<script>
+    $(document).ready(function() {
+        new DataTable('#myTable', {
+            responsive: true
+        });
+        
+        //const noticeEdit = document.querySelectorAll('#notice_edit');
+        //
+        //noticeEdit.forEach((notice) => {
+        //    notice.addEventListener('click', function() {
+        //        const row = notice.parentNode.parentNode;
+        //        document.querySelector('#notice_title').value = row.cells[2].innerText;
+        //        document.querySelector('#text-input').value = row.querySelector('#content').value
+        //        const docId = row.querySelector('#docId').value
+        //    })
+        //})
+    });
+</script>
+<%- include('partials/footer'); %>

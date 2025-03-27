@@ -1,0 +1,1064 @@
+<%- include('partials/header'); %>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./imges/logo_some_50_56.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <div class="main">
+            <div class="user-profile-management">
+                <!-- 기본정보 left -->
+                <div class="profile-list-left">
+                    <div class="title-top">
+                        <h4>유저계정</h4>
+                    </div>
+                    <div class="content-wrap">
+                        <div class="item-wrap">
+                            <div class="img-item">
+                                
+                                <% if(user.photoUrl[0]) { %>
+                                    <img src="<%= user.photoUrl[0] %>" class="user-img">
+                                    
+                                <% } else { %>
+                                    <img src="./imges/avatar/Avatar=13.png" class="user-img">
+                                <% } %>
+                                <div class="fly-circle"></div>
+                            </div>
+    
+                            <div class="title-wrap">
+                                <div class="title"><%= user.username %></div>
+                                <div class="email"><%= user.email %></div>
+                            </div>
+                        </div>
+                        
+                        <div class="item-wrap">
+                            <div class="user-id-item">
+                                <div class="user-item">
+                                    <div class="title">승인여부</div>
+                                    <div class="user-content">
+                                        <% if(user.judge == 0 || user.judge == 1) { %>
+                                            <input disabled type="text" placeholder="대기중"></input>
+                                        <% } else if(user.judge == 2) { %>
+                                            <input disabled type="text" placeholder="반려됨"></input>
+                                        <% } else if(user.judge == 3) { %>
+                                            <input disabled type="text" placeholder="승인됨"></input>
+                                        <% } %>
+                                        
+                                    </div>
+                                </div>
+                                <div class="user-item">
+                                    <div class="title">보석개수</div>
+                                    <div class="user-content">
+                                        <input type="text" id="dia" placeholder="0" value="<%= user.dia %>"></input>
+                                        <button class="btn-plus">변경</button>
+                                    </div>
+                                </div>
+                                <div class="user-item">
+                                    <div class="item">
+                                        <div class="title">신고받은건수</div>
+                                        <div class="user-content">
+                                            <span class="text1">0건 중</span>
+                                            <span class="text2">0건 처리완료</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <!-- user-info-right  -->
+                <div class="profile-list-right">
+
+                    <div class="title-top">
+                        <h4>기본정보</h4>
+                    </div>
+
+                    <div class="user-id-item">
+
+                        <div class="user-item">
+                            <div class="title">유저네임</div>
+                            <div class="user-content">
+                                <input type="text" placeholder="국화꽃 향기" value="<%= user.username %>"></input>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">휴대폰</div>
+                            <div class="user-content">
+                                <input type="text" placeholder="010-000-0000" value="<%= user.phone %>"></input>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">유저 ID</div>
+                            <div class="user-content">
+                                <input type="text" placeholder="sdosdijsdijfoijsdff" id="uid" value="<%= user.uid %>"></input>
+                                <input type="hidden" placeholder="sdosdijsdijfoijsdff" id="token" value="<%= user.token %>"></input>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">이메일</div>
+                            <div class="user-content">
+                                <input type="text" placeholder="SOMEPOONING@gmail.com" value="<%= user.email %>"></input>
+                            </div>
+                        </div>
+
+                        <div class="user-item photo-item">
+                            <div class="title flex">
+                                <span>사진</span>
+                                <span class="sub-title">(최대5장등록)</span>
+                            </div>
+                            <div class="user-content">
+
+                                <div class="photo-wrap">
+                                    <% if(user.photoUrl.length > 0) { 
+                                        user.photoUrl.forEach(photo => { %>
+                                            <div class="user-photos">
+                                                <img src="<%= photo %>" width="30" height="200">
+                                            </div>
+                                    <% })
+                                    } else { %>
+                                        <div class="user-photos" style="width:30;height:30">
+                                            <img src="./imges/avatar/Avatar=12.png">
+                                        </div>
+                                        <div class="user-photos">
+                                            <img src="./imges/avatar/Avatar=15.png">
+                                        </div>
+                                        <div class="user-photos">
+                                            <img src="./imges/avatar/Avatar=17.png">
+                                        </div>
+                                        <div class="user-photos">
+                                            <img src="./imges/avatar/Avatar=14.png">
+                                        </div>
+                                        <div class="user-photos noimg">
+                                            <img src="./imges/icon/icon-noimg.png">
+                                        </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="user-item">
+                            <div class="title">음성</div>
+                            <div class="user-content audio-item">
+                                <div class="audio-wrap">
+                                    <% if(user.voiceUrl) { %>
+                                        <audio controls disableRemotePlayback src="<%= user.voiceUrl %>"></audio>
+                                    <% } else  { %>
+                                        <audio controls disableRemotePlayback src="./imges/audio/bird3.mp3"></audio>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="user-item">
+                            <div class="title">영상</div>
+                            <div class="user-content video-item">
+                                <div class="v-wrap">
+                                    <video width="60%" height="300px" controls>
+                                        <% if(user.videoUrl) { %>
+                                            <source src="<%= user.videoUrl %>" type="video/mp4">
+                                        <% } else { %>
+                                            <source src="./imges/video/IMG_3165.MOV" type="video/mp4">
+                                        <% } %>
+                                    </video>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="user-item">
+                            <div class="title">자기소개</div>
+                            <div class="user-content">
+                                <textarea type="text"><%= user.introduce %></textarea>
+                            </div>
+                        </div>
+
+                        <div class="user-item">
+                            <div class="title">국적</div>
+                            <div class="user-content">
+
+                                <div class="select-menu" id="select-01">
+                                    <div class="select-btn" id="select-btn-01">
+                                        <span class="sBtn-text" id="sBtn-text-01">대한민국</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options">
+                                        <li class="option" id="option-01">
+                                            <span class="option-text" id="option-text-01">중국</span>
+                                        </li>
+                                        <li class="option" id="option-01">
+                                            <span class="option-text" id="option-text-01">일본</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">지역</div>
+                            <div class="user-content">
+
+                                <div class="select-menu" id="select-02">
+                                    <div class="select-btn" id="select-btn-02">
+                                        <span class="sBtn-text" id="sBtn-text-02"><%= region[user.region] %></span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="region">
+                                        <% var num = 0; region.forEach(reg => { %>
+                                            <li class="option" id="option-02">
+                                                <span class="option-text" id="option-text-02"><%= region[num] %></span>
+                                            </li>
+                                        <% num++; }) %>                                        
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">학력</div>
+                            <div class="user-content">
+
+                                <div class="select-menu" id="select-03">
+                                    <div class="select-btn" id="select-btn-03">
+                                        <span class="education-text" id="sBtn-text-03"><%= education[user.education] %></span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="education">
+                                        <% num = 0; education.forEach(edu => { %>
+                                            <li class="option" id="option-03">
+                                                <span class="option-text" id="option-text-03"><%= education[num] %></span>
+                                            </li>
+                                        <% num++; }) %>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">직업</div>
+                            <div class="user-content">
+                                <div class="select-menu" id="select-04">
+                                    <div class="select-btn" id="select-btn-04">
+                                        <span class="sBtn-text" id="sBtn-text-04"><%= job[user.job] %></span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="job">
+                                        <% num = 0; job.forEach(j => { %>
+                                        <li class="option" id="option-04">
+                                            <span class="option-text" id="option-text-04"><%= job[num] %></span>
+                                        </li>
+                                        <% num++; }) %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">키</div>
+                            <div class="user-content">
+                                <div class="select-menu" id="select-04-1">
+                                    <div class="select-btn" id="select-btn-04-1">
+                                        <span class="sBtn-text" id="sBtn-text-04-1"><%= user.height %></span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="job">
+                                        <% num = 0; height.forEach(j => { %>
+                                        <li class="option" id="option-04-1">
+                                            <span class="option-text" id="option-text-04-1"><%= height[num] %></span>
+                                        </li>
+                                        <% num++; }) %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">체형</div>
+                            <div class="user-content">
+                                <div class="select-menu" id="select-04-2">
+                                    <div class="select-btn" id="select-btn-04-2">
+                                        <span class="sBtn-text" id="sBtn-text-04-2"><%= body[user.body] %></span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="job">
+                                        <% num = 0; body.forEach(j => { %>
+                                        <li class="option" id="option-04-2">
+                                            <span class="option-text" id="option-text-04-2"><%= body[num] %></span>
+                                        </li>
+                                        <% num++; }) %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">MBTI</div>
+                            <div class="user-content">
+                                <div class="select-menu" id="select-04-3">
+                                    <div class="select-btn" id="select-btn-04-3">
+                                        <span class="sBtn-text" id="sBtn-text-04-3"><%= mbti[user.nbti] %></span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="job">
+                                        <% num = 0; mbti.forEach(j => { %>
+                                        <li class="option" id="option-04-3">
+                                            <span class="option-text" id="option-text-04-3"><%= mbti[num] %></span>
+                                        </li>
+                                        <% num++; }) %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">흡연여부</div>
+                            <div class="user-content">
+                                <div class="select-menu" id="select-04-4">
+                                    <div class="select-btn" id="select-btn-04-4">
+                                        <span class="sBtn-text" id="sBtn-text-04-4"><%= smoke[user.smoke] %></span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="job">
+                                        <% num = 0; smoke.forEach(j => { %>
+                                        <li class="option" id="option-04-4">
+                                            <span class="option-text" id="option-text-04-4"><%= smoke[num] %></span>
+                                        </li>
+                                        <% num++; }) %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">음주여부</div>
+                            <div class="user-content">
+                                <div class="select-menu" id="select-04-5">
+                                    <div class="select-btn" id="select-btn-04-5">
+                                        <span class="sBtn-text" id="sBtn-text-04-5"><%= drink[user.drinking] %></span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="drink">
+                                        <% num = 0; drink.forEach(j => { %>
+                                        <li class="option" id="option-04-5">
+                                            <span class="option-text" id="option-text-04-5"><%= drink[num] %></span>
+                                        </li>
+                                        <% num++; }) %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">생일</div>
+                            <div class="user-content">
+                                <input type="text" placeholder="1990-01-01" value="<%= user.birth %>"></input>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">성격</div>
+                            <div class="user-content">
+                                <input type="text" placeholder="쾌활" value="<%= user.character.map(index => chars[index]).join(', ') %>"></input>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">취미</div>
+                            <div class="user-content">
+                                <input type="text" placeholder="쾌활" value="<%= user.hobby.map(index => hobby[index]).join(', ') %>"></input>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">고급차량인증</div>
+                            <div class="user-content  flex-row">
+                                <div class="select-menu" id="select-10-1">
+                                    <div class="select-btn" id="select-btn-10-1">
+                                        <span class="sBtn-text" id="sBtn-text-10-1">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-10-1">
+                                        <li class="option" id="option-10-1">
+                                            <span class="option-text" id="option-text-10-1">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-10-1">
+                                            <span class="option-text" id="option-text-10-1">반려</span>
+                                        </li>
+                                        <li class="option" id="option-10-1">
+                                            <span class="option-text" id="option-text-10-1">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_0 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_0_0[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">슈퍼카인증</div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-11-1">
+                                    <div class="select-btn" id="select-btn-11-1">
+                                        <span class="sBtn-text" id="sBtn-text-11-1">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-11-1">
+                                        <li class="option" id="option-11-1">
+                                            <span class="option-text" id="option-text-11-1">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-11-1">
+                                            <span class="option-text" id="option-text-11-1">반려</span>
+                                        </li>
+                                        <li class="option" id="option-11-1">
+                                            <span class="option-text" id="option-text-11-1">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_1 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_1_1[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="user-item">
+                            <div class="title">전문직인증</div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-05">
+                                    <div class="select-btn" id="select-btn-05">
+                                        <span class="sBtn-text" id="sBtn-text-05">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-05">
+                                        <li class="option" id="option-05">
+                                            <span class="option-text" id="option-text-05">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-05">
+                                            <span class="option-text" id="option-text-05">반려</span>
+                                        </li>
+                                        <li class="option" id="option-05">
+                                            <span class="option-text" id="option-text-05">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_2 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_2_2[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">대기업인증</div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-12">
+                                    <div class="select-btn" id="select-btn-12">
+                                        <span class="sBtn-text" id="sBtn-text-12">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-12">
+                                        <li class="option" id="option-12">
+                                            <span class="option-text" id="option-text-12">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-12">
+                                            <span class="option-text" id="option-text-12">반려</span>
+                                        </li>
+                                        <li class="option" id="option-12">
+                                            <span class="option-text" id="option-text-12">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_3 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_3_3[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title flex">
+                                <span>사업가인증</span>
+                                <span class="sub-title">( 10억 )</span>
+                            </div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-13">
+                                    <div class="select-btn" id="select-btn-13">
+                                        <span class="sBtn-text" id="sBtn-text-13">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-13">
+                                        <li class="option" id="option-13">
+                                            <span class="option-text" id="option-text-13">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-13">
+                                            <span class="option-text" id="option-text-13">반려</span>
+                                        </li>
+                                        <li class="option" id="option-13">
+                                            <span class="option-text" id="option-text-13">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_4 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_4_4[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title flex">
+                                <span>사업가인증</span>
+                                <span class="sub-title">( 20억 )</span>
+                            </div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-14">
+                                    <div class="select-btn" id="select-btn-14">
+                                        <span class="sBtn-text" id="sBtn-text-14">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-14">
+                                        <li class="option" id="option-14">
+                                            <span class="option-text" id="option-text-14">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-14">
+                                            <span class="option-text" id="option-text-14">반려</span>
+                                        </li>
+                                        <li class="option" id="option-14">
+                                            <span class="option-text" id="option-text-14">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_5 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_5_5[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title flex">
+                                <span>사업가인증</span>
+                                <span class="sub-title">( 30억 )</span>
+                            </div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-15">
+                                    <div class="select-btn" id="select-btn-15">
+                                        <span class="sBtn-text" id="sBtn-text-15">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-15">
+                                        <li class="option" id="option-15">
+                                            <span class="option-text" id="option-text-15">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-15">
+                                            <span class="option-text" id="option-text-15">반려</span>
+                                        </li>
+                                        <li class="option" id="option-15">
+                                            <span class="option-text" id="option-text-15">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_6 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_6_6[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">명문대인증</div>
+                            <div class="user-content flex-row">
+
+                                <div class="select-menu" id="select-03-1">
+                                    <div class="select-btn" id="select-btn-03-1">
+                                        <span class="sBtn-text" id="sBtn-text-03-1">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-03-1">
+                                        <li class="option" id="option-03-1">
+                                            <span class="option-text" id="option-text-03-1">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-03-1">
+                                            <span class="option-text" id="option-text-03-1">반려</span>
+                                        </li>
+                                        <li class="option" id="option-03-1">
+                                            <span class="option-text" id="option-text-03-1">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_7 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_7_7[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title flex">
+                                <span>고액소득</span>
+                                <span class="sub-title">( 연봉7천만원 )</span>
+                            </div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-16">
+                                    <div class="select-btn" id="select-btn-16">
+                                        <span class="sBtn-text" id="sBtn-text-16">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-16">
+                                        <li class="option" id="option-16">
+                                            <span class="option-text" id="option-text-16">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-16">
+                                            <span class="option-text" id="option-text-16">반려</span>
+                                        </li>
+                                        <li class="option" id="option-16">
+                                            <span class="option-text" id="option-text-16">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_8 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_8_8[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title flex">
+                                <span>억대소득</span>
+                                <span class="sub-title">( 연봉1억이상 )</span>
+                            </div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-17">
+                                    <div class="select-btn" id="select-btn-17">
+                                        <span class="sBtn-text" id="sBtn-text-17">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-17">
+                                        <li class="option" id="option-17">
+                                            <span class="option-text" id="option-text-17">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-17">
+                                            <span class="option-text" id="option-text-17">반려</span>
+                                        </li>
+                                        <li class="option" id="option-17">
+                                            <span class="option-text" id="option-text-17">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_9 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_9_9[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title flex">
+                                <span>고액자산</span>
+                                <span class="sub-title">( 5억이상 )</span>
+                            </div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-18">
+                                    <div class="select-btn" id="select-btn-18">
+                                        <span class="sBtn-text" id="sBtn-text-18">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-18">
+                                        <li class="option" id="option-18">
+                                            <span class="option-text" id="option-text-18">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-18">
+                                            <span class="option-text" id="option-text-18">반려</span>
+                                        </li>
+                                        <li class="option" id="option-18">
+                                            <span class="option-text" id="option-text-18">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_10 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_10_10[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title flex">
+                                <span>고액자산</span>
+                                <span class="sub-title">( 10억이상 )</span>
+                            </div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-19">
+                                    <div class="select-btn" id="select-btn-19">
+                                        <span class="sBtn-text" id="sBtn-text-19">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-19">
+                                        <li class="option" id="option-19">
+                                            <span class="option-text" id="option-text-19">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-19">
+                                            <span class="option-text" id="option-text-19">반려</span>
+                                        </li>
+                                        <li class="option" id="option-19">
+                                            <span class="option-text" id="option-text-19">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_11 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_11_11[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title flex">
+                                <span>초고액자산</span>
+                                <span class="sub-title">( 20억이상 )</span>
+                            </div>
+                            
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-20">
+                                    <div class="select-btn" id="select-btn-20">
+                                        <span class="sBtn-text" id="sBtn-text-20">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-20">
+                                        <li class="option" id="option-20">
+                                            <span class="option-text" id="option-text-20">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-20">
+                                            <span class="option-text" id="option-text-20">반려</span>
+                                        </li>
+                                        <li class="option" id="option-20">
+                                            <span class="option-text" id="option-text-20">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_12 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_12_12[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            
+                            <div class="title flex">
+                                <span>고가아파트</span>
+                                <span class="sub-title">( 10억이상 )</span>
+                            </div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-21">
+                                    <div class="select-btn" id="select-btn-21">
+                                        <span class="sBtn-text" id="sBtn-text-21">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-21">
+                                        <li class="option" id="option-21">
+                                            <span class="option-text" id="option-text-21">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-21">
+                                            <span class="option-text" id="option-text-21">반려</span>
+                                        </li>
+                                        <li class="option" id="option-21">
+                                            <span class="option-text" id="option-text-21">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_13 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_13_13[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title flex">
+                                <span>초고가아파트</span>
+                                <span class="sub-title">( 20억이상 )</span>
+                            </div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-22">
+                                    <div class="select-btn" id="select-btn-22">
+                                        <span class="sBtn-text" id="sBtn-text-22">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-22">
+                                        <li class="option" id="option-22">
+                                            <span class="option-text" id="option-text-22">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-22">
+                                            <span class="option-text" id="option-text-22">반려</span>
+                                        </li>
+                                        <li class="option" id="option-22">
+                                            <span class="option-text" id="option-text-22">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_14 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_14_14[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            
+                            <div class="title flex">
+                                <span>집안자산</span>
+                                <span class="sub-title">( 30억이상 )</span>
+                            </div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-23">
+                                    <div class="select-btn" id="select-btn-23">
+                                        <span class="sBtn-text" id="sBtn-text-23">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-23">
+                                        <li class="option" id="option-23">
+                                            <span class="option-text" id="option-text-23">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-23">
+                                            <span class="option-text" id="option-text-23">반려</span>
+                                        </li>
+                                        <li class="option" id="option-23">
+                                            <span class="option-text" id="option-text-23">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_15 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_15_15[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title flex">
+                                <span>집안자산</span>
+                                <span class="sub-title">( 50억이상 )</span>
+                            </div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-24">
+                                    <div class="select-btn" id="select-btn-24">
+                                        <span class="sBtn-text" id="sBtn-text-24">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-24">
+                                        <li class="option" id="option-24">
+                                            <span class="option-text" id="option-text-24">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-24">
+                                            <span class="option-text" id="option-text-24">반려</span>
+                                        </li>
+                                        <li class="option" id="option-24">
+                                            <span class="option-text" id="option-text-24">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_16 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_16_16[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="title">명문가</div>
+                            <div class="user-content flex-row">
+                                <div class="select-menu" id="select-25">
+                                    <div class="select-btn" id="select-btn-25">
+                                        <span class="sBtn-text" id="sBtn-text-25">미심사</span>
+                                        <i class="bx bx-chevron-down"></i>
+                                    </div>
+                                    <ul class="options" id="options-25">
+                                        <li class="option" id="option-25">
+                                            <span class="option-text" id="option-text-25">심사중</span>
+                                        </li>
+                                        <li class="option" id="option-25">
+                                            <span class="option-text" id="option-text-25">반려</span>
+                                        </li>
+                                        <li class="option" id="option-25">
+                                            <span class="option-text" id="option-text-25">인증완료</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="file-download-wrap">
+                                    <% if(user.ability_17 == 1) { %>
+                                        <button class="download-btn">
+                                            <a href="<%= user.ability_17_17[0].filename %>" download>다운로드 (파일 1개)</a>
+                                        </button>
+                                    <% } else { %>
+                                        <button class="download-btn null">
+                                            <a href="#" download>다운로드 (파일 0개)</a>
+                                        </button>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <div class="user-item ">
+                                <div class="title">반려사유</div>
+                                <div class="user-content">
+                                    <div class="select-menu" id="select-26">
+                                        <div class="select-btn" id="select-btn-26">
+                                            <span class="sBtn-text" id="sBtn-text-26">미선택</span>
+                                            <i class="bx bx-chevron-down"></i>
+                                        </div>
+                                        <ul class="options" id="options-26">
+                                            <li class="option" id="option-26">
+                                                <span class="option-text" id="option-text-26">프로필의 사진이 선명하지 않습니다. 자신의 모습이 선명하고 상반신 위주로 올려주세요.</span>
+                                            </li>
+                                            <li class="option" id="option-26">
+                                                <span class="option-text" id="option-text-26">음성이 부적절함</span>
+                                            </li>
+                                            <li class="option" id="option-26">
+                                                <span class="option-text" id="option-text-26">영상이 부적절함</span>
+                                            </li>
+                                            <li class="option" id="option-26">
+                                                <span class="option-text" id="option-text-26">자기소개가 부적절함</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <!-- 버튼 -->
+                        <div class="profile-btn">
+                            <button class="btn-return">반려</button>
+                            <button class="btn-ok">승인</button>
+                            <button class="btn-save">프로필수정</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+<script src="js/modal.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="js/dropdown_user_pro.js"></script>
+<%- include('partials/footer'); %>

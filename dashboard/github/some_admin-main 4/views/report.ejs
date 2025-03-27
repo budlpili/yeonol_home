@@ -1,0 +1,221 @@
+<%- include('partials/header'); %>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./imges/logo_some_50_56.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <!-- <div class="header">
+                <div class="left">
+                    <h1>유저관리</h1>
+                </div>
+            </div> -->
+
+            <div class="report-management">
+                <div class="report-list">
+
+                    <div class="header">
+                        <i class='bx bx-no-entry'></i>
+                        <h3>신고사항</h3>
+
+                        <!-- <div class="search-box">
+                            <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                            <button class="btn-search"><i class="bx bx-search"></i></button>
+                        </div> -->
+                    </div>
+
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="all-check"></th>
+                                <th class="data data-num">신고번호</th>
+                                <th class="data data-report-user">신고자</th>
+                                <th class="data data-con">신고내용</th>
+                                <th class="data data-datetime">신고일시</th>
+                                <!-- <th class="data data-status">처리여부</th> -->
+                                <th class="data data-status">비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% 
+                                let num = 1;
+                                reports.forEach((report) => {
+                            %>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td><%= num %></td>
+                                <td class="profile-name"> 
+                                    <a href="/user_profile?slug=menu9">
+                                        <% if(report.user.photoUrl.length > 0) { %>
+                                            <img src="<%= report.user.photoUrl[0] %>">
+                                        <% } else { %>
+                                            <img src="./imges/avatar/Avatar=10.png">
+                                        <% } %>
+                                        <p><%= report.user.username %></p>
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="report-item">
+                                        <div class="report-pro">
+                                            <a href="./user-profile.html" style="display: flex; align-items: center;">
+                                                <img src="./imges/avatar/Avatar=3.png">
+                                                <p>[ 음란마귀 ]</p>
+                                            </a>
+                                        </div>
+                                        <span>에 대한 음란신고 접수되었습니다.</span>
+                                    </div>
+                                </td>
+                                <td><%= report.regDate.toDate().toLocaleString() %></td>
+                                <!-- <td>
+                                    <div class="wrapper-send">
+                                        <input type="text" placeholder="신고자에게 보낼 메세지를 입력해주세요" class="report-send">
+                                        <i class='bx bx-send'></i>
+                                    </div>
+                                </td> -->
+                                <td>처리중</td>
+                            </tr>
+                            <% 
+                                    num++;
+                                });
+                            %>
+                        </tbody>
+                    </table>
+                    
+                </div>
+
+                <div class="report-list view">
+
+                    <div class="header">
+                        <div>
+                            <i class='bx bx-check'></i>
+                            <span>신고 글보기</span>
+                        </div>
+                    </div>
+                    <div class="content-wrap">
+                        <div class="item-wrap1">
+                            <div class="item-left">
+                                <div class="data-num-wrap box">
+                                    <div class="text">신고번호</div>
+                                    <div class="text2 data-num">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="data-report-user-wrap box">
+                                    <div class="text">신고자</div>
+                                    <div class="text2 data-report-user">
+                                        <img src="../public/imges/avatar/Avatar=10.png" width="16px" height="16px" alt="신고자사진">
+                                        <span>구방방</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-right">
+                                <div class="data-datetime-wrap box">
+                                    <div class="text">신고일시</div>
+                                    <div class="text2 data-datetim">
+                                        2024. 5. 22. 오후 8:09:49
+                                    </div>
+                                </div>
+                                <div class="data-status-wrap box">
+                                    <div class="text">처리여부</div>
+                                    <div class="text2 data-status">
+                                        처리중
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        <div class="item-wrap2">
+                            <div class="data-con-wrap">
+                                <div class="con-item-wrap">
+                                    <div class="user-wrap">
+                                        <div class="text">신고받은유저</div>
+                                        <div class="text2">
+                                            <img src="../public/imges/avatar/Avatar=10.png" width="16px" height="16px" alt="신고받은자사진">
+                                            <span>음란마귀</span>
+
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="report-count-wrap">
+                                        <div class="report-get-count">
+                                            <div class="text">신고받은 건수</div>
+                                            <div class="text2">0건</div>
+                                        </div>
+                                        <div class="report-get-count">
+                                            <div class="text">신고한 건수</div>
+                                            <div class="text2">0건</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="con-item-wrap">
+                                    <div class="text full">신고 받은 내용</div>
+                                    <textarea name="" id="report-content">음헤헤헤헤헤ㅔ헤ㅔㅎ헤</textarea>
+                                </div>
+                                
+                            </div>
+                        </div>
+            
+                    </div>
+                    <div class="memo-wrap">
+                        <div class="title-top">
+                            <i class='bx bx-navigation' ></i>
+                            <span>메세지 보내기</span>
+                        </div>
+                        
+                        <div class="report-give-send-wrap">
+                            <div class="give-title">
+                                <div class="title-sub">신고한 유저</div>
+                                <input type="text" placeholder="신고한 유저에게 보낼 모세지를 입력하세요">
+                                <button class="give-btn">보내기</button>
+                            </div>
+                        </div>
+                        <div class="report-get-send-wrap">
+                            <div class="get-title">
+                                <div class="title-sub">신고받은 유저</div>
+                                <input type="text" placeholder="신고받은 유저에게 보낼 메세지를 입력하세요">
+                                <button class="get-btn">보내기</button>
+                            </div>
+                        </div>
+                        <div class="report-send-memo">
+                            * 메세지를 보낼시 신고받은건수 or 신고한건수가 자동으로 유저에게 입력됩니다.
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+<script>
+    $(document).ready(function() {
+        new DataTable('#myTable', {
+            responsive: true
+        });
+    });
+</script>
+<%- include('partials/footer'); %>

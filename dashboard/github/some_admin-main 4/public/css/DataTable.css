@@ -1,0 +1,897 @@
+@charset "UTF-8";
+:root {
+  --dt-row-selected: 13, 110, 253;
+  --dt-row-selected-text: 255, 255, 255;
+  --dt-row-selected-link: 9, 10, 11;
+  --dt-row-stripe: 0, 0, 0;
+  --dt-row-hover: 0, 0, 0;
+  --dt-column-ordering: 0, 0, 0;
+  --dt-html-background: white;
+
+
+
+
+  --light: #ffffff;
+  --primary: #542d91;
+  --light-primary: #f7f3ff;
+  --grey: #F0F2F5;
+  --dark-grey: #AAAAAA;
+  --dark: #363949;
+  --danger: #D32F2F;
+  --light-danger: #FECDD3;
+  --warning: #FBC02D;
+  --light-warning: #FFF2C6;
+  --success: #388E3C;
+  --light-success: #BBF7D0;
+}
+:root.dark {
+  --dt-html-background: rgb(33, 37, 41);
+}
+
+#myTable td.dt-control {
+  text-align: center;
+  cursor: pointer;
+}
+#myTable td.dt-control:before {
+  display: inline-block;
+  box-sizing: border-box;
+  content: "";
+  border-top: 5px solid transparent;
+  border-left: 10px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 5px solid transparent;
+  border-right: 0px solid transparent;
+}
+#myTable tr.dt-hasChild td.dt-control:before {
+  border-top: 10px solid rgba(0, 0, 0, 0.5);
+  border-left: 5px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+html.dark #myTable td.dt-control:before,
+:root[data-bs-theme=dark] #myTable td.dt-control:before {
+  border-left-color: rgba(255, 255, 255, 0.5);
+}
+html.dark #myTable tr.dt-hasChild td.dt-control:before,
+:root[data-bs-theme=dark] #myTable tr.dt-hasChild td.dt-control:before {
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-left-color: transparent;
+}
+
+div.dt-scroll-body thead tr,
+div.dt-scroll-body tfoot tr {
+  height: 0;
+}
+div.dt-scroll-body thead tr th, 
+div.dt-scroll-body thead tr td,
+div.dt-scroll-body tfoot tr th,
+div.dt-scroll-body tfoot tr td {
+  height: 0 !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  border-top-width: 0px !important;
+  border-bottom-width: 0px !important;
+}
+div.dt-scroll-body thead tr th div.dt-scroll-sizing, 
+div.dt-scroll-body thead tr td div.dt-scroll-sizing,
+div.dt-scroll-body tfoot tr th div.dt-scroll-sizing,
+div.dt-scroll-body tfoot tr td div.dt-scroll-sizing {
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+#myTable thead > tr > th:active,
+#myTable thead > tr > td:active {
+  outline: none;
+}
+#myTable thead > tr > th.dt-orderable-asc span.dt-column-order:before, 
+#myTable thead > tr > th.dt-ordering-asc span.dt-column-order:before,
+#myTable thead > tr > td.dt-orderable-asc span.dt-column-order:before,
+#myTable thead > tr > td.dt-ordering-asc span.dt-column-order:before {
+  position: absolute;
+  display: block;
+  bottom: 50%;
+  content: "▲";
+  content: "▲"/"";
+}
+#myTable thead > tr > th.dt-orderable-desc span.dt-column-order:after, 
+#myTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+#myTable thead > tr > td.dt-orderable-desc span.dt-column-order:after,
+#myTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+  position: absolute;
+  display: block;
+  top: 50%;
+  content: "▼";
+  content: "▼"/"";
+}
+#myTable thead > tr > th.dt-orderable-asc, 
+#myTable thead > tr > th.dt-orderable-desc, 
+#myTable thead > tr > th.dt-ordering-asc, 
+#myTable thead > tr > th.dt-ordering-desc,
+#myTable thead > tr > td.dt-orderable-asc,
+#myTable thead > tr > td.dt-orderable-desc,
+#myTable thead > tr > td.dt-ordering-asc,
+#myTable thead > tr > td.dt-ordering-desc {
+  position: relative;
+  padding-right: 30px;
+  text-align: center;
+}
+#myTable thead > tr > th.dt-orderable-asc span.dt-column-order, 
+#myTable thead > tr > th.dt-orderable-desc span.dt-column-order, 
+#myTable thead > tr > th.dt-ordering-asc span.dt-column-order, 
+#myTable thead > tr > th.dt-ordering-desc span.dt-column-order,
+#myTable thead > tr > td.dt-orderable-asc span.dt-column-order,
+#myTable thead > tr > td.dt-orderable-desc span.dt-column-order,
+#myTable thead > tr > td.dt-ordering-asc span.dt-column-order,
+#myTable thead > tr > td.dt-ordering-desc span.dt-column-order {
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  
+}
+#myTable thead > tr > th.dt-orderable-asc span.dt-column-order:before, 
+#myTable thead > tr > th.dt-orderable-asc span.dt-column-order:after, 
+#myTable thead > tr > th.dt-orderable-desc span.dt-column-order:before, 
+#myTable thead > tr > th.dt-orderable-desc span.dt-column-order:after, 
+#myTable thead > tr > th.dt-ordering-asc span.dt-column-order:before, 
+#myTable thead > tr > th.dt-ordering-asc span.dt-column-order:after, 
+#myTable thead > tr > th.dt-ordering-desc span.dt-column-order:before, 
+#myTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+#myTable thead > tr > td.dt-orderable-asc span.dt-column-order:before,
+#myTable thead > tr > td.dt-orderable-asc span.dt-column-order:after,
+#myTable thead > tr > td.dt-orderable-desc span.dt-column-order:before,
+#myTable thead > tr > td.dt-orderable-desc span.dt-column-order:after,
+#myTable thead > tr > td.dt-ordering-asc span.dt-column-order:before,
+#myTable thead > tr > td.dt-ordering-asc span.dt-column-order:after,
+#myTable thead > tr > td.dt-ordering-desc span.dt-column-order:before,
+#myTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+  left: 0;
+  opacity: 0.125;
+  line-height: 9px;
+  font-size: 0.6em;
+}
+#myTable thead > tr > th.dt-orderable-asc, 
+#myTable thead > tr > th.dt-orderable-desc,
+#myTable thead > tr > td.dt-orderable-asc,
+#myTable thead > tr > td.dt-orderable-desc {
+  cursor: pointer;
+  background-color: var(--grey);
+}
+#myTable thead > tr > th.dt-orderable-asc:hover, 
+#myTable thead > tr > th.dt-orderable-desc:hover,
+#myTable thead > tr > td.dt-orderable-asc:hover,
+#myTable thead > tr > td.dt-orderable-desc:hover {
+  outline: 2px solid rgba(0, 0, 0, 0.05);
+  outline-offset: -2px;
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.1);
+}
+#myTable thead > tr > th.dt-ordering-asc span.dt-column-order:before, 
+#myTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+#myTable thead > tr > td.dt-ordering-asc span.dt-column-order:before,
+#myTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+  opacity: 0.6;
+}
+#myTable thead > tr > th.sorting_desc_disabled span.dt-column-order:after, 
+#myTable thead > tr > th.sorting_asc_disabled span.dt-column-order:before,
+#myTable thead > tr > td.sorting_desc_disabled span.dt-column-order:after,
+#myTable thead > tr > td.sorting_asc_disabled span.dt-column-order:before {
+  display: none;
+}
+#myTable thead > tr > th:active,
+#myTable thead > tr > td:active {
+  outline: none;
+}
+
+div.dt-scroll-body > #myTable > thead > tr > th,
+div.dt-scroll-body > #myTable > thead > tr > td {
+  overflow: hidden;
+}
+
+:root.dark #myTable thead > tr > th.dt-orderable-asc:hover, 
+:root.dark #myTable thead > tr > th.dt-orderable-desc:hover,
+:root.dark #myTable thead > tr > td.dt-orderable-asc:hover,
+:root.dark #myTable thead > tr > td.dt-orderable-desc:hover,
+:root[data-bs-theme=dark] #myTable thead > tr > th.dt-orderable-asc:hover,
+:root[data-bs-theme=dark] #myTable thead > tr > th.dt-orderable-desc:hover,
+:root[data-bs-theme=dark] #myTable thead > tr > td.dt-orderable-asc:hover,
+:root[data-bs-theme=dark] #myTable thead > tr > td.dt-orderable-desc:hover {
+  outline: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+div.dt-processing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+  margin-top: -22px;
+  text-align: center;
+  padding: 2px;
+  z-index: 10;
+}
+div.dt-processing > div:last-child {
+  position: relative;
+  width: 80px;
+  height: 15px;
+  margin: 1em auto;
+}
+div.dt-processing > div:last-child > div {
+  position: absolute;
+  top: 0;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgb(13, 110, 253);
+  background: rgb(var(--dt-row-selected));
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+div.dt-processing > div:last-child > div:nth-child(1) {
+  left: 8px;
+  animation: datatables-loader-1 0.6s infinite;
+}
+div.dt-processing > div:last-child > div:nth-child(2) {
+  left: 8px;
+  animation: datatables-loader-2 0.6s infinite;
+}
+div.dt-processing > div:last-child > div:nth-child(3) {
+  left: 32px;
+  animation: datatables-loader-2 0.6s infinite;
+}
+div.dt-processing > div:last-child > div:nth-child(4) {
+  left: 56px;
+  animation: datatables-loader-3 0.6s infinite;
+}
+
+@keyframes datatables-loader-1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes datatables-loader-3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes datatables-loader-2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+#myTable.nowrap th, #myTable.nowrap td {
+  white-space: nowrap;
+}
+#myTable th,
+#myTable td {
+  box-sizing: border-box;
+}
+#myTable th.dt-left,
+#myTable td.dt-left {
+  text-align: left;
+}
+#myTable th.dt-center,
+#myTable td.dt-center {
+  text-align: center;
+}
+#myTable th.dt-right,
+#myTable td.dt-right {
+  text-align: right;
+}
+#myTable th.dt-justify,
+#myTable td.dt-justify {
+  text-align: justify;
+}
+#myTable th.dt-nowrap,
+#myTable td.dt-nowrap {
+  white-space: nowrap;
+}
+#myTable th.dt-empty,
+#myTable td.dt-empty {
+  text-align: center;
+  vertical-align: top;
+}
+#myTable th.dt-type-numeric, 
+#myTable th.dt-type-date,
+#myTable td.dt-type-date {
+  text-align: right;
+}
+#myTable td.dt-type-numeric {
+  text-align: center;
+}
+#myTable thead th,
+#myTable thead td,
+#myTable tfoot th,
+#myTable tfoot td {
+  text-align: left;
+}
+#myTable thead th.dt-head-left,
+#myTable thead td.dt-head-left,
+#myTable tfoot th.dt-head-left,
+#myTable tfoot td.dt-head-left {
+  text-align: left;
+}
+#myTable thead th.dt-head-center,
+#myTable thead td.dt-head-center,
+#myTable tfoot th.dt-head-center,
+#myTable tfoot td.dt-head-center {
+  text-align: center;
+}
+#myTable thead th.dt-head-right,
+#myTable thead td.dt-head-right,
+#myTable tfoot th.dt-head-right,
+#myTable tfoot td.dt-head-right {
+  text-align: right;
+}
+#myTable thead th.dt-head-justify,
+#myTable thead td.dt-head-justify,
+#myTable tfoot th.dt-head-justify,
+#myTable tfoot td.dt-head-justify {
+  text-align: justify;
+}
+#myTable thead th.dt-head-nowrap,
+#myTable thead td.dt-head-nowrap,
+#myTable tfoot th.dt-head-nowrap,
+#myTable tfoot td.dt-head-nowrap {
+  white-space: nowrap;
+}
+#myTable tbody th.dt-body-left,
+#myTable tbody td.dt-body-left {
+  text-align: left;
+}
+#myTable tbody th.dt-body-center,
+#myTable tbody td.dt-body-center {
+  text-align: center;
+}
+#myTable tbody th.dt-body-right,
+#myTable tbody td.dt-body-right {
+  text-align: right;
+}
+#myTable tbody th.dt-body-justify,
+#myTable tbody td.dt-body-justify {
+  text-align: justify;
+}
+#myTable tbody th.dt-body-nowrap,
+#myTable tbody td.dt-body-nowrap {
+  white-space: nowrap;
+}
+
+/*
+ * Table styles
+ */
+#myTable {
+  width: 100%;
+  margin: 0 auto;
+  border-spacing: 0;
+  /*
+   * Header and footer styles
+   */
+  /*
+   * Body styles
+   */
+}
+#myTable thead th,
+#myTable tfoot th {
+  font-weight: 500;
+}
+#myTable > thead > tr > th,
+#myTable > thead > tr > td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+#myTable > thead > tr > th:active,
+#myTable > thead > tr > td:active {
+  outline: none;
+}
+#myTable > thead > tr > td,
+#myTable > thead > tr > th{
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+#myTable > tfoot > tr > th,
+#myTable > tfoot > tr > td {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 10px 6px 10px;
+}
+#myTable > tbody > tr {
+  background-color: transparent;
+}
+#myTable > tbody > tr:first-child > * {
+  border-top: none;
+}
+#myTable > tbody > tr:last-child > * {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+#myTable > tbody > tr.selected > * {
+  box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.9);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.9);
+  color: rgb(255, 255, 255);
+  color: rgb(var(--dt-row-selected-text));
+}
+#myTable > tbody > tr.selected a {
+  color: rgb(9, 10, 11);
+  color: rgb(var(--dt-row-selected-link));
+}
+#myTable > tbody > tr > th,
+#myTable > tbody > tr > td {
+  padding: 8px;
+}
+/* #myTable > tbody > tr > td:nth-child(1) {
+    min-width: 10px;
+    text-align: center;
+}
+#myTable > tbody > tr > td:nth-child(2) {
+    min-width: 160px;
+}
+#myTable > tbody > tr > td:nth-child(3) {
+    min-width: 160px;
+}
+#myTable > tbody > tr > td:nth-child(4) {
+    min-width: 160px;
+}
+#myTable > tbody > tr > td:nth-child(5) {
+    min-width: 160px;
+    text-align: center;
+}
+#myTable > tbody > tr > td:nth-child(6) {
+    min-width: 160px;
+    text-align: center;
+}
+#myTable > tbody > tr > td:nth-child(7) {
+    min-width: 120px;
+    text-align: center;
+} */
+
+#chat-management > #myTable > tbody > tr > td:nth-child(2) {
+  width: 80px;
+  text-align: center;
+}
+
+#myTable.row-border > tbody > tr > *, 
+#myTable.display > tbody > tr > * {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+#myTable.row-border > tbody > tr:first-child > *, 
+#myTable.display > tbody > tr:first-child > * {
+  border-top: none;
+}
+#myTable.row-border > tbody > tr.selected + tr.selected > td, 
+#myTable.display > tbody > tr.selected + tr.selected > td {
+  border-top-color: rgba(13, 110, 253, 0.65);
+  border-top-color: rgba(var(--dt-row-selected), 0.65);
+}
+#myTable.cell-border > tbody > tr > * {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+#myTable.cell-border > tbody > tr > *:first-child {
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+}
+#myTable.cell-border > tbody > tr:first-child > * {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+/* #myTable.stripe > tbody > tr:nth-child(odd) > *, 
+#myTable.display > tbody > tr:nth-child(odd) > * {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.025);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-stripe), 0.025);
+} */
+/* #myTable.stripe > tbody > tr:nth-child(odd).selected > *, 
+#myTable.display > tbody > tr:nth-child(odd).selected > * {
+  box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.923);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.923);
+} */
+#myTable.hover > tbody > tr:hover > *, 
+#myTable.display > tbody > tr:hover > * {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.035);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-hover), 0.035);
+}
+#myTable.hover > tbody > tr.selected:hover > *, 
+#myTable.display > tbody > tr.selected:hover > * {
+  box-shadow: inset 0 0 0 9999px #0d6efd !important;
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 1) !important;
+}
+#myTable.order-column > tbody tr > .sorting_1,
+#myTable.order-column > tbody tr > .sorting_2,
+#myTable.order-column > tbody tr > .sorting_3, 
+#myTable.display > tbody tr > .sorting_1,
+#myTable.display > tbody tr > .sorting_2,
+#myTable.display > tbody tr > .sorting_3 {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.015);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-column-ordering), 0.025);
+}
+#myTable.order-column > tbody tr.selected > .sorting_1,
+#myTable.order-column > tbody tr.selected > .sorting_2,
+#myTable.order-column > tbody tr.selected > .sorting_3, 
+#myTable.display > tbody tr.selected > .sorting_1,
+#myTable.display > tbody tr.selected > .sorting_2,
+#myTable.display > tbody tr.selected > .sorting_3 {
+  box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.919);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.919);
+}
+#myTable.display > tbody > tr:nth-child(odd) > .sorting_1, 
+#myTable.order-column.stripe > tbody > tr:nth-child(odd) > .sorting_1 {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.054);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-column-ordering), 0.054); 
+}
+/* #myTable.display > tbody > tr:nth-child(odd) > .sorting_2, 
+#myTable.order-column.stripe > tbody > tr:nth-child(odd) > .sorting_2 {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.047);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-column-ordering), 0.047);
+}
+#myTable.display > tbody > tr:nth-child(odd) > .sorting_3, 
+#myTable.order-column.stripe > tbody > tr:nth-child(odd) > .sorting_3 {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.039);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-column-ordering), 0.039);
+} */
+/* #myTable.display > tbody > tr:nth-child(odd).selected > .sorting_1, 
+#myTable.order-column.stripe > tbody > tr:nth-child(odd).selected > .sorting_1 {
+  box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.954);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.954);
+} */
+/* #myTable.display > tbody > tr:nth-child(odd).selected > .sorting_2, 
+#myTable.order-column.stripe > tbody > tr:nth-child(odd).selected > .sorting_2 {
+  box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.947);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.947);
+}
+#myTable.display > tbody > tr:nth-child(odd).selected > .sorting_3, 
+#myTable.order-column.stripe > tbody > tr:nth-child(odd).selected > .sorting_3 {
+  box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.939);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.939);
+} */
+/* #myTable.display > tbody > tr.even > .sorting_1, 
+#myTable.order-column.stripe > tbody > tr.even > .sorting_1 {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.019);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-column-ordering), 0.019);
+} 
+#myTable.display > tbody > tr.even > .sorting_2, 
+#myTable.order-column.stripe > tbody > tr.even > .sorting_2 {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.011);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-column-ordering), 0.011);
+}
+#myTable.display > tbody > tr.even > .sorting_3, 
+#myTable.order-column.stripe > tbody > tr.even > .sorting_3 {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.003);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-column-ordering), 0.003);
+} */
+/* #myTable.display > tbody > tr.even.selected > .sorting_1, 
+#myTable.order-column.stripe > tbody > tr.even.selected > .sorting_1 {
+  box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.919);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.919);
+}
+#myTable.display > tbody > tr.even.selected > .sorting_2, 
+#myTable.order-column.stripe > tbody > tr.even.selected > .sorting_2 {
+  box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.911);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.911);
+}
+#myTable.display > tbody > tr.even.selected > .sorting_3, 
+#myTable.order-column.stripe > tbody > tr.even.selected > .sorting_3 {
+  box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.903);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.903);
+} */
+
+
+#myTable.display tbody tr:hover > .sorting_1, 
+#myTable.order-column.hover tbody tr:hover > .sorting_1 {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-hover), 0.082);
+}
+
+
+#myTable.display tbody tr:hover > .sorting_2, 
+#myTable.order-column.hover tbody tr:hover > .sorting_2 {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.074);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-hover), 0.074);
+}
+#myTable.display tbody tr:hover > .sorting_3, 
+#myTable.order-column.hover tbody tr:hover > .sorting_3 {
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.062);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-hover), 0.062);
+}
+#myTable.display tbody tr:hover.selected > .sorting_1, 
+#myTable.order-column.hover tbody tr:hover.selected > .sorting_1 {
+  box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.982);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.982);
+}
+#myTable.display tbody tr:hover.selected > .sorting_2, 
+#myTable.order-column.hover tbody tr:hover.selected > .sorting_2 {
+  box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.974);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.974);
+}
+#myTable.display tbody tr:hover.selected > .sorting_3, 
+#myTable.order-column.hover tbody tr:hover.selected > .sorting_3 {
+  box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.962);
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.962);
+}
+#myTable.compact thead th,
+#myTable.compact thead td,
+#myTable.compact tfoot th,
+#myTable.compact tfoot td,
+#myTable.compact tbody th,
+#myTable.compact tbody td {
+  padding: 4px;
+}
+
+/*
+ * Control feature layout
+ */
+div.dt-container {
+  position: relative;
+  clear: both;
+}
+div.dt-container div.dt-layout-row {
+  display: table;
+  clear: both;
+  width: 100%;
+  margin-bottom: 4px;
+}
+div.dt-container div.dt-layout-row.dt-layout-table {
+  display: block;
+}
+div.dt-container div.dt-layout-row.dt-layout-table div.dt-layout-cell {
+  display: block;
+}
+div.dt-container div.dt-layout-cell {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 5px 0;
+}
+div.dt-container div.dt-layout-cell.dt-full {
+  text-align: center;
+}
+div.dt-container div.dt-layout-cell.dt-start {
+  text-align: left;
+}
+div.dt-container div.dt-layout-cell.dt-end {
+  text-align: right;
+}
+div.dt-container div.dt-layout-cell:empty {
+  display: none;
+}
+div.dt-container .dt-search input {
+  /* border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: transparent;
+  color: inherit; */
+  margin-left: 3px;
+}
+div.dt-container .dt-input {
+  border: 1px solid var(--dark-grey);
+  border-radius: 3px;
+  padding: 5px;
+  background-color: transparent;
+  color: inherit;
+}
+div.dt-container .dt-input:focus {
+  border: 1px solid var(--dark-grey);
+  background-color: #fff;
+  box-shadow: 0px 0px 4px rgb(83, 44, 144, 0.6);
+  border: 1px solid var(--primary);
+  border-radius: 3px;
+  outline: none;
+}
+
+
+div.dt-container select.dt-input {
+  padding: 4px 8px;
+}
+div.dt-container select.dt-input option {
+  top:20px;
+}
+
+div.dt-container .dt-paging .dt-paging-button {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 0.5em 1em;
+  margin-left: 2px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--dark);
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: transparent;
+}
+div.dt-container .dt-paging .dt-paging-button.current, 
+div.dt-container .dt-paging .dt-paging-button.current:hover,
+div.dt-container .dt-paging .dt-paging-button.current:active {
+  color: var(--light);
+  border: 1px solid transparent;
+  background-color:  rgb(0, 0, 0, 0.05);
+}
+div.dt-container .dt-paging .dt-paging-button.disabled, 
+div.dt-container .dt-paging .dt-paging-button.disabled:hover, 
+div.dt-container .dt-paging .dt-paging-button.disabled:active {
+  cursor: default;
+  color: var(--light);
+  border: 1px solid transparent;
+  background: transparent;
+  box-shadow: none;
+}
+div.dt-container .dt-paging .dt-paging-button:hover {
+  color: var(--light);
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+}
+
+div.dt-container .dt-paging .dt-paging-button:active {
+  outline: none;
+  background-color: var(--primary);
+  color: var(--light);
+  /* box-shadow: inset 0 0 3px #111; */
+}
+div.dt-container .dt-paging .ellipsis {
+  padding: 0 1em;
+}
+div.dt-container .dt-length,
+div.dt-container .dt-search,
+div.dt-container .dt-info,
+div.dt-container .dt-processing,
+div.dt-container .dt-paging {
+  color: var(--dark);
+  font-size: 0.85rem;
+}
+div.dt-container .dt-length select {
+    margin-right: 8px;
+}
+div.dt-container .dt-search input {
+    margin-left: 8px;
+}
+
+div.dt-container .dataTables_scroll {
+  clear: both;
+}
+div.dt-container .dataTables_scroll div.dt-scroll-body {
+  -webkit-overflow-scrolling: touch;
+}
+div.dt-container .dataTables_scroll div.dt-scroll-body > table > thead > tr > th, 
+div.dt-container .dataTables_scroll div.dt-scroll-body > table > thead > tr > td, 
+div.dt-container .dataTables_scroll div.dt-scroll-body > table > tbody > tr > th, 
+div.dt-container .dataTables_scroll div.dt-scroll-body > table > tbody > tr > td {
+  vertical-align: middle;
+}
+div.dt-container .dataTables_scroll div.dt-scroll-body > table > thead > tr > th > div.dataTables_sizing,
+div.dt-container .dataTables_scroll div.dt-scroll-body > table > thead > tr > td > div.dataTables_sizing, 
+div.dt-container .dataTables_scroll div.dt-scroll-body > table > tbody > tr > th > div.dataTables_sizing,
+div.dt-container .dataTables_scroll div.dt-scroll-body > table > tbody > tr > td > div.dataTables_sizing {
+  height: 0;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+div.dt-container.dt-empty-footer tbody > tr:last-child > * {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+div.dt-container.dt-empty-footer .dt-scroll-body {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+div.dt-container.dt-empty-footer .dt-scroll-body tbody > tr:last-child > * {
+  border-bottom: none;
+}
+
+
+
+@media screen and (max-width: 767px) {
+  div.dt-container div.dt-layout-row {
+    display: block;
+  }
+  div.dt-container div.dt-layout-cell {
+    display: block;
+  }
+  div.dt-container div.dt-layout-cell.dt-full, 
+  div.dt-container div.dt-layout-cell.dt-start, 
+  div.dt-container div.dt-layout-cell.dt-end {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 640px) {
+  .dt-container .dt-length,
+  .dt-container .dt-search {
+    float: none;
+    text-align: center;
+  }
+  .dt-container .dt-search {
+    margin-top: 0.5em;
+  }
+}
+
+
+
+html.dark {
+  --dt-row-hover: 255, 255, 255;
+  --dt-row-stripe: 255, 255, 255;
+  --dt-column-ordering: 255, 255, 255;
+}
+html.dark #myTable > thead > tr > th,
+html.dark #myTable > thead > tr > td {
+  border-bottom: 1px solid rgb(89, 91, 94);
+}
+html.dark #myTable > thead > tr > th:active,
+html.dark #myTable > thead > tr > td:active {
+  outline: none;
+}
+html.dark #myTable > tfoot > tr > th,
+html.dark #myTable > tfoot > tr > td {
+  border-top: 1px solid rgb(89, 91, 94);
+}
+html.dark #myTable.row-border > tbody > tr > *, 
+html.dark #myTable.display > tbody > tr > * {
+  border-top: 1px solid rgb(64, 67, 70);
+}
+html.dark #myTable.row-border > tbody > tr:first-child > *, 
+html.dark #myTable.display > tbody > tr:first-child > * {
+  border-top: none;
+}
+html.dark #myTable.row-border > tbody > tr.selected + tr.selected > td, 
+html.dark #myTable.display > tbody > tr.selected + tr.selected > td {
+  border-top-color: rgba(13, 110, 253, 0.65);
+  border-top-color: rgba(var(--dt-row-selected), 0.65);
+}
+html.dark #myTable.cell-border > tbody > tr > th,
+html.dark #myTable.cell-border > tbody > tr > td {
+  border-top: 1px solid rgb(64, 67, 70);
+  border-right: 1px solid rgb(64, 67, 70);
+}
+html.dark #myTable.cell-border > tbody > tr > th:first-child,
+html.dark #myTable.cell-border > tbody > tr > td:first-child {
+  border-left: 1px solid rgb(64, 67, 70);
+}
+html.dark .dt-container.dt-empty-footer #myTable {
+  border-bottom: 1px solid rgb(89, 91, 94);
+}
+html.dark .dt-container .dt-search input,
+html.dark .dt-container .dt-length select {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--dt-html-background);
+}
+html.dark .dt-container .dt-paging .dt-paging-button.current, 
+html.dark .dt-container .dt-paging .dt-paging-button.current:hover {
+  border: 1px solid rgb(89, 91, 94);
+  background: rgba(255, 255, 255, 0.15);
+}
+html.dark .dt-container .dt-paging .dt-paging-button.disabled, 
+html.dark .dt-container .dt-paging .dt-paging-button.disabled:hover, 
+html.dark .dt-container .dt-paging .dt-paging-button.disabled:active {
+  color: #666 !important;
+}
+html.dark .dt-container .dt-paging .dt-paging-button:hover {
+  border: 1px solid rgb(53, 53, 53);
+  background: rgb(53, 53, 53);
+}
+html.dark .dt-container .dt-paging .dt-paging-button:active {
+  background: #3a3a3a;
+}
+
+/*
+ * Overrides for RTL support
+ */
+*[dir=rtl] #myTable thead th,
+*[dir=rtl] #myTable thead td,
+*[dir=rtl] #myTable tfoot th,
+*[dir=rtl] #myTable tfoot td {
+  text-align: right;
+}
+*[dir=rtl] #myTable th.dt-type-numeric, 
+*[dir=rtl] #myTable th.dt-type-date,
+*[dir=rtl] #myTable td.dt-type-numeric,
+*[dir=rtl] #myTable td.dt-type-date {
+  text-align: left;
+}
+*[dir=rtl] div.dt-container div.dt-layout-cell.dt-start {
+  text-align: right;
+}
+*[dir=rtl] div.dt-container div.dt-layout-cell.dt-end {
+  text-align: left;
+}
+*[dir=rtl] div.dt-container div.dt-search input {
+  margin: 0 3px 0 0;
+}

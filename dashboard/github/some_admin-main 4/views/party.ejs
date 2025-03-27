@@ -1,0 +1,358 @@
+<%- include('partials/header'); %>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./imges/logo_some_50_56.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+
+            <div class="party-management">
+                <div class="party-list">
+
+                    <div class="header">
+                        <i class='bx bx-party'></i>
+                        <h3>파티리스트</h3>
+
+                        <!-- <div class="search-box">
+                            <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                            <button class="btn-search"><i class="bx bx-search"></i></button>
+                        </div> -->
+
+                    </div>
+
+                    <table id="myTable" class="display">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="all-check"></th>
+                                <th class="table-num"><a href="#">번호</a></th>
+                                <th class="party-master"><a href="#">파티장</a></th>
+                                <th class="party-users"><a href="#">참여인원</a></th>
+                                <th class="party-title"><a href="#">주제</a></th>
+                                <th class="party-starttime"><a href="#">개설시간</a></th>
+                                <th class="party-room-bb"><a href="#">방관리</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% 
+                                let num = 1;
+                                data.chattings.forEach(chat => {
+                            %>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="p-num"><a href="/party?uid=<%= chat.chat.docId %>&num=<%= num %>"><%= num %></a></td>
+                                    <td class="p-master">
+                                        <% if(chat.chat.photoUrl) { %>
+                                            <img src="<%= chat.chat.photoUrl %>">
+                                        <% } else { %>
+                                            <img src="./imges/avatar/Avatar=13.png">
+                                        <% } %>
+                                        <p><%= chat.chat.username %></p>
+                                    </td>
+                                    <td class="p-users">
+                                        <span class="count"><%= chat.chat.members.length %>명</span>
+                                    </td>
+                                    <td class="p-title"><%= chat.chat.partyTitle %></td>
+    
+                                    <td class="p-starttime">
+                                        <span class="date"><%= chat.chat.createDate.toDate().toLocaleString() %></span>
+                                        <!-- <span class="time">16:44:62</span> -->
+                                    </td>
+                                    <td>
+                                        <button class="angry-btn" id="send" value="<%= chat.chat.docId %>"><i class='bx bx-angry' style="color:red"></i></button>
+                                        <button class="trash-btn" id="delete" value="<%= chat.chat.docId %>"><i class='bx bx-trash' style="color:green"></i></button>
+                                    </td>
+    
+                                </tr>
+                            <%
+                                    num ++;
+                                });
+                            %>
+                        </tbody>
+                    </table>
+                    <!-- pagination -->
+                    <!-- <div class="chat-page">
+                        <div class="showing-count">
+                            <span>Showing:</span>
+                            <span>1 - 5</span>
+                            <span>of</span>
+                            <span>78</span>
+                        </div>
+                        <ul class="pagination">
+                            <li><a href="#"><i class='bx bx-chevrons-left'></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevron-left'></i></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#"><i class='bx bx-chevron-right'></i></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevrons-right'></i></a></li>
+
+                        </ul>
+                    </div> -->
+                </div>
+
+                
+                <!-- party-chatting room --->
+                
+                <div class="chatting-room-wrap">
+                    <div class="chat-room">
+                        <div class="chat-top">
+                            <div class="profile-wrap">
+                                <div>
+                                    <span class="chat-num">9852</span>
+                                </div>
+                                <div class="chat-profile">
+                                    <% if(data.chattings[data.num].users.length > 0) { %>
+                                        <img class="profile-image user-1" src="<%= data.chattings[data.num].users[0].photoUrl[0] %>" alt="">
+                                    <% } else { %>
+                                        <img class="profile-image user-1" src="./imges/avatar/Avatar=12.png" alt="">
+                                    <% } %>
+                                    <div class="text">
+                                        <h5><%= data.chattings[data.num].chat.partyTitle %></h5>
+                                        <p class="memo"><%= data.chattings[data.num].chat.partyContent %></p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="hr-2"></div>
+
+                            <div class="user-select-wrap">
+                                <div class="container2">
+                                    <div class="select-btn2">
+                                        <span class="btn-text">참여회원 : <%= data.chattings[data.num].chat.members.length %>명</span>
+                                        <span class="arrow-dwn">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </span>
+                                    </div>
+                                    <ul class="list-items">
+                                        <% 
+                                            data.chattings[data.num].users.forEach((user) => {
+                                        %>
+                                            <li class="item2">
+                                                <span class="checkbox">
+                                                    <i class="fa-solid fa-check check-icon"></i>
+                                                </span>
+                                                <% if(user.photoUrl) { %>
+                                                    <img class="profile-image user-1" src="<%= user.photoUrl[0] %>" alt="">
+                                                <% } else { %>
+                                                    <img class="profile-image user-1" src="./imges/avatar/Avatar=12.png" alt="">
+                                                <% } %>
+                                                <span class="item-text"><%= user.username %></span>
+                                            </li>
+                                        <% 
+                                            });
+                                        %>
+                                    </ul>
+                                </div>
+            
+                                <div class="icon-right">
+                                    <i class="material-icons">cached</i>
+                                    <i class="material-icons">message</i>
+                                    <i class="material-icons">menu</i>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="hr"></div>
+                        <div class="chat-panel">
+
+
+
+                            <!-- manager chat center -->
+                            <div class="date-chat">
+                                <div class="wrap">
+                                    <div class="item">
+                                        <i class='bx bx-calendar' ></i>
+                                        <span>2024년 5월 10일 금요일</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <% 
+                                let name = "";
+                                let isMe = false;
+                                data.listChat.forEach((list) => {
+                                    if(name === list.userID) {
+                                        isMe = true;
+                                    } else {
+                                        isMe = false;
+                                        name = list.userID;
+                                    }
+                                
+                                    if(isMe) {
+                            %>
+                                <!-- user 1 chat left -->
+                                <div class="user-1-chat">
+                                    <% if(list.photoUrl) { %>
+                                        <img class="profile-image user-1" src="<%= list.photoUrl %>" alt="">
+                                    <% } else { %>
+                                        <img class="profile-image user-1" src="./imges/avatar/Avatar=12.png" alt="">
+                                    <% } %>
+                                    <div class="chat-wrap-left">
+                                        <div class="user-1-name"><%= list.username %></div>
+                                        <div class="bubble-wrap">
+                                            <div class="chat-bubble">
+                                                <%= list.text %>
+                                            </div>
+                                            <div class="user-1-time">
+                                                <% if(list.time.toDate().getHours() > 12) { %>
+                                                    오후 <%= list.time.toDate().getHours() % 12 %>:<%= list.time.toDate().getMinutes() %>
+                                                <% } else { %>
+                                                    오전 <%= list.time.toDate().getHours() %>:<%= list.time.toDate().getMinutes() %>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            <% } else { %>
+
+                            <!-- user 2 chat right -->
+                            <div class="user-2-chat">
+                                <div class="chat-wrap-right">
+                                    <div class="user-2-name"><%= list.username %></div>
+                                    <div class="bubble-wrap">
+                                        <div class="user-2-time">
+                                            <% if(list.time.toDate().getHours() > 12) { %>
+                                                오후 <%= list.time.toDate().getHours() % 12 %>:<%= list.time.toDate().getMinutes() %>
+                                            <% } else { %>
+                                                오전 <%= list.time.toDate().getHours() %>:<%= list.time.toDate().getMinutes() %>
+                                            <% } %>
+                                        </div>
+
+                                        <div class="chat-bubble">
+                                            <%= list.text %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% if(list.photoUrl) { %>
+                                    <img class="profile-image user-2" src="<%= list.photoUrl %>" alt="">
+                                <% } else { %>
+                                    <img class="profile-image user-2" src="./imges/avatar/Avatar=2.png" alt="">
+                                <% } %>
+                            </div>
+                            
+                            <% 
+                                    }
+                                });
+                            %>
+
+                            <!-- manager chat center -->
+                            <div class="manager-chat">
+                                <div class="wrap">
+                                    <div class="item">
+                                        <i class='bx bxs-megaphone'></i>
+                                        <span>안내 : 관리자 메세지를 나타냅니다.</span>
+                                    </div>
+                                    
+                                    <div class="manager-time">오전 4:12</div>
+                                </div>
+                            </div>
+
+                            
+
+                        </div>
+                        <div class="hr bottom"></div>
+                        <div class="chat-box-wrap">
+                            <div class="chat-box-tray">
+                                <i class="material-icons">sentiment_very_satisfied</i>
+                                <input type="text" placeholder="메세지를 입력해주세요">
+                                <i class="material-icons">mic</i>
+                                <i class="material-icons">send</i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+<script>
+    
+    new DataTable('#myTable', {
+        responsive: true
+    });
+    
+    document.querySelectorAll('#send').forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            
+            const data = {
+                docId: this.value,
+                photoUrl: "",
+                text: "[경고]부적절한 어휘가 발견된었습니다.",
+                time: Date(),
+                type: "admin",
+                userID: "admin",
+                username: "관리자"
+            }
+            
+            $.ajax({
+                type: "POST",
+                url: "/api/updatePartyWarning",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).done(function(resp) {
+                alert("파티에 경고전송이 완료되었습니다.");
+            }).fail(function (err) {
+                alert(JSON.stringify(err));
+            });
+        })
+    })
+    
+    document.querySelectorAll('#delete').forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            
+            const data = {
+                docId: this.value
+            }
+            
+            $.ajax({
+                type: "POST",
+                url: "/api/updatePartyDel",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).done(function(resp) {
+                alert("파티가 삭제 완료되었습니다.");
+                location.reload();
+            }).fail(function (err) {
+                alert(JSON.stringify(err));
+            });
+        })
+    })
+    
+</script>
+<script src="js/dropdown_party.js"></script>
+
+<%- include('partials/footer'); %>

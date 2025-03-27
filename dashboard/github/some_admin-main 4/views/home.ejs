@@ -1,0 +1,158 @@
+<%- include('partials/header'); %>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./imges/logo_some_50_56.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <div class="header">
+                <div class="left">
+                    <h1>대쉬보드</h1>
+                </div>
+                
+            </div>
+
+            <!-- Insights -->
+            <ul class="insights">
+                <li>
+                    <i class='bx bx-user' ></i>
+                    <span class="info">
+                        <p>총 사용자</p>
+                        <span class="count"><%= total %></span>명
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-user-plus' ></i>
+                    <span class="info">
+                        <p>금일 신규회원</p>
+                        <span class="count"><%= todays.length %></span>명
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-coin' ></i>
+                    <span class="info">
+                        <p>금일 매출액</p>
+                        <span class="count"><%= totalToday.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %></span>원
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-coin-stack' ></i>
+                    <span class="info">
+                        <p>월 매출누적액</p>
+                        <span class="count"><%= totalMonth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %></span>원
+                    </span>
+                </li>
+            </ul>
+            <!-- End of Insights -->
+
+            <div class="bottom-data">
+                <div class="new-user">
+                    <div class="header">
+                        <i class='bx bx-user'></i>
+                        <h3>금일 신규회원</h3>
+                        <i class='bx bx-filter'></i>
+                        <i class='bx bx-search'></i>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>이름</th>
+                                <th>이메일</th>
+                                <th>핸드폰</th>
+                                <th>승인여부</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% todays.forEach(user => { %>
+                                <tr>
+                                    <td>
+                                        <a href="/user_profile?slug=menu1&uid=<%= user.uid %>">
+                                            <% if(user.photoUrl[0]) { %>
+                                                <img src="<%= user.photoUrl[0] %>">
+                                            <% } else { %>
+                                                <img src="./imges/avatar/Avatar=10.png">
+                                            <% } %>
+                                            <p><%= user.username %></p>
+                                        </a>
+                                        
+                                    </td>
+                                    <td><%= user.email %></td>
+                                    <td><%= user.phone %></td>
+                                    <td>
+                                        <% if(user.judge == 0) { %>
+                                            <span class="status process">대기중</span>
+                                        <% } else if(user.judge == 1) { %>
+                                            <span class="status pending">보류중</span>
+                                        <% } else { %>
+                                            <span class="status completed">승인완료</span>
+                                        <% } %>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- user-top-5 -->
+                <div class="user-top-sales">
+                    <div class="header">
+                        <i class='bx bx-coin'></i>
+                        <h3>금월 매출 TOP 5</h3>
+                        <i class='bx bx-plus'></i>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>순위</th>
+                                <th>이름</th>
+                                <th>금일 매출액</th>
+                                <th>월 누적매출액</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% let num = 1; top5.forEach(revenue => { %>
+                                <tr>
+                                    <td><%= num %>위</td>
+                                    <td>
+                                        <a href="/user_profile?slug=menu1&uid=<%= revenue.user.uid %>">
+                                            <% if(revenue.user.photoUrl[0]) { %>
+                                                <img src="<%= revenue.user.photoUrl[0] %>">
+                                            <% } else { %>
+                                                <img src="./imges/avatar/Avatar=10.png">
+                                            <% } %>
+                                            <p><%= revenue.user.username %></p>
+                                        </a>
+                                    </td>
+                                    <td class="day-sales"><%= revenue.todayRevenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %>원</td>
+                                    <td class="month-sales"><%= revenue.monthRevenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %>원</td>
+                                </tr>
+                            <% num ++; }) %>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- End of user-top-5-->
+
+            </div>
+<%- include('partials/footer'); %>            

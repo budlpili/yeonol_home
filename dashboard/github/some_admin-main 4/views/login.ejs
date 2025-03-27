@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="imges/logo_some.png">
+    <link rel="stylesheet" href="css/style.css">
+    <title>썸푸닝</title>
+</head>
+
+<body id="login-page">
+
+    <div class="container login-page" id="container">
+        <div class="form-container sign-up">
+            <!-- <form>
+                <h1>가입하기</h1>
+                
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>가입하기</button>
+            </form> -->
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>로그인</h1>
+                <input type="email" name="email" autocomplete="false" placeholder="Email">
+                <div class="email error"></div>
+                <input type="password" name="password" autocomplete="false" placeholder="Password">
+                <div class="password error"></div>
+                <!-- <div class="forgot-wrap">
+                    <span>비밀번호를 잊어버렸습니까?</span><a href="#">비밀번호 찾기</a>
+                </div> -->
+                <button>로그인하기</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <img src="imges/somepooning(white)_200_46.png" src="SOMEPOONING_LOGO_200_46_2x">
+                    <p></p>
+                    <button class="hidden" id="login">로그인하기</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <img src="imges/somepooning(white)_200_46.png" src="SOMEPOONING_LOGO_200_46_2x">
+                    <p>관리자페이지에 접속하시려면 가입이 필요합니다.</p>
+                    <!-- <button class="hidden" id="register">가입하기</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+    <script>
+        const form = document.querySelector('form');
+        const emailError = document.querySelector('.email.error');
+        const passwordError = document.querySelector('.password.error');
+      
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+      
+          // reset errors
+          emailError.textContent = '';
+          passwordError.textContent = '';
+      
+          // get values
+          const email = form.email.value;
+          const password = form.password.value;
+          
+          
+      
+          try {
+            const res = await fetch('/login', { 
+              method: 'POST', 
+              body: JSON.stringify({ email, password }),
+              headers: {'Content-Type': 'application/json'}
+            });
+            const data = await res.json();
+            console.log(data);
+            if (data.errors) {
+              emailError.textContent = data.errors.email;
+              passwordError.textContent = data.errors.password;
+            }
+            if (data.user) {
+                form.email.value = '';
+                form.password.value = '';
+              location.assign('/');
+            }
+      
+          }
+          catch (err) {
+            console.log(err);
+          }
+        });
+      </script>
+</body>
+
+</html>

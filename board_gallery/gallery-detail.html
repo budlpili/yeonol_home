@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리 상세 - 여놀</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>여놀</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">홈</a></li>
+                <li><a href="../board_com/community.html">커뮤니티</a></li>
+                <li><a href="../board_gallery/gallery.html">갤러리</a></li>
+                <li><a href="../customer-service.html">고객센터</a></li>
+                <li><a href="../login.html">로그인</a></li>
+                <li><a href="../register.html">회원가입</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="gallery-detail-main">
+        <div class="gallery-detail-container">
+            <div class="gallery-detail-header">
+                <div class="user-info">
+                    <img src="../images/profile/pro_03.png" alt="프로필" class="profile-img">
+                    <div class="user-text">
+                        <h3>데이트러버</h3>
+                        <span class="post-date">2024.03.20</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-container">
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <img src="../images/couple_01.jpg" alt="데이트 사진" class="main-image">
+                        <img src="../images/cafe_02.png" alt="데이트 사진" class="main-image">
+                    </div>
+                </div>
+                <div class="image-navigation">
+                    <button class="prev-btn">❮</button>
+                    <span class="image-counter">1 / 2</span>
+                    <button class="next-btn">❯</button>
+                </div>
+            </div>
+
+            <div class="image-info">
+                <h2>첫 데이트</h2>
+                <p class="location">📍 강남 카페거리</p>
+                <p class="description">
+                    오늘은 첫 데이트였어요! 날씨도 좋고 카페도 예뻐서 정말 좋은 시간을 보냈습니다.
+                    커피와 디저트도 맛있었고, 대화도 즐거웠어요.
+                </p>
+                <div class="tags">
+                    <span>#첫데이트</span>
+                    <span>#카페</span>
+                    <span>#강남</span>
+                    <span>#행복한하루</span>
+                </div>
+            </div>
+            <div class="gallery-detail-content">
+                <div class="interaction-bar">
+                    <div class="like-share-buttons">
+                        <button class="like-btn">
+                            <i class="heart-icon">♥</i>
+                            <span>좋아요 15</span>
+                        </button>
+                        <button class="share-btn">공유하기</button>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button onclick="location.href='gallery.html'" class="list-btn">목록</button>
+                        <button class="edit-btn">수정</button>
+                        <button class="delete-btn">삭제</button>
+                    </div>
+                </div>
+                <!-- <div class="post-actions">
+                    
+                </div> -->
+            </div>
+
+            <div class="comments-section">
+                <h3>댓글 <span class="comment-count">3</span></h3>
+                <div class="comment-write">
+                    <textarea placeholder="댓글을 입력하세요"></textarea>
+                    <button class="submit-comment">등록</button>
+                </div>
+
+                <div class="comment-list">
+                    <div class="comment">
+                        <div class="comment-info">
+                            <img src="../images/profile/pro_01.png" alt="프로필" class="comment-profile">
+                            <span class="comment-author">카페투어러</span>
+                            <span class="comment-date">2024.03.20</span>
+                        </div>
+                        <p class="comment-text">이 카페 저도 가봤는데 정말 좋더라구요! 다음에는 2층 창가자리 추천드려요~</p>
+                        <div class="comment-actions">
+                            <button class="reply-btn">답글</button>
+                            <button class="delete-btn">삭제</button>
+                        </div>
+                        <!-- 답글 작성 폼 -->
+                        <div class="reply-form" style="display: none;">
+                            <textarea placeholder="답글을 입력하세요"></textarea>
+                            <div class="reply-buttons">
+                                <button class="submit-reply">등록</button>
+                                <button class="cancel-reply">취소</button>
+                            </div>
+                        </div>
+                        <!-- 답글 목록 -->
+                        <div class="reply-list">
+                            <div class="comment reply">
+                                <div class="comment-info">
+                                    <img src="../images/profile/pro_03.png" alt="프로필" class="comment-profile">
+                                    <span class="comment-author">데이트러버</span>
+                                    <span class="comment-date">2024.03.20</span>
+                                </div>
+                                <p class="comment-text">감사합니다! 다음에 꼭 가볼게요 😊</p>
+                                <div class="comment-actions">
+                                    <button class="delete-btn">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="company-info">
+                <p>회사명: 데이팅앱</p>
+                <p>이메일: contact@datingapp.com</p>
+                <p>전화: 02-123-4567</p>
+            </div>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/gallery-detail.js"></script>
+</body>
+</html> 

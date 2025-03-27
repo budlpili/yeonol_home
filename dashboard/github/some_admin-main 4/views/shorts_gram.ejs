@@ -1,0 +1,471 @@
+<%- include('partials/header'); %>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./imges/logo_some_50_56.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <div class="header">
+                <div class="left">
+
+                </div>
+            </div>
+
+            <div class="short_gram-management">
+                <!-- 쇼츠 -->
+                <div class="short_gram-list">
+
+                    <div class="header">
+                        <i class='bx bx-video-recording'></i>
+                        <h3>쇼츠</h3>
+
+                        <div class="search-box">
+                            <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                            <button class="btn-search"><i class="bx bx-search"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="short_gram_table">
+                        <table>
+                            <tbody>
+                                <% videos.forEach((video)=> {
+                                    %>
+                                    <td>
+                                        <div class="list-wrap">
+
+                                            <div class="short-content">
+                                                <div class="content-title">
+                                                    <div class="text">
+                                                        <h5>비디오 쇼츠</h5>
+                                                    </div>
+
+                                                    <details class="dropdown-icon">
+                                                        <summary role="button">
+                                                            <a class="button">
+                                                                <i class='bx bx-dots-vertical-rounded'></i>
+                                                            </a>
+                                                        </summary>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="fa-regular fa-trash-can"></i>
+                                                                    <span id="short_delete" value="<%= video.docId %>">삭제하기</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="fa-regular fa-eye-slash"></i>
+                                                                    <span id="short_hide">가리기</span>
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </details>
+
+                                                </div>
+
+                                                <div class="video-item">
+                                                    <video width="100%" height="240px" controls>
+                                                        <source src="<%= video.videoUrl %>" type="video/mp4">
+                                                    </video>
+                                                    <div class="text">
+                                                        <%= video.title %>
+                                                    </div>
+                                                </div>
+
+                                                <div class="short-bottom-wrap">
+                                                    <div class="profile-wrap">
+                                                        <div class="user-img">
+                                                            <% if(video.photoUrl) { %>
+                                                                <img style="border-radius: 50%;"
+                                                                    src="<%= video.photoUrl %>" width="42px"
+                                                                    height="42px">
+                                                                <% } else { %>
+                                                                    <img src="./imges/avatar/Avatar=1.png" width="42px"
+                                                                        height="42px">
+                                                                    <% } %>
+                                                        </div>
+                                                        <div class="user-id">
+                                                            <%= video.username %>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-wrap">
+                                                        <i class='bx bx-comment-detail'></i>
+                                                        <span>
+                                                            <%= video.favorite.length %>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                    <% }); %>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- pagination -->
+                    <div class="chat-page">
+                        <div class="showing-count">
+                            <span>Showing:</span>
+                            <span>1 - 5</span>
+                            <span>of</span>
+                            <span>78</span>
+                        </div>
+                        <ul class="pagination">
+                            <li><a href="#"><i class='bx bx-chevrons-left'></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevron-left'></i></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#"><i class='bx bx-chevron-right'></i></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevrons-right'></i></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 일상생활 -->
+                <div class="short_gram-list">
+
+                    <div class="header">
+                        <i class='bx bx-video-recording'></i>
+                        <h3>일상생활</h3>
+
+                        <div class="search-box">
+                            <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                            <button class="btn-search"><i class="bx bx-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="short_gram_table">
+                        <table>
+                            <tbody>
+                                <% grams.forEach((gram)=> {
+                                    %>
+                                    <td>
+                                        <div class="list-wrap">
+                                            <div class="short-content">
+                                                <div class="content-title">
+                                                    <div class="text">
+                                                        <h5>일상생활</h5>
+                                                    </div>
+                                                    <details class="dropdown-icon">
+                                                        <summary role="button">
+                                                            <a class="button">
+                                                                <i class='bx bx-dots-vertical-rounded'></i>
+                                                            </a>
+                                                        </summary>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="fa-regular fa-trash-can"></i>
+                                                                    <span id="gram_delete" value="<%= gram.docId %>">삭제하기</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="fa-regular fa-eye-slash"></i>
+                                                                    <span>가리기</span>
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </details>
+                                                </div>
+
+                                                <div class="video-item">
+                                                    <% if(gram.gramPhoto) { %>
+                                                        <img src="<%= gram.gramPhoto %>">
+                                                        <% } else { %>
+                                                            <img src="./imges/life/tosea.jpg">
+                                                            <% } %>
+                                                                <div class="text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도
+                                                                    행복하세요.오늘 하루도 행복하세요.</div>
+                                                </div>
+
+                                                <div class="short-bottom-wrap">
+                                                    <div class="profile-wrap">
+                                                        <div class="user-img">
+                                                            <% if(gram.photoUrl) { %>
+                                                                <img style="border-radius: 50%;"
+                                                                    src="<%= gram.photoUrl %>" width="42px"
+                                                                    height="42px">
+                                                                <% } else { %>
+                                                                    <img src="./imges/avatar/Avatar=1.png" width="42px"
+                                                                        height="42px">
+                                                                    <% } %>
+
+                                                        </div>
+                                                        <div class="user-id">
+                                                            <%= gram.username %>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-wrap">
+                                                        <i class='bx bx-comment-detail'></i>
+                                                        <span>
+                                                            <%= gram.favorite.length %>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                    <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <!-- pagination -->
+                    <div class="chat-page">
+                        <div class="showing-count">
+                            <span>Showing:</span>
+                            <span>1 - 5</span>
+                            <span>of</span>
+                            <span>78</span>
+                        </div>
+                        <ul class="pagination">
+                            <li><a href="#"><i class='bx bx-chevrons-left'></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevron-left'></i></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#"><i class='bx bx-chevron-right'></i></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevrons-right'></i></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- 오디오 -->
+                <div class="audio_gram-list">
+
+                    <div class="header">
+                        <i class='bx bx-video-recording'></i>
+                        <h3>오디오</h3>
+
+                        <div class="search-box">
+                            <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                            <button class="btn-search"><i class="bx bx-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="audio_table">
+                        <table>
+                            <tbody>
+                                <% audios.forEach((audio)=> {
+                                    %>
+                                    <td>
+                                        <div class="list-wrap">
+
+                                            <div class="audio-content">
+                                                <div class="content-title">
+                                                    <div class="text">
+                                                        <h5>오디오 쇼츠</h5>
+                                                    </div>
+                                                    <details class="dropdown-icon">
+                                                        <summary role="button">
+                                                            <a class="button">
+                                                                <i class='bx bx-dots-vertical-rounded'></i>
+                                                            </a>
+                                                        </summary>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="fa-regular fa-trash-can"></i>
+                                                                    <span id="audio_delete" value="<%= audio.docId %>">삭제하기</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="fa-regular fa-eye-slash"></i>
+                                                                    <span>가리기</span>
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </details>
+                                                </div>
+
+                                                <div class="audio-item">
+                                                    <div class="audio-wrap">
+                                                        <audio controls disableRemotePlayback
+                                                            src="<%= audio.voiceUrl %>"></audio>
+                                                    </div>
+                                                    <div class="text">
+                                                        <%= audio.title %>
+                                                    </div>
+                                                </div>
+
+                                                <div class="audio-bottom-wrap">
+                                                    <div class="profile-wrap">
+                                                        <div class="user-img">
+                                                            <% if(audio.photoUrl) { %>
+                                                                <img style="border-radius: 50%;"
+                                                                    src="<%= audio.photoUrl %>" width="42px"
+                                                                    height="42px">
+                                                                <% } else { %>
+                                                                    <img src="./imges/avatar/Avatar=6.png" width="42px"
+                                                                        height="42px">
+                                                                    <% } %>
+                                                        </div>
+                                                        <div class="user-id">
+                                                            <%= audio.username %>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-wrap">
+                                                        <i class='bx bx-comment-detail'></i>
+                                                        <span>
+                                                            <%= audio.favorite.length %>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                    <% }); %>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+                    <!-- pagination -->
+                    <div class="chat-page">
+                        <div class="showing-count">
+                            <span>Showing:</span>
+                            <span>1 - 5</span>
+                            <span>of</span>
+                            <span>78</span>
+                        </div>
+                        <ul class="pagination">
+                            <li><a href="#"><i class='bx bx-chevrons-left'></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevron-left'></i></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#"><i class='bx bx-chevron-right'></i></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevrons-right'></i></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    document.querySelectorAll("#short_delete").forEach(function(button) {
+        button.addEventListener('click', function() {
+            const data = {
+                docId: this.getAttribute('value')
+            }
+        
+            $.ajax({
+                type: "POST",
+                url: "/api/updateVideoDel",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).done(function(resp) {
+                window.location.reload();
+                alert("비디오쇼츠 삭제가 완료되었습니다.");
+            }).fail(function (err) {
+                alert(JSON.stringify(err));
+            });
+        })
+    })
+    
+    document.querySelectorAll("#gram_delete").forEach(function(button) {
+        button.addEventListener('click', function() {
+            const data = {
+                docId: this.getAttribute('value')
+            }
+        
+            $.ajax({
+                type: "POST",
+                url: "/api/updateGramDel",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).done(function(resp) {
+                window.location.reload();
+                alert("그램 삭제가 완료되었습니다.");
+            }).fail(function (err) {
+                alert(JSON.stringify(err));
+            });
+            
+            
+        })
+    })
+    
+    document.querySelectorAll("#audio_delete").forEach(function(button) {
+        button.addEventListener('click', function() {
+            const data = {
+                docId: this.getAttribute('value')
+            }
+        
+            $.ajax({
+                type: "POST",
+                url: "/api/updateAudioDel",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).done(function(resp) {
+                window.location.reload();
+                alert("오디오쇼츠가 삭제가 완료되었습니다.");
+            }).fail(function (err) {
+                alert(JSON.stringify(err));
+            });
+            
+            
+        })
+    })
+</script>
+
+<%- include('partials/footer'); %>

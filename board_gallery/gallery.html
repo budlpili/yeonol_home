@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커뮤니티 - 여놀</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>여기서놀자</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">홈</a></li>
+                <li><a href="../board_com/community.html">커뮤니티</a></li>
+                <li><a href="../board_gallery/gallery.html">갤러리</a></li>
+                <li><a href="../customer-service.html">고객센터</a></li>
+                <li><a href="../login.html">로그인</a></li>
+                <li><a href="../register.html">회원가입</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main class="gallery-main">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <h2>갤러리</h2>
+                <button class="upload-btn" onclick="location.href='../board_gallery/gallery-write.html'">글쓰기</button>
+            </div>
+
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">전체</button>
+                <button class="filter-btn" data-filter="date">데이트</button>
+                <button class="filter-btn" data-filter="couple">커플</button>
+                <button class="filter-btn" data-filter="food">맛집</button>
+                <button class="filter-btn" data-filter="travel">여행</button>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- 갤러리 아이템 예시 -->
+                <div class="gallery-item" data-category="date">
+                    <a href="../board_gallery/gallery-detail.html" data-lightbox="gallery" data-title="첫 데이트">
+                        <img src="../images/cafe_01.png" alt="데이트 사진">
+                        <div class="gallery-item-info">
+                            <h3>첫 데이트</h3>
+                            <p>강남 카페거리</p>
+                            <div class="gallery-item-meta">
+                                <span>❤️ 15</span>
+                                <span>💬 3</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="gallery-item" data-category="food">
+                    <a href="../board_gallery/gallery-detail.html" data-lightbox="gallery" data-title="분위기 좋은 레스토랑">
+                        <img src="../images/rest_01.png" alt="맛집 사진">
+                        <div class="gallery-item-info">
+                            <h3>분위기 좋은 레스토랑</h3>
+                            <p>이태원 맛집</p>
+                            <div class="gallery-item-meta">
+                                <span>❤️ 23</span>
+                                <span>💬 5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="gallery-item" data-category="food">
+                    <a href="../board_gallery/gallery-detail.html" data-lightbox="gallery" data-title="분위기 좋은 레스토랑">
+                        <img src="../images/couple_01.jpg" alt="커플">
+                        <div class="gallery-item-info">
+                            <h3>데이트하기 좋은 곳</h3>
+                            <p>전망좋은 산책길..</p>
+                            <div class="gallery-item-meta">
+                                <span>❤️ 23</span>
+                                <span>💬 5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="gallery-item" data-category="food">
+                    <a href="../board_gallery/gallery-detail.html" data-lightbox="gallery" data-title="분위기 좋은 레스토랑">
+                        <img src="../images/cafe_02.png" alt="바닷가 카페">
+                        <div class="gallery-item-info">
+                            <h3>분위기 좋은 레스토랑</h3>
+                            <p>이태원 맛집</p>
+                            <div class="gallery-item-meta">
+                                <span>❤️ 23</span>
+                                <span>💬 5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-category="date">
+                    <a href="../board_gallery/gallery-detail.html" data-lightbox="gallery" data-title="첫 데이트">
+                        <img src="../images/cafe_01.png" alt="데이트 사진">
+                        <div class="gallery-item-info">
+                            <h3>첫 데이트</h3>
+                            <p>강남 카페거리</p>
+                            <div class="gallery-item-meta">
+                                <span>❤️ 15</span>
+                                <span>💬 3</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="gallery-item" data-category="food">
+                    <a href="../board_gallery/gallery-detail.html" data-lightbox="gallery" data-title="분위기 좋은 레스토랑">
+                        <img src="../images/rest_01.png" alt="맛집 사진">
+                        <div class="gallery-item-info">
+                            <h3>분위기 좋은 레스토랑</h3>
+                            <p>이태원 맛집</p>
+                            <div class="gallery-item-meta">
+                                <span>❤️ 23</span>
+                                <span>💬 5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="gallery-item" data-category="food">
+                    <a href="../board_gallery/gallery-detail.html" data-lightbox="gallery" data-title="분위기 좋은 레스토랑">
+                        <img src="../images/couple_01.jpg" alt="커플">
+                        <div class="gallery-item-info">
+                            <h3>데이트하기 좋은 곳</h3>
+                            <p>전망좋은 산책길..</p>
+                            <div class="gallery-item-meta">
+                                <span>❤️ 23</span>
+                                <span>💬 5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="gallery-item" data-category="food">
+                    <a href="../board_gallery/gallery-detail.html" data-lightbox="gallery" data-title="분위기 좋은 레스토랑">
+                        <img src="../images/cafe_02.png" alt="바닷가 카페">
+                        <div class="gallery-item-info">
+                            <h3>분위기 좋은 레스토랑</h3>
+                            <p>이태원 맛집</p>
+                            <div class="gallery-item-meta">
+                                <span>❤️ 23</span>
+                                <span>💬 5</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="load-more">
+                <button id="loadMoreBtn">더 보기</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="company-info">
+                <p>회사명: 데이팅앱</p>
+                <p>이메일: contact@datingapp.com</p>
+                <p>전화: 02-123-4567</p>
+            </div>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/gallery.js"></script>
+</body>
+</html> 
