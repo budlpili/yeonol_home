@@ -15,6 +15,40 @@ document.addEventListener('DOMContentLoaded', function() {
         header.classList.add('scrolled');
     }
 
+    // 스크롤 애니메이션 처리
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.animated');
+        
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementBottom = element.getBoundingClientRect().bottom;
+            const windowHeight = window.innerHeight;
+            
+            // 요소가 화면에 보일 때 애니메이션 클래스 추가
+            if (elementTop < windowHeight * 0.8 && elementBottom > 0) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+                element.style.visibility = 'visible';
+            }
+        });
+    };
+
+    // 초기 애니메이션 상태 설정
+    const animatedElements = document.querySelectorAll('.animated');
+    animatedElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'all 0.6s ease-out';
+        element.style.visibility = 'hidden';
+    });
+
+    // 스크롤 이벤트에 애니메이션 처리 추가
+    window.addEventListener('scroll', animateOnScroll);
+    // 페이지 로드 시에도 애니메이션 체크
+    window.addEventListener('load', animateOnScroll);
+    // 초기 로드 시에도 한 번 체크
+    animateOnScroll();
+
     // 모바일 메뉴 토글
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -97,4 +131,32 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
+
+    // 이미지 스크롤 애니메이션
+    function handleDescriptionCardsAnimation() {
+        const imageContainers = document.querySelectorAll('.daily-img-container');
+        
+        imageContainers.forEach(container => {
+            const containerTop = container.getBoundingClientRect().top;
+            const containerBottom = container.getBoundingClientRect().bottom;
+            const windowHeight = window.innerHeight;
+            
+            // 컨테이너가 화면에 보일 때 이미지 애니메이션 실행
+            if (containerTop < windowHeight * 0.8 && containerBottom > 0) {
+                const images = container.querySelectorAll('img:not(:nth-child(1))');
+                images.forEach((img, index) => {
+                    setTimeout(() => {
+                        img.classList.add('visible');
+                    }, index * 400); // 각 이미지마다 400ms 딜레이 추가
+                });
+            }
+        });
+    }
+
+    // 스크롤 이벤트 리스너 등록
+    window.addEventListener('scroll', handleDescriptionCardsAnimation);
+    // 페이지 로드 시에도 체크
+    window.addEventListener('load', handleDescriptionCardsAnimation);
+    // 초기 로드 시에도 한 번 체크
+    handleDescriptionCardsAnimation();
 });
