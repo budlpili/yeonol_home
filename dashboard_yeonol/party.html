@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Meta -->
+		<meta name="description" content="여놀 플랫폼 관리자 페이지">
+		<meta name="author" content="주식회사 일마레">
+		<link rel="icon" href="/img/icon_fav.png" type="image/x-icon">
+		<title>여놀 - 관리자페이지</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+		
+		<!-- Perfect Scrollbar CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.5/css/perfect-scrollbar.css">
+		
+		<!-- Icomoon Font Icons css -->
+		<link rel="stylesheet" href="fonts/style.css"> 
+		<!-- Main css -->
+		<link rel="stylesheet" href="css/main.css">
+
+		
+		<!-- *************
+			************ Vendor Css Files *************
+		************ -->
+		<!-- DateRange css -->
+		<link rel="stylesheet" href="vendor/daterange/daterange.css" />
+
+	</head>
+
+	<body>
+		<!-- Page wrapper start -->
+		<div class="page-wrapper">
+
+			<!-- Sidebar wrapper start -->
+			<nav id="sidebar" class="sidebar-wrapper">
+	
+				<!-- Sidebar brand start  -->
+				<div class="sidebar-brand">
+					
+					<a href="index.html" class="logo">
+						<img src="img/icon_fav.png" alt="YEONOL Admin Dashboard" />
+						<div class="admin-user-info">
+							<span class="admin-user-text">YeoNol</span>
+							<span class="admin-user-email">budlpilip@gmail.com</span>
+						</div>
+					</a>
+				</div>
+				<!-- Sidebar brand end  -->
+
+				<!-- Sidebar search start -->
+				<div class="sidebar-search">
+					<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+					<i class="icon-search1 icon1"></i>
+					<i class="icon-search1 icon2"></i>
+				</div>
+				<div class="sidebar-hr">
+					<div class="hr-bar"></div>
+				</div>
+
+				<!-- Sidebar search end -->
+	
+				<!-- Sidebar content start -->
+				<div class="sidebar-content">
+
+					<!-- sidebar menu start -->
+					<div class="sidebar-menu">
+						<ul>
+							<li>
+								<a href="index.html">
+									<i class="icon-devices_other"></i>
+									<span class="menu-text">대쉬보드</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="user-list.html">
+									<i class="icon-users"></i>
+									<span class="menu-text">유저관리</span>
+								</a>
+								
+							</li>
+							
+							<li>
+								<a href="chat.html">
+									<i class="icon-message-circle"></i>
+									<span class="menu-text">채팅관리</span>
+								</a>
+							</li>
+							
+							<li class="active">
+								<a href="party.html">
+									<i class="icon-toys"></i>
+									<span class="menu-text">파티관리</span>
+								</a>
+							</li>
+							
+							<li class="sidebar-dropdown">
+								<a href="#">
+									<i class="icon-film"></i>
+									<span class="menu-text">컨텐츠관리</span>
+								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li class="current-page">
+											<a href="content-shorts.html">쇼츠(영상)</a>
+										</li>
+										<li>
+											<a href="content-photo.html">일상(사진)</a>
+										</li>
+										<li>
+											<a href="content-audio.html">오디오(음성)</a>
+										</li>
+									</ul>
+							</li>
+							
+							<li>
+								<a href="sales-all.html">
+									<i class="icon-database"></i>
+									<span class="menu-text">매출관리</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="coupon.html">
+									<i class="icon-grid"></i>
+									<span class="menu-text">쿠폰관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="push.html">
+									<i class="icon-bell"></i>
+									<span class="menu-text">알림관리</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="report.html">
+									<i class="icon-minus-circle"></i>
+									<span class="menu-text">신고관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="admin-board.html">
+									<i class="icon-edit1"></i>
+									<span class="menu-text">관리자게시판</span>
+								</a>
+								
+							</li>
+						</ul>
+						<div class="sidebar-hr">
+							<div class="hr-bar"></div>
+						</div>
+						<div class="sidebar-menu-bottom">
+							<a href="/">
+								<i class="icon-log-in"></i>
+								<span class="menu-text">로그아웃</span>
+							</a>
+							<div class="version-wrapper">
+								<span class="menu-version">ver.</span>
+								<span class="menu-version">2.34</span>
+							</div>
+						</div>
+					</div>
+					<!-- sidebar menu end -->
+				</div>
+				<!-- Sidebar content end -->
+				
+			</nav>
+			<!-- Sidebar wrapper end -->
+
+			<!-- Page content start  -->
+			<div class="page-content">
+
+				<!-- Header start -->
+				<header class="header">
+					<div class="toggle-btns">
+						<a id="toggle-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+						<a id="pin-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+					</div>
+					<div class="header-items">
+						<!-- Custom search start -->
+						<div class="custom-search">
+							<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+							<i class="icon-search1"></i>
+						</div>
+						<!-- Custom search end -->
+
+						<!-- Header actions start -->
+						<ul class="header-actions">
+							
+							<li class="dropdown">
+								<a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
+									<i class="icon-bell"></i>
+									<span class="count-label">8</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right lrg" aria-labelledby="notifications">
+									<div class="dropdown-menu-header">
+										새로운 알림 (40)
+									</div>
+									<ul class="header-notifications">
+										<li>
+											<a href="#">
+												<div class="user-img away">
+													<img src="img/user21.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">바나나킥</div>
+													<div class="noti-details">[신고] 바나나킥님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img busy">
+													<img src="img/user10.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">아마짱</div>
+													<div class="noti-details">[신고] 아마짱님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img online">
+													<img src="img/user6.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">사랑뽀</div>
+													<div class="noti-details">[문의] 사랑뽀님이 문의하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+
+						</ul>						
+						<!-- Header actions end -->
+					</div>
+				</header>
+				<!-- Header end -->
+
+				<!-- Page header start -->
+				<div class="page-header">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">Home</li>
+						<li class="breadcrumb-item active">파티관리</li>
+					</ol>
+
+					<ul class="app-actions">
+						<li>
+							<a href="#" id="reportrange">
+								<i class="icon-calendar"></i>	
+								<span class="range-text"></span>
+								<i class="icon-chevron-down"></i>	
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Page header end -->
+				
+				<!-- Main container start -->
+				<div class="main-container">
+
+					<!-- Row start -->
+					<div class="row gutters">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							<div class="chat-section">
+								<!-- Row start -->
+								<div class="row no-gutters">
+									<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-3">
+										<div class="users-container">
+											<div class="chat-search-box">
+												<div class="input-group">
+													<input class="form-control" placeholder="검색어를 입력해주세요." />
+													<div class="input-group-btn">
+														<button type="button" class="btn btn-primary">
+															<i class="icon-magnifying-glass"></i>
+														</button>
+													</div>
+												</div>
+											</div>
+
+											<div class="users-scrollwrap">
+											
+												<ul class="users party-maker">
+													<li class="title">
+														<div class="title-text">파티방장</div>
+														<div class="title-text">파티명</div>
+														<div class="title-text">참여인원</div>
+													</li>
+													<li class="person active-user" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user active-user-info">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+													<li class="person" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user active-user-info">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+													<li class="person" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user active-user-info">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+													<li class="person" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user active-user-info">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+													<li class="person" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user active-user-info">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+													<li class="person" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user active-user-info">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+													<li class="person" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user active-user-info">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+													<li class="person" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user active-user-info">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+													<li class="person" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user active-user-info">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+													<li class="person" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user active-user-info">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+													<li class="person" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user active-user-info">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+													<li class="person" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+													<li class="person" data-chat="person4">
+														<div class="maker-info party-maker">
+															<div class="user active-user-info">
+																<img src="img/user10.png" alt="파티참여자" />
+																<span class="status online"></span>
+															</div>
+															<p class="name-time">
+																<span class="name">바나나킥</span>
+																<span class="time">4 시간 전</span>
+															</p>
+														</div>
+														<div class="party-info">
+															<div class="party-name">
+																솔직담백한 이야기 자유롭게 나눠요
+															</div>
+														</div>
+														<div class="party-member-count">
+															<a href="#" class="party-members">
+																<span class="party-member-count-text">10</span>
+																<span class="party-member-count-text">명</span>
+															</a>
+														</div>
+													</li>
+												</ul>
+
+											</div>
+										
+										</div>
+									</div>
+									<div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-9">
+										<div class="active-user-chatting">
+											<div class="active-user-info">
+												<div class="user">
+													<a href="user-profile-simple.html" class="user-profile-simple">
+														<img src="img/user10.png" class="avatar" alt="파티개설자" />
+														<span class="status online"></span>
+													</a>
+												</div>
+												<div class="avatar-info">
+													<h5>바나나킥</h5>
+													<div class="typing">솔직담백한 이야기 자유롭게 나눠요</div>
+												</div>
+											</div>
+
+											<div class="chat-actions">
+												<a href="#" data-toggle="modal" data-target="#warningModal">
+													<i class="icon-alert-triangle btn-text-danger"></i>
+												</a>
+											</div>
+
+											<!-- 경고 메시지 모달 추가 -->
+											<div class="modal fade" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="warningModalLabel" aria-hidden="true">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h5 class="modal-title" id="warningModalLabel">경고 메시지 선택</h5>
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																<span aria-hidden="true">&times;</span>
+															</button>
+														</div>
+														<div class="modal-body">
+															<div class="warning-options">
+																<div class="form-check mb-2">
+																	<input class="form-check-input" type="radio" name="warningMessage" id="warning1" value="부적절한 언어 사용으로 경고합니다.">
+																	<label class="form-check-label" for="warning1">부적절한 언어 사용</label>
+																</div>
+																<div class="form-check mb-2">
+																	<input class="form-check-input" type="radio" name="warningMessage" id="warning2" value="불건전한 대화 시도로 경고합니다.">
+																	<label class="form-check-label" for="warning2">불건전한 대화 시도</label>
+																</div>
+																<div class="form-check mb-2">
+																	<input class="form-check-input" type="radio" name="warningMessage" id="warning3" value="광고성 메시지 발송으로 경고합니다.">
+																	<label class="form-check-label" for="warning3">광고성 메시지 발송</label>
+																</div>
+															</div>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+															<button type="button" class="btn btn-danger" id="sendWarning">경고 보내기</button>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+										<!-- 파티참여자 드롭다운 -->
+										<div class="party-member-container">
+											<div class="party-member-left">
+												<div class="custom-party-title">참여자</div>
+												<div id="partyMemberDropdown" class="custom-party-dropdown">
+													<button type="button" id="partyMemberBtn" class="custom-party-dropbtn">
+														<div class="party-btn-content">
+																<span class="party-btn-text">참여자 선택</span>
+																<span class="party-count">(0/3명)</span>
+														</div>
+														<i class="icon-chevron-down party-dropdown-arrow"></i>
+													</button>
+													<div id="partyMemberContent" class="custom-party-dropdown-content">
+														<div class="custom-party-list">
+															<div class="custom-party-item">
+																<div class="party-item-left">
+																		<input type="checkbox" class="party-checkbox" id="user1">
+																		<label for="user1">
+																				<img src="img/user10.png" alt="사용자1" class="party-user-avatar">
+																				<span class="party-user-name">쵸코바나나빵</span>
+																				<span class="party-user-email">user1@email.com</span>
+																		</label>
+																</div>
+																<div class="party-item-right active-user-info">
+																	<button type="button" class="party-item-btn">
+																		<i class="icon-dots-three-vertical"></i>
+																	</button>
+																</div>
+															</div>
+															<div class="custom-party-item">
+																<div class="party-item-left">
+																		<input type="checkbox" class="party-checkbox" id="user2">
+																		<label for="user2">
+																				<img src="img/user10.png" alt="사용자1" class="party-user-avatar">
+																				<span class="party-user-name">쵸코바나나빵</span>
+																				<span class="party-user-email">user1@email.com</span>
+																		</label>
+																</div>
+																<div class="party-item-right active-user-info">
+																	<button type="button" class="party-item-btn">
+																		<i class="icon-dots-three-vertical"></i>
+																	</button>
+																</div>
+															</div>
+															<div class="custom-party-item">
+																<div class="party-item-left">
+																		<input type="checkbox" class="party-checkbox" id="user3">
+																		<label for="user3">
+																				<img src="img/user10.png" alt="사용자1" class="party-user-avatar">
+																				<span class="party-user-name">쵸코바나나빵</span>
+																				<span class="party-user-email">user1@email.com</span>
+																		</label>
+																</div>
+																<div class="party-item-right active-user-info">
+																	<button type="button" class="party-item-btn">
+																		<i class="icon-dots-three-vertical"></i>
+																	</button>
+																</div>
+															</div>
+															<div class="custom-party-item">
+																<div class="party-item-left">
+																		<input type="checkbox" class="party-checkbox" id="user4">
+																		<label for="user4">
+																				<img src="img/user10.png" alt="사용자1" class="party-user-avatar">
+																				<span class="party-user-name">쵸코바나나빵</span>
+																				<span class="party-user-email">user1@email.com</span>
+																		</label>
+																</div>
+																<div class="party-item-right active-user-info">
+																	<button type="button" class="party-item-btn">
+																		<i class="icon-dots-three-vertical"></i>
+																	</button>
+																</div>
+															</div>
+															<div class="custom-party-item">
+																<div class="party-item-left">
+																		<input type="checkbox" class="party-checkbox" id="user5">
+																		<label for="user5">
+																				<img src="img/user10.png" alt="사용자1" class="party-user-avatar">
+																				<span class="party-user-name">쵸코바나나빵</span>
+																				<span class="party-user-email">user1@email.com</span>
+																		</label>
+																</div>
+																<div class="party-item-right active-user-info">
+																	<button type="button" class="party-item-btn">
+																		<i class="icon-dots-three-vertical"></i>
+																	</button>
+																</div>
+															</div>
+															<div class="custom-party-item">
+																<div class="party-item-left">
+																		<input type="checkbox" class="party-checkbox" id="user6">
+																		<label for="user6">
+																				<img src="img/user10.png" alt="사용자1" class="party-user-avatar">
+																				<span class="party-user-name">쵸코바나나빵</span>
+																				<span class="party-user-email">user1@email.com</span>
+																		</label>
+																</div>
+																<div class="party-item-right active-user-info">
+																	<button type="button" class="party-item-btn">
+																		<i class="icon-dots-three-vertical"></i>
+																	</button>
+																</div>
+															</div>
+															<div class="custom-party-item">
+																<div class="party-item-left">
+																		<input type="checkbox" class="party-checkbox" id="user7">
+																		<label for="user7">
+																				<img src="img/user10.png" alt="사용자1" class="party-user-avatar">
+																				<span class="party-user-name">쵸코바나나빵</span>
+																				<span class="party-user-email">user1@email.com</span>
+																		</label>
+																</div>
+																<div class="party-item-right active-user-info">
+																	<button type="button" class="party-item-btn">
+																		<i class="icon-dots-three-vertical"></i>
+																	</button>
+																</div>
+															</div>
+															<div class="custom-party-item">
+																<div class="party-item-left">
+																		<input type="checkbox" class="party-checkbox" id="user8">
+																		<label for="user8">
+																				<img src="img/user10.png" alt="사용자1" class="party-user-avatar">
+																				<span class="party-user-name">쵸코바나나빵</span>
+																				<span class="party-user-email">user1@email.com</span>
+																		</label>
+																</div>
+																<div class="party-item-right active-user-info">
+																	<button type="button" class="party-item-btn">
+																		<i class="icon-dots-three-vertical"></i>
+																	</button>
+																</div>
+															</div>
+															<div class="custom-party-item">
+																<div class="party-item-left">
+																		<input type="checkbox" class="party-checkbox" id="user9">
+																		<label for="user9">
+																				<img src="img/user10.png" alt="사용자1" class="party-user-avatar">
+																				<span class="party-user-name">쵸코바나나빵</span>
+																				<span class="party-user-email">user1@email.com</span>
+																		</label>
+																</div>
+																<div class="party-item-right active-user-info">
+																	<button type="button" class="party-item-btn">
+																		<i class="icon-dots-three-vertical"></i>
+																	</button>
+																</div>
+															</div>
+															<div class="custom-party-item">
+																<div class="party-item-left">
+																		<input type="checkbox" class="party-checkbox" id="user10">
+																		<label for="user10">
+																				<img src="img/user10.png" alt="사용자1" class="party-user-avatar">
+																				<span class="party-user-name">쵸코바나나빵</span>
+																				<span class="party-user-email">user1@email.com</span>
+																		</label>
+																</div>
+																<div class="party-item-right active-user-info">
+																	<button type="button" class="party-item-btn">
+																		<i class="icon-dots-three-vertical"></i>
+																	</button>
+																</div>
+															</div>
+															<div class="custom-party-item">
+																<div class="party-item-left">
+																		<input type="checkbox" class="party-checkbox" id="user11">
+																		<label for="user11">
+																				<img src="img/user10.png" alt="사용자1" class="party-user-avatar">
+																				<span class="party-user-name">쵸코바나나빵</span>
+																				<span class="party-user-email">user1@email.com</span>
+																		</label>
+																</div>
+																<div class="party-item-right active-user-info">
+																	<button type="button" class="party-item-btn">
+																		<i class="icon-dots-three-vertical"></i>
+																	</button>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+												<!-- 선택된 사용자에 대한 일괄 액션 버튼 -->
+												<div class="party-bulk-actions">
+													<button id="bulkMessageBtn" class="btn btn-primary" disabled>
+															<i class="icon-message-circle"></i>
+													</button>
+													<button id="bulkRemoveBtn" class="btn btn-danger" disabled>
+															<i class="icon-minus-circle"></i>
+													</button>
+												</div>
+											</div>
+											
+										</div>
+
+										<div class="chat-container party-chat-container">
+											<div class="users-scrollwrap">
+												<ul class="chat-box">
+													<li class='chat-left'>
+														<div class='chat-avatar active-user-info'>
+															<a href="#" class="user-profile-simple">
+																<img src="img/user16.png" alt="파티참여자" />
+															</a>
+															<div class='chat-name'>딸기우유</div>
+														</div>
+														<div class='chat-text'>
+															<img src="./img/user-img-01.png" alt="유저가올린이미지">
+															<p>안녕하세요<br />이곳은 날씨가 화창하고 따뜻한 날씨에 좋은 장소입니다.</p>
+															<div class='chat-hour'>08:55 <span class='icon-done_all'></span></div>
+														</div>
+													</li>
+													<li class='chat-right'>
+														<div class='chat-text'>
+															<p>안녕하세요. <br />
+															즐거운 이야기 많이 나눠요..</p>
+															<div class='chat-hour'>08:56 <span class='icon-done_all'></span></div>
+														</div>
+														<div class='chat-avatar'>
+															<!-- <a href="#" class="user-profile-simple">
+																<img src="img/user8.png" alt="파티참여자" />
+															</a>
+															<div class='chat-name'>말랑카우</div> -->
+														</div>
+													</li>
+													<li class="divider">2025년 4월 11일</li>
+													<li class='chat-left'>
+														<div class='chat-avatar active-user-info'>
+															<a href="#" class="user-profile-simple">
+																<img src="img/user18.png" alt="파티참여자" />
+															</a>
+															<div class='chat-name'>다크초코</div>
+														</div>
+														<div class='chat-text'>
+															<p>오늘 만날 수 있을 까요?<br />오늘 오전 10시 광화문역에서 만나요. </p>
+															<div class='chat-hour'>08:57 <span class='icon-done_all'></span></div>
+														</div>
+													</li>
+													<li class='chat-right'>													
+														<div class='chat-text'>
+															<p>Well I am not sure.<br />I have results to show you.</p>
+															<div class='chat-hour'>08:59 <span class='icon-done_all'></span></div>
+														</div>
+														<div class='chat-avatar'>
+															<!-- <a href="#" class="user-profile-simple">
+																<img src="img/user10.png" alt="파티참여자" />
+															</a>
+															<div class='chat-name'>Lily</div> -->
+														</div>
+													</li>
+													<li class="divider">2025년 4월 12일</li>
+													<li class='chat-left'>
+														<div class='chat-avatar active-user-info'>
+															<a href="#" class="user-profile-simple">
+																<img src="img/user22.png" alt="파티참여자" />
+															</a>
+															<div class='chat-name'>말랑카우</div>
+														</div>
+														<div class='chat-text'>
+															<p>오늘은 날씨가 좋아요.. 어디로 나들이 가면 좋을 까요? 우리같이 나들이 갈까요?</p>
+															<div class='chat-hour'>08:57 <span class='icon-done_all'></span></div>
+														</div>
+													</li>
+													<li class='chat-right'>
+														<div class='chat-text'>
+															<p>Have you faced any problems at the last phase of the project?</p>
+															<div class='chat-hour'>08:59 <span class='icon-done_all'></span></div>
+														</div>
+														<div class='chat-avatar'>
+															<!-- <a href="#" class="user-profile-simple">
+																<img src="img/user24.png" alt="파티참여자" />
+															</a>
+															<div class='chat-name'>Andrea</div> -->
+														</div>
+													</li>
+													<li class="divider">2025년 4월 13일</li>
+													<li class='chat-left'>
+														<div class='chat-avatar active-user-info'>
+															<a href="#" class="user-profile-simple">
+																<img src="img/user20.png" alt="파티참여자" />
+															</a>
+															<div class='chat-name'>꼬꼬망</div>
+														</div>
+														<div class='chat-text'>
+															<p>오늘은 날씨가 좋아요.. 어디로 나들이 가면 좋을 까요? 우리같이 나들이 갈까요?</p>
+															<div class='chat-hour'>07:00 <span class='icon-done_all'></span></div>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<div class="chat-form" style="display: none;">
+												<div class="form-group">
+													<textarea class="form-control" placeholder="메세지를 입력해주세요"></textarea>
+													<button class="btn btn-primary">
+														<i class="icon-send icon-send-btn"></i>
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Row end -->
+							</div>
+						</div>
+					</div>
+					<!-- Row end -->
+
+				</div>
+				<!-- Main container end -->
+
+			</div>
+			<!-- Page content end -->
+
+		</div>
+		<!-- Page wrapper end -->
+
+		<!-- 간단한 프로필 모달 추가 -->
+		<div class="modal fade" id="quickProfileModal" tabindex="-1" role="dialog" aria-labelledby="quickProfileModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="quickProfileModalLabel">프로필</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="quick-profile">
+							<div class="profile-header">
+								<div class="profile-image">
+									<img src="img/avatar/Avatar=8.png" alt="프로필 이미지" class="rounded-circle">
+									<span class="status-badge offline"></span>
+								</div>
+								<div class="profile-info">
+									<h4 class="username">쵸코우유</h4>
+									<p class="status-message">즐거운 대화해요</p>
+								</div>
+							</div>
+							<div class="profile-details">
+								<div class="detail-item">
+									<span class="label">지역:</span>
+									<span class="value">서울특별시</span>
+								</div>
+								<div class="detail-item">
+									<span class="label">나이:</span>
+									<span class="value">28세</span>
+								</div>
+								<div class="detail-item">
+									<span class="label">가입일:</span>
+									<span class="value">2024.01.15</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<a href="user-profile.html" class="btn btn-primary" target="_blank">상세 프로필 보기</a>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!--**************************
+							Required JavaScript Files
+		**************************-->
+		<!-- Required jQuery first, then Bootstrap Bundle JS -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/moment.js"></script>
+
+
+		<!-- Daterange -->
+		<script src="vendor/daterange/daterange.js"></script>
+		<script src="vendor/daterange/custom-daterange.js"></script>
+
+
+		<!-- Main JS -->
+		<script src="js/main.js"></script>
+		<script src="js/party.js"></script>
+
+		
+
+	</body>
+</html>

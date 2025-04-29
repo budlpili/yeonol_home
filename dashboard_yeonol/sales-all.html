@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Meta -->
+    <meta name="description" content="여놀 플랫폼 관리자 페이지">
+		<meta name="author" content="주식회사 일마레">
+		<link rel="icon" href="/img/icon_fav.png" type="image/x-icon">
+		<title>여놀 - 관리자페이지</title>
+
+		<!-- *************
+			************ Common Css Files *************
+		************ -->
+		<!-- Bootstrap css -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- Icomoon Font Icons css -->
+		<link rel="stylesheet" href="fonts/style.css">
+		<!-- Main css -->
+		<link rel="stylesheet" href="css/main.css">
+
+
+		<!-- ****** Vendor Css Files *********** -->
+		<!-- DateRange css -->
+		<link rel="stylesheet" href="vendor/daterange/daterange.css" />
+
+		<!-- Data Tables -->
+		<link rel="stylesheet" href="vendor/datatables/dataTables.bs4.css" />
+		<link rel="stylesheet" href="vendor/datatables/dataTables.bs4-custom.css" />
+		<link href="vendor/datatables/buttons.bs.css" rel="stylesheet" />
+
+	</head>
+
+	<body>
+
+		<!-- Page wrapper start -->
+		<div class="page-wrapper">
+			
+			<!-- Sidebar wrapper start -->
+			<nav id="sidebar" class="sidebar-wrapper">
+
+				<!-- Sidebar brand start  -->
+				<div class="sidebar-brand">
+					
+					<a href="index.html" class="logo">
+						<img src="img/icon_fav.png" alt="YEONOL Admin Dashboard" />
+						<div class="admin-user-info">
+							<span class="admin-user-text">YeoNol</span>
+							<span class="admin-user-email">budlpilip@gmail.com</span>
+						</div>
+					</a>
+				</div>
+				<!-- Sidebar brand end  -->
+
+				<!-- Sidebar search start -->
+				<div class="sidebar-search">
+					<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+					<i class="icon-search1 icon1"></i>
+					<i class="icon-search1 icon2"></i>
+				</div>
+				<div class="sidebar-hr">
+					<div class="hr-bar"></div>
+				</div>
+
+				<!-- Sidebar search end -->
+	
+				<!-- Sidebar content start -->
+				<div class="sidebar-content">
+
+					<!-- sidebar menu start -->
+					<div class="sidebar-menu">
+						<ul>
+							<li>
+								<a href="index.html">
+									<i class="icon-devices_other"></i>
+									<span class="menu-text">대쉬보드</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="user-list.html">
+									<i class="icon-users"></i>
+									<span class="menu-text">유저관리</span>
+								</a>
+								
+							</li>
+							
+							<li>
+								<a href="chat.html">
+									<i class="icon-message-circle"></i>
+									<span class="menu-text">채팅관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="party.html">
+									<i class="icon-toys"></i>
+									<span class="menu-text">파티관리</span>
+								</a>
+							</li>
+							
+							<li class="sidebar-dropdown">
+								<a href="#">
+									<i class="icon-film"></i>
+									<span class="menu-text">컨텐츠관리</span>
+								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li class="current-page">
+											<a href="content-shorts.html">쇼츠(영상)</a>
+										</li>
+										<li>
+											<a href="content-photo.html">일상(사진)</a>
+										</li>
+										<li>
+											<a href="content-audio.html">오디오(음성)</a>
+										</li>
+									</ul>
+							</li>
+							
+							<li class="active">
+								<a href="sales-all.html">
+									<i class="icon-database"></i>
+									<span class="menu-text">매출관리</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="coupon.html">
+									<i class="icon-grid"></i>
+									<span class="menu-text">쿠폰관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="push.html">
+									<i class="icon-bell"></i>
+									<span class="menu-text">알림관리</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="report.html">
+									<i class="icon-minus-circle"></i>
+									<span class="menu-text">신고관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="admin-board.html">
+									<i class="icon-edit1"></i>
+									<span class="menu-text">관리자게시판</span>
+								</a>
+								
+							</li>
+						</ul>
+						<div class="sidebar-hr">
+							<div class="hr-bar"></div>
+						</div>
+						<div class="sidebar-menu-bottom">
+							<a href="/">
+								<i class="icon-log-in"></i>
+								<span class="menu-text">로그아웃</span>
+							</a>
+							<div class="version-wrapper">
+								<span class="menu-version">ver.</span>
+								<span class="menu-version">2.34</span>
+							</div>
+						</div>
+					</div>
+					<!-- sidebar menu end -->
+				</div>
+				<!-- Sidebar content end -->
+				
+			</nav>
+			<!-- Sidebar wrapper end -->
+			
+      <!-- Page content start  -->
+      <div class="page-content">
+
+				<!-- Header start -->
+				<header class="header">
+					<div class="toggle-btns">
+						<a id="toggle-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+						<a id="pin-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+					</div>
+					<div class="header-items">
+						<!-- Custom search start -->
+						<div class="custom-search">
+							<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+							<i class="icon-search1"></i>
+						</div>
+						<!-- Custom search end -->
+
+						<!-- Header actions start -->
+						<ul class="header-actions">
+							
+							<li class="dropdown">
+								<a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
+									<i class="icon-bell"></i>
+									<span class="count-label">8</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right lrg" aria-labelledby="notifications">
+									<div class="dropdown-menu-header">
+										새로운 알림 (40)
+									</div>
+									<ul class="header-notifications">
+										<li>
+											<a href="#">
+												<div class="user-img away">
+													<img src="img/user21.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">바나나킥</div>
+													<div class="noti-details">[신고] 바나나킥님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img busy">
+													<img src="img/user10.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">아마짱</div>
+													<div class="noti-details">[신고] 아마짱님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img online">
+													<img src="img/user6.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">사랑뽀</div>
+													<div class="noti-details">[문의] 사랑뽀님이 문의하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+
+						</ul>						
+						<!-- Header actions end -->
+					</div>
+				</header>
+				<!-- Header end -->
+
+				<!-- Page header start -->
+				<div class="page-header">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">Home</li>
+						<li class="breadcrumb-item active">매출관리</li>
+					</ol>
+
+					<!-- 오늘 날짜 선택 버튼 vendor/daterange/custom-daterange.js 참고-->
+					<ul class="app-actions">
+						<li>
+							<a href="#" id="reportrange">
+								<i class="icon-calendar"></i>	
+								<span class="range-text"></span>
+								<i class="icon-chevron-down"></i>	
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Page header end -->
+				
+				<!-- Main container start -->
+				<div class="main-container">
+					<!-- 매출 요약 섹션 -->
+					<div class="row gutters">
+						<div class="col-12">
+								<div class="sales-summary">
+										<div class="row">
+												<div class="col-md-3 sales-card">
+														<div class="sales-label">총 매출</div>
+														<div class="sales-value">₩123,456,789</div>
+												</div>
+												<div class="col-md-3 sales-card">
+														<div class="sales-label">전월 대비</div>
+														<div class="sales-value positive">
+																+12.5%
+																<span class="trend-indicator trend-up">
+																		<i class="icon-trending-up"></i>
+																</span>
+														</div>
+												</div>
+												<div class="col-md-3 sales-card">
+														<div class="sales-label">결제 건수</div>
+														<div class="sales-value">1,234</div>
+												</div>
+												<div class="col-md-3 sales-card">
+														<div class="sales-label">환불 금액</div>
+														<div class="sales-value negative">₩1,234,567</div>
+												</div>
+										</div>
+								</div>
+						</div>
+					</div>
+					<!-- Row start -->
+					<div class="row gutters">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							<!-- copy-print-csv table -->
+							<div class="table-container">
+								<!-- <div class="t-header">매출내역</div> -->
+								<div class="table-responsive">
+									<table id="copy-print-csv" class="table custom-table">
+										<thead>
+											<tr>
+												<th>주문번호</th>
+												<th>결제일시</th>
+												<th>구매자</th>
+												<th>상품명</th>
+												<th>결제수단</th>
+												<th>결제금액</th>
+												<th>환불금액</th>
+												<th>상태</th>
+												<th>관리</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="order-number">ORD20240301006</td>
+												<td class="order-date">2024-03-13 14:30:00</td>
+												<td class="user-info">
+													<div class="user-info" data-user-id="1">
+														<img src="img/avatar/Avatar=5.png" alt="User" class="avatar xs">
+														<span>바나나킥</span>
+													</div>
+												</td>
+												<td class="product-name">프리미엄 이용권</td>
+												<td class="payment-method">신용카드</td>
+												<td class="payment-amount">57,000</td>
+												<td class="refund-amount">
+													<button class="btn btn-sm btn-link danger refund-order">환불</button>
+												</td>
+												<td class="payment-status">
+													<div class="payment-status-container">
+														
+													</div>
+												</td>
+												<td class="manage-buttons">
+													<button class="btn-link view-detail">상세보기</button>
+												</td>
+											</tr>
+											<tr>
+												<td class="order-number">ORD20240301088</td>
+												<td class="order-date">2024-03-12 14:30:00</td>
+												<td class="user-info">
+													<div class="user-info" data-user-id="2">
+														<img src="img/avatar/Avatar=4.png" alt="User" class="avatar xs">
+														<span>홍길동</span>
+													</div>
+												</td>
+												<td class="product-name">프리미엄 이용권</td>
+												<td class="payment-method">신용카드</td>
+												<td class="payment-amount">50,000</td>
+												<td class="refund-amount">
+													<button class="btn btn-sm btn-link danger refund-order">환불</button>
+												</td>
+												<td class="payment-status">
+													<div class="payment-status-container">
+														
+														<span class="badge badge-orange">사용완료</span>
+													</div>
+												</td>
+												<td class="manage-buttons">
+													<button class="btn-link view-detail">상세보기</button>
+												</td>
+											</tr>
+											<tr>
+												<td class="order-number">ORD20240306007</td>
+												<td class="order-date">2024-03-12 14:30:00</td>
+												<td class="user-info">
+													<div class="user-info" data-user-id="3">
+														<img src="img/avatar/Avatar=3.png" alt="User" class="avatar xs">
+														<span>바나나우유</span>
+													</div>
+												</td>
+												<td class="product-name">프리미엄 이용권</td>
+												<td class="payment-method">신용카드</td>
+												<td class="payment-amount">100,000</td>
+												<td class="refund-amount">
+													<button class="btn btn-sm btn-link danger refund-order">환불</button>
+												</td>
+												<td class="payment-status">
+													<div class="payment-status-container">
+														
+														<span class="badge badge-orange badge-used">사용완료</span>
+													</div>
+												</td>
+												<td class="manage-buttons">
+													<button class="btn-link view-detail">상세보기</button>
+												</td>
+											</tr>
+											<tr>
+												<td class="order-number">ORD20240401008</td>
+												<td class="order-date">2024-04-09 11:30:00</td>
+												<td class="user-info">
+													<div class="user-info" data-user-id="4">
+														<img src="img/avatar/Avatar=2.png" alt="User" class="avatar xs">
+														<span>딸기우유</span>
+													</div>
+												</td>
+												<td class="product-name">프리미엄 이용권</td>
+												<td class="payment-method">신용카드</td>
+												<td class="payment-amount">100,000</td>
+												<td class="refund-amount">
+													<button class="btn btn-sm btn-link danger refund-order">환불</button>
+												</td>
+												<td class="payment-status">
+													<div class="payment-status-container">
+														
+													</div>
+												</td>
+												<td class="manage-buttons">
+													<button class="btn-link view-detail">상세보기</button>
+												</td>
+											</tr>
+											<tr>
+												<td class="order-number">ORD20240401009</td>
+												<td class="order-date">2024-04-09 11:30:00</td>
+												<td class="user-info">
+													<div class="user-info" data-user-id="5">
+														<img src="img/avatar/Avatar=10.png" alt="User" class="avatar xs">
+														<span>스트로베리우유</span>
+													</div>
+												</td>
+												<td class="product-name">프리미엄 이용권</td>
+												<td class="payment-method">신용카드</td>
+												<td class="payment-amount">30,000</td>
+												<td class="refund-amount">
+													<button class="btn btn-sm btn-link danger refund-order">환불</button>
+												</td>
+												<td class="payment-status">
+													<div class="payment-status-container">
+														
+													</div>
+												</td>
+												<td class="manage-buttons">
+													<button class="btn-link view-detail">상세보기</button>
+												</td>
+											</tr>
+											<tr>
+												<td class="order-number">ORD20240301006</td>
+												<td class="order-date">2024-03-12 14:30:00</td>
+												<td class="user-info">
+													<div class="user-info" data-user-id="6">
+														<img src="img/avatar/Avatar=9.png" alt="User" class="avatar xs">
+														<span>쵸코우유</span>
+													</div>
+												</td>
+												<td class="product-name">프리미엄 이용권</td>
+												<td class="payment-method">신용카드</td>
+												<td class="payment-amount">10,000</td>
+												<td class="refund-amount">
+													<button class="btn btn-sm btn-link danger refund-order">환불</button>
+												</td>
+												<td class="payment-status">
+													<div class="payment-status-container">
+														
+													</div>
+												</td>
+												<td class="manage-buttons">
+													<button class="btn-link view-detail">상세보기</button>
+												</td>
+											</tr>
+											<tr>
+												<td class="order-number">ORD20250101006</td>
+												<td class="order-date">2024-09-02 14:30:00</td>
+												<td class="user-info">
+													<div class="user-info" data-user-id="7">
+														<img src="img/avatar/Avatar=8.png" alt="User" class="avatar xs">
+														<span>초코칩우유</span>
+													</div>
+												</td>
+												<td class="product-name">프리미엄 이용권</td>
+												<td class="payment-method">신용카드</td>
+												<td class="payment-amount">120,000</td>
+												<td class="refund-amount">
+													<button class="btn btn-sm btn-link danger refund-order">환불</button>
+												</td>
+												<td class="payment-status">
+													<div class="payment-status-container">
+														
+														<span class="badge badge-orange">사용완료</span>
+													</div>
+												</td>
+												<td class="manage-buttons">
+													<button class="btn-link view-detail">상세보기</button>
+												</td>
+											</tr>
+											<tr>
+												<td class="order-number">ORD20240301006</td>
+												<td class="order-date">2024-03-12 14:30:00</td>
+												<td class="user-info">
+													<div class="user-info" data-user-id="8">
+														<img src="img/avatar/Avatar=7.png" alt="User" class="avatar xs">
+														<span>홍길동</span>
+													</div>
+												</td>
+												<td class="product-name">프리미엄 이용권</td>
+												<td class="payment-method">신용카드</td>
+												<td class="payment-amount">50,000</td>
+												<td class="refund-amount">
+													<button class="btn btn-sm btn-link danger refund-order">환불</button>
+												</td>
+												<td class="payment-status">
+													<div class="payment-status-container">
+														
+													</div>
+												</td>
+												<td class="manage-buttons">
+													<button class="btn-link view-detail">상세보기</button>
+												</td>
+											</tr>
+											<tr>
+												<td class="order-number">ORD20240301006</td>
+												<td class="order-date">2024-03-12 14:30:00</td>
+												<td class="user-info">
+													<div class="user-info" data-user-id="9">
+														<img src="img/avatar/Avatar=6.png" alt="User" class="avatar xs">
+														<span>홍길동</span>
+													</div>
+												</td>
+												<td class="product-name">프리미엄 이용권</td>
+												<td class="payment-method">신용카드</td>
+												<td class="payment-amount">50,000</td>
+												<td class="refund-amount">
+													<button class="btn btn-sm btn-link danger refund-order">환불</button>
+												</td>
+												<td class="payment-status">
+													<div class="payment-status-container">
+														
+													</div>
+												</td>
+												<td class="manage-buttons">
+													<button class="btn-link view-detail">상세보기</button>
+												</td>
+											</tr>
+											<tr>
+												<td class="order-number">ORD20240301006</td>
+												<td class="order-date">2024-03-12 14:30:00</td>
+												<td class="user-info">
+													<div class="user-info" data-user-id="10">
+														<img src="img/avatar/Avatar=5.png" alt="User" class="avatar xs">
+														<span>홍길동</span>
+													</div>
+												</td>
+												<td class="product-name">프리미엄 이용권</td>
+												<td class="payment-method">신용카드</td>
+												<td class="payment-amount">50,000</td>
+												<td class="refund-amount">
+													<button class="btn btn-sm btn-link danger refund-order">환불</button>
+												</td>
+												<td class="payment-status">
+													<div class="payment-status-container">
+														
+													</div>
+												</td>
+												<td class="manage-buttons">
+													<button class="btn-link view-detail">상세보기</button>
+												</td>
+											</tr>
+											<tr>
+												<td class="order-number">ORD20240301006</td>
+												<td class="order-date">2024-03-12 14:30:00</td>
+												<td class="user-info">
+													<div class="user-info" data-user-id="11">
+														<img src="img/avatar/Avatar=10.png" alt="User" class="avatar xs">
+														<span>홍길동</span>
+													</div>
+												</td>
+												<td class="product-name">프리미엄 이용권</td>
+												<td class="payment-method">신용카드</td>
+												<td class="payment-amount">50,000</td>
+												<td class="refund-amount">
+													<button class="btn btn-sm btn-link danger refund-order">환불</button>
+												</td>
+												<td class="payment-status">
+													<div class="payment-status-container">
+														
+													</div>
+												</td>
+												<td class="manage-buttons">
+													<button class="btn-link view-detail">상세보기</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<!-- Row end -->
+
+				</div>
+				<!-- Main container end -->
+
+        <!-- 주문 상세 모달 -->
+        <div class="modal fade" id="orderDetailModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="orderDetailModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="orderDetailModalLabel">주문 상세</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="닫기">
+                          <span class="icon-close"></span>
+                      </button>
+                  </div>
+                  <div class="modal-body modal-body-order">
+                      <div class="order-info">
+                          <h5>주문 정보</h5>
+                          <p>주문번호 : <span id="orderNumber"></span></p>
+                          <p>주문일시 : <span id="orderDate"></span></p>
+                          <p>결제수단 : <span id="paymentMethod"></span></p>
+                          <p class="payment-amount">결제금액 : <span id="paymentAmount"></span></p>
+                      </div>
+                      <div class="customer-info">
+                          <h5>구매자 정보</h5>
+                          <p>이름 : <span id="customerName"></span></p>
+                          <p>연락처 : <span id="customerPhone"></span></p>
+                          <p>이메일 : <span id="customerEmail"></span></p>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+			</div>
+			<!-- Page content end -->
+
+		</div>
+		<!-- Page wrapper end -->
+
+		<!--**************************
+							Required JavaScript Files
+		**************************-->
+		<!-- Required jQuery first, then Bootstrap Bundle JS -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/moment.js"></script>
+
+
+		<!-- *************
+			************ Vendor Js Files *************
+		************* -->
+
+
+		<!-- Daterange -->
+		<script src="vendor/daterange/daterange.js"></script>
+		<script src="vendor/daterange/custom-daterange.js"></script>
+
+		<!-- Data Tables -->
+		<script src="vendor/datatables/dataTables.min.js"></script>
+		<script src="vendor/datatables/dataTables.bootstrap.min.js"></script>
+		
+		<!-- Custom Data tables -->
+		<script src="vendor/datatables/custom/custom-datatables.js"></script>
+		<script src="vendor/datatables/custom/fixedHeader.js"></script>
+
+		<!-- Download / CSV / Copy / Print -->
+		<script src="vendor/datatables/buttons.min.js"></script>
+		<script src="vendor/datatables/jszip.min.js"></script>
+		<script src="vendor/datatables/html5.min.js"></script>
+		<script src="vendor/datatables/buttons.print.min.js"></script>
+		
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+		<!-- Main JS -->
+		<script src="js/main.js"></script>
+		<script src="js/sales-management.js"></script>
+    
+	</body>
+</html>

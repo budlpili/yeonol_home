@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Meta -->
+		<meta name="description" content="여놀 플랫폼 관리자 페이지">
+		<meta name="author" content="주식회사 일마레">
+		<link rel="icon" href="/img/icon_fav.png" type="image/x-icon">
+		<title>여놀 - 관리자페이지</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+		<!-- Icomoon Font Icons css -->
+		<link rel="stylesheet" href="fonts/style.css"> 
+		<!-- Main css -->
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/content-actions.js"></script>
+		
+		<!-- *************
+			************ Vendor Css Files *************
+		************ -->
+		<!-- DateRange css -->
+		<link rel="stylesheet" href="vendor/daterange/daterange.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+	</head>
+
+	<body>
+		<!-- Page wrapper start -->
+		<div class="page-wrapper">
+			
+			<!-- Sidebar wrapper start -->
+			<nav id="sidebar" class="sidebar-wrapper">
+				
+				<!-- Sidebar brand start  -->
+				<div class="sidebar-brand">
+					
+					<a href="index.html" class="logo">
+						<img src="img/icon_fav.png" alt="YEONOL Admin Dashboard" />
+						<div class="admin-user-info">
+							<span class="admin-user-text">YeoNol</span>
+							<span class="admin-user-email">budlpilip@gmail.com</span>
+						</div>
+					</a>
+				</div>
+				<!-- Sidebar brand end  -->
+
+				<!-- Sidebar search start -->
+				<div class="sidebar-search">
+					<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+					<i class="icon-search1 icon1"></i>
+					<i class="icon-search1 icon2"></i>
+				</div>
+				<div class="sidebar-hr">
+					<div class="hr-bar"></div>
+				</div>
+
+				<!-- Sidebar search end -->
+	
+				<!-- Sidebar content start -->
+				<div class="sidebar-content">
+
+					<!-- sidebar menu start -->
+					<div class="sidebar-menu">
+						<ul>
+							<li>
+								<a href="index.html">
+									<i class="icon-devices_other"></i>
+									<span class="menu-text">대쉬보드</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="user-list.html">
+									<i class="icon-users"></i>
+									<span class="menu-text">유저관리</span>
+								</a>
+								
+							</li>
+							
+							<li>
+								<a href="chat.html">
+									<i class="icon-message-circle"></i>
+									<span class="menu-text">채팅관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="party.html">
+									<i class="icon-toys"></i>
+									<span class="menu-text">파티관리</span>
+								</a>
+							</li>
+							
+							<li class="sidebar-dropdown active">
+								<a href="#">
+									<i class="icon-film"></i>
+									<span class="menu-text">컨텐츠관리</span>
+								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li>
+											<a href="content-shorts.html">쇼츠(영상)</a>
+										</li>
+										<li class="current-page">
+											<a href="content-photo.html">일상(사진)</a>
+										</li>
+										<li>
+											<a href="content-audio.html">오디오(음성)</a>
+										</li>
+									</ul>
+							</li>
+							
+							<li>
+								<a href="sales-all.html">
+									<i class="icon-database"></i>
+									<span class="menu-text">매출관리</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="coupon.html">
+									<i class="icon-grid"></i>
+									<span class="menu-text">쿠폰관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="push.html">
+									<i class="icon-bell"></i>
+									<span class="menu-text">알림관리</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="report.html">
+									<i class="icon-minus-circle"></i>
+									<span class="menu-text">신고관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="admin-board.html">
+									<i class="icon-edit1"></i>
+									<span class="menu-text">관리자게시판</span>
+								</a>
+								
+							</li>
+						</ul>
+						<div class="sidebar-hr">
+							<div class="hr-bar"></div>
+						</div>
+						<div class="sidebar-menu-bottom">
+							<a href="/">
+								<i class="icon-log-in"></i>
+								<span class="menu-text">로그아웃</span>
+							</a>
+							<div class="version-wrapper">
+								<span class="menu-version">ver.</span>
+								<span class="menu-version">2.34</span>
+							</div>
+						</div>
+					</div>
+					<!-- sidebar menu end -->
+				</div>
+				<!-- Sidebar content end -->
+				
+			</nav>
+			<!-- Sidebar wrapper end -->
+
+			<!-- Page content start  -->
+			<div class="page-content">
+
+				<!-- Header start -->
+				<header class="header">
+					<div class="toggle-btns">
+						<a id="toggle-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+						<a id="pin-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+					</div>
+					<div class="header-items">
+						<!-- Custom search start -->
+						<div class="custom-search">
+							<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+							<i class="icon-search1"></i>
+						</div>
+						<!-- Custom search end -->
+
+						<!-- Header actions start -->
+						<ul class="header-actions">
+							
+							<li class="dropdown">
+								<a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
+									<i class="icon-bell"></i>
+									<span class="count-label">8</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right lrg" aria-labelledby="notifications">
+									<div class="dropdown-menu-header">
+										새로운 알림 (40)
+									</div>
+									<ul class="header-notifications">
+										<li>
+											<a href="#">
+												<div class="user-img away">
+													<img src="img/user21.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">바나나킥</div>
+													<div class="noti-details">[신고] 바나나킥님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img busy">
+													<img src="img/user10.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">아마짱</div>
+													<div class="noti-details">[신고] 아마짱님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img online">
+													<img src="img/user6.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">사랑뽀</div>
+													<div class="noti-details">[문의] 사랑뽀님이 문의하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+
+						</ul>						
+						<!-- Header actions end -->
+					</div>
+				</header>
+				<!-- Header end -->
+
+				<!-- Page header start -->
+				<div class="page-header">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">Home</li>
+						<li class="breadcrumb-item">컨덴츠관리</li>
+            <li class="breadcrumb-item active">일상(사진)</li>
+					</ol>
+
+					<ul class="app-actions">
+						<li>
+							<a href="#" id="reportrange">
+								<i class="icon-calendar"></i>	
+								<span class="range-text"></span>
+								<i class="icon-chevron-down"></i>	
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Page header end -->
+				
+				<!-- Main container start -->
+				<div class="main-container">
+					<div class="row gutters">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							<div class="filter-section">
+                <div class="filter-group">
+                  <!-- 상태 필터 -->
+                  <div class="form-group">
+                    <label>상태</label>
+                    <select class="form-control" id="statusFilter">
+                        <option value="">전체 상태</option>
+                        <option value="active">정상</option>
+                        <option value="warning">경고</option>
+                        <option value="blocked">차단</option>
+                        <option value="deleted">삭제</option>
+                    </select>
+                  </div>
+                  <!-- 신고 필터 -->
+                  <div class="form-group">
+                    <label>신고</label>
+                    <select class="form-control" id="reportFilter">
+                        <option value="">전체 신고</option>
+                        <option value="reported">신고됨</option>
+                        <option value="not-reported">신고 없음</option>
+                    </select>
+                  </div>
+                  <!-- 정렬 옵션 -->
+                  <div class="form-group">
+                    <label>정렬</label>
+                    <select class="form-control" id="sortFilter">
+                      <option value="latest">최신순</option>
+                      <option value="oldest">오래된순</option>
+                      <option value="views">조회수순</option>
+                      <option value="likes">좋아요순</option>
+                      <option value="reports">신고수순</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- 선택 및 벌크 액션 영역 -->
+                <div class="action-section">
+                  <!-- 전체선택 체크박스 -->
+                  <div class="select-all-wrap">
+                    <input type="checkbox" id="selectAllCheckbox">
+                    <span>전체선택</span>
+                  </div>
+                  <div class="selected-count">
+                    선택된 포토: <span class="count">0</span>개
+                  </div>
+                  <!-- 벌크 액션 버튼 -->
+                  <div class="bulk-actions">
+                    <button class="btn btn-warning" id="bulkWarning" disabled>
+                      <i class="icon-alert-triangle"></i> 선택 경고
+                    </button>
+                    <button class="btn btn-block" id="bulkBlock" disabled>
+                      <i class="icon-slash"></i> 선택 차단
+                    </button>
+                    <button class="btn btn-delete" id="bulkDelete" disabled>
+                      <i class="icon-trash-2"></i> 선택 삭제
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+							<!-- 사진 카드 컨테이너 -->
+							<div class="photo-card-container">
+								
+								<!-- 사진 카드 아이템 -->
+								<div class="photo-card">
+									<div class="photo-header">
+										<label class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input photo-checkbox">
+											<span class="custom-control-label"></span>
+										</label>
+										<div class="content-badge-container">
+											<span class="content-status-badge status-deleted">삭제</span>
+										</div>
+									</div>
+									<div class="photo-preview-wrap">
+                    <div class="photo-preview-scroll">
+                      <img src="img/bg4.jpeg" alt="게시물 이미지" class="photo-preview">
+                      <img src="img/bg3.jpeg" alt="게시물 이미지" class="photo-preview">
+										  <img src="img/bg2.jpeg" alt="게시물 이미지" class="photo-preview">
+                    </div>
+									</div>
+									<div class="photo-info">
+										<h6 class="photo-title">
+											<span class="photo-number">102420</span>
+											<a href="/post-detail.html" class="photo-title-link" target="_blank">
+												제목을 클릭하면 해당게시물로 이동합니다.
+											</a>
+										</h6>
+										<div class="photo-meta">
+											<a href="user-profile.html" class="photo-author">
+												<img src="img/user10.png" alt="작성자" class="author-avatar">
+												<span>바나나킥</span>
+											</a>
+											<span class="photo-date">2024-01-20</span>
+										</div>
+										<div class="photo-stats">
+                      <span><i class="icon-eye"></i> 1,234</span>
+											<span><i class="icon-heart"></i> 56</span>
+											<span><i class="icon-message-circle"></i> 12</span>
+											<span class="report-count"><i class="icon-alert-triangle"></i> 5</span>
+										</div>
+									</div>
+									<div class="photo-actions">
+										<button class="btn btn-sm btn-warning" title="경고">
+												<i class="icon-alert-triangle"></i>
+										</button>
+										<button class="btn btn-sm btn-block" title="차단">
+												<i class="icon-slash"></i>
+										</button>
+										<button class="btn btn-sm btn-delete" title="삭제">
+												<i class="icon-trash-2"></i>
+										</button>
+									</div>
+								</div>
+								<!-- 사진 카드 아이템 -->
+								<div class="photo-card">
+									<div class="photo-header">
+										<label class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input photo-checkbox">
+											<span class="custom-control-label"></span>
+										</label>
+										<div class="content-badge-container">
+											<span class="content-status-badge status-active">정상</span>
+										</div>
+									</div>
+									<div class="photo-preview-wrap">
+                    <div class="photo-preview-scroll">
+                      <img src="img/bg4.jpeg" alt="게시물 이미지" class="photo-preview">
+                      <img src="img/bg3.jpeg" alt="게시물 이미지" class="photo-preview">
+										  <img src="img/bg2.jpeg" alt="게시물 이미지" class="photo-preview">
+                    </div>
+									</div>
+									<div class="photo-info">
+										<h6 class="photo-title">
+											<span class="photo-number">102420</span>
+											<a href="/post-detail.html" class="photo-title-link" target="_blank">
+												즐거운 데이트 사진입니다.
+											</a>
+										</h6>
+										<div class="photo-meta">
+											<a href="user-profile.html" class="photo-author">
+												<img src="img/user10.png" alt="작성자" class="author-avatar">
+												<span>바나나킥</span>
+											</a>
+											<span class="photo-date">2024-01-20</span>
+										</div>
+										<div class="photo-stats">
+                      <span><i class="icon-eye"></i> 1,234</span>
+											<span><i class="icon-heart"></i> 56</span>
+											<span><i class="icon-message-circle"></i> 12</span>
+											<span class="report-count"><i class="icon-alert-triangle"></i> 5</span>
+										</div>
+									</div>
+									<div class="photo-actions">
+										<button class="btn btn-sm btn-warning" title="경고">
+												<i class="icon-alert-triangle"></i>
+										</button>
+										<button class="btn btn-sm btn-block" title="차단">
+												<i class="icon-slash"></i>
+										</button>
+										<button class="btn btn-sm btn-delete" title="삭제">
+												<i class="icon-trash-2"></i>
+										</button>
+									</div>
+								</div>
+								<!-- 사진 카드 아이템 -->
+								<div class="photo-card">
+									<div class="photo-header">
+										<label class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input photo-checkbox">
+											<span class="custom-control-label"></span>
+										</label>
+										<div class="content-badge-container">
+											<span class="content-status-badge status-warning">경고</span>
+										</div>
+									</div>
+									<div class="photo-preview-wrap">
+                    <div class="photo-preview-scroll">
+                      <img src="img/bg4.jpeg" alt="게시물 이미지" class="photo-preview">
+                      <img src="img/bg3.jpeg" alt="게시물 이미지" class="photo-preview">
+										  <img src="img/bg2.jpeg" alt="게시물 이미지" class="photo-preview">
+                    </div>
+									</div>
+									<div class="photo-info">
+										<h6 class="photo-title">
+											<span class="photo-number">102420</span>
+											<a href="/post-detail.html" class="photo-title-link" target="_blank">
+												즐거운 데이트 사진입니다.
+											</a>
+										</h6>
+										<div class="photo-meta">
+											<a href="user-profile.html" class="photo-author">
+												<img src="img/user10.png" alt="작성자" class="author-avatar">
+												<span>바나나킥</span>
+											</a>
+											<span class="photo-date">2024-01-20</span>
+										</div>
+										<div class="photo-stats">
+                      <span><i class="icon-eye"></i> 1,234</span>
+											<span><i class="icon-heart"></i> 56</span>
+											<span><i class="icon-message-circle"></i> 12</span>
+											<span class="report-count"><i class="icon-alert-triangle"></i> 5</span>
+										</div>
+									</div>
+									<div class="photo-actions">
+										<button class="btn btn-sm btn-warning" title="경고">
+												<i class="icon-alert-triangle"></i>
+										</button>
+										<button class="btn btn-sm btn-block" title="차단">
+												<i class="icon-slash"></i>
+										</button>
+										<button class="btn btn-sm btn-delete" title="삭제">
+												<i class="icon-trash-2"></i>
+										</button>
+									</div>
+								</div>
+								<!-- 사진 카드 아이템 -->
+								<div class="photo-card">
+									<div class="photo-header">
+										<label class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input photo-checkbox">
+											<span class="custom-control-label"></span>
+										</label>
+										<div class="content-badge-container">
+											<span class="content-status-badge status-warning">경고</span>
+										</div>
+									</div>
+									<div class="photo-preview-wrap">
+                    <div class="photo-preview-scroll">
+                      <img src="img/bg4.jpeg" alt="게시물 이미지" class="photo-preview">
+                      <img src="img/bg3.jpeg" alt="게시물 이미지" class="photo-preview">
+										  <img src="img/bg2.jpeg" alt="게시물 이미지" class="photo-preview">
+                    </div>
+									</div>
+									<div class="photo-info">
+										<h6 class="photo-title">
+											<span class="photo-number">102420</span>
+											<a href="/post-detail.html" class="photo-title-link" target="_blank">
+												즐거운 데이트 사진입니다.
+											</a>
+										</h6>
+										<div class="photo-meta">
+											<a href="user-profile.html" class="photo-author">
+												<img src="img/user10.png" alt="작성자" class="author-avatar">
+												<span>바나나킥</span>
+											</a>
+											<span class="photo-date">2024-01-20</span>
+										</div>
+										<div class="photo-stats">
+                      <span><i class="icon-eye"></i> 1,234</span>
+											<span><i class="icon-heart"></i> 56</span>
+											<span><i class="icon-message-circle"></i> 12</span>
+											<span class="report-count"><i class="icon-alert-triangle"></i> 5</span>
+										</div>
+									</div>
+									<div class="photo-actions">
+										<button class="btn btn-sm btn-warning" title="경고">
+												<i class="icon-alert-triangle"></i>
+										</button>
+										<button class="btn btn-sm btn-block" title="차단">
+												<i class="icon-slash"></i>
+										</button>
+										<button class="btn btn-sm btn-delete" title="삭제">
+												<i class="icon-trash-2"></i>
+										</button>
+									</div>
+								</div>
+								<!-- 사진 카드 아이템 -->
+								<div class="photo-card">
+									<div class="photo-header">
+										<label class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input photo-checkbox">
+											<span class="custom-control-label"></span>
+										</label>
+										<div class="content-badge-container">
+											<span class="content-status-badge status-blocked">차단</span>
+										</div>
+									</div>
+									<div class="photo-preview-wrap">
+                    <div class="photo-preview-scroll">
+                      <img src="img/bg4.jpeg" alt="게시물 이미지" class="photo-preview">
+                      <img src="img/bg3.jpeg" alt="게시물 이미지" class="photo-preview">
+										  <img src="img/bg2.jpeg" alt="게시물 이미지" class="photo-preview">
+                    </div>
+									</div>
+									<div class="photo-info">
+										<h6 class="photo-title">
+											<span class="photo-number">102420</span>
+											<a href="/post-detail.html" class="photo-title-link" target="_blank">
+												즐거운 데이트 사진입니다.
+											</a>
+										</h6>
+										<div class="photo-meta">
+											<a href="user-profile.html" class="photo-author">
+												<img src="img/user10.png" alt="작성자" class="author-avatar">
+												<span>바나나킥</span>
+											</a>
+											<span class="photo-date">2024-01-20</span>
+										</div>
+										<div class="photo-stats">
+                      <span><i class="icon-eye"></i> 1,234</span>
+											<span><i class="icon-heart"></i> 56</span>
+											<span><i class="icon-message-circle"></i> 12</span>
+											<span class="report-count"><i class="icon-alert-triangle"></i> 5</span>
+										</div>
+									</div>
+									<div class="photo-actions">
+										<button class="btn btn-sm btn-warning" title="경고">
+												<i class="icon-alert-triangle"></i>
+										</button>
+										<button class="btn btn-sm btn-block" title="차단">
+												<i class="icon-slash"></i>
+										</button>
+										<button class="btn btn-sm btn-delete" title="삭제">
+												<i class="icon-trash-2"></i>
+										</button>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- 경고 모달 -->
+							<div class="modal fade" id="warningModal" tabindex="-1">
+								<div class="modal-dialog">
+										<div class="modal-content">
+												<div class="modal-header">
+														<h5 class="modal-title">경고 발송</h5>
+														<button type="button" class="close" data-dismiss="modal">
+																<span>&times;</span>
+														</button>
+												</div>
+												<div class="modal-body content-form-body">
+														<div class="form-group content-form-group">
+																<label>경고 유형</label>
+																<select class="form-control" id="warningType">
+																		<option value="">선택해주세요</option>
+																		<option value="inappropriate">부적절한 콘텐츠</option>
+																		<option value="copyright">저작권 위반</option>
+																		<option value="spam">스팸 또는 광고</option>
+																		<option value="harassment">괴롭힘 또는 혐오</option>
+																		<option value="violence">폭력적인 콘텐츠</option>
+																		<option value="other">기타</option>
+																</select>
+														</div>
+														<div class="form-group content-form-group">
+																<label>상세 내용</label>
+																<textarea class="form-control" id="warningDetail" rows="3"></textarea>
+														</div>
+														<div class="form-group content-form-group">
+																<label>처리 방법</label>
+																<div class="custom-control custom-checkbox">
+																		<input type="checkbox" class="custom-control-input" id="deleteContent">
+																		<label class="custom-control-label" for="deleteContent">콘텐츠 삭제</label>
+																</div>
+																<div class="custom-control custom-checkbox">
+																		<input type="checkbox" class="custom-control-input" id="restrictUser">
+																		<label class="custom-control-label" for="restrictUser">사용자 활동 제한</label>
+																</div>
+														</div>
+												</div>
+												<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+														<button type="button" class="btn btn-warning" id="sendWarningBtn">경고 발송</button>
+												</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+          </div>
+				</div>
+			</div>
+		</div>
+
+		<!--**************************
+							Required JavaScript Files
+		**************************-->
+		<!-- 반드시 이 순서대로 스크립트를 로드해야 합니다 -->
+		<!-- 1. 먼저 jQuery 로드 -->
+		<script src="js/jquery.min.js"></script>
+		<!-- 2. 그 다음 Bootstrap -->
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<!-- 3. 기타 라이브러리들 -->
+		<script src="js/moment.js"></script>
+		<script src="vendor/daterange/daterange.js"></script>
+		<script src="vendor/daterange/custom-daterange.js"></script>
+		<!-- 4. 메인 JS -->
+		<script src="js/main.js"></script>
+		<!-- 5. 컨텐츠 관련 JS -->
+		<script src="js/content-actions.js"></script>
+		<script src="js/photo-content.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	</body>
+</html>

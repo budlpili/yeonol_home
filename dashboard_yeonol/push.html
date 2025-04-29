@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Meta -->
+		<meta name="description" content="여놀 플랫폼 관리자 페이지">
+		<meta name="author" content="주식회사 일마레">
+		<link rel="icon" href="/img/icon_fav.png" type="image/x-icon">
+		<title>여놀 - 관리자페이지</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+		<!-- Icomoon Font Icons css -->
+		<link rel="stylesheet" href="fonts/style.css"> 
+		<!-- Main css -->
+		<link rel="stylesheet" href="css/main.css">
+
+		
+		<!-- *************
+			************ Vendor Css Files *************
+		************ -->
+		<!-- DateRange css -->
+		<link rel="stylesheet" href="vendor/daterange/daterange.css" />
+
+	</head>
+
+	<body>
+		<!-- Page wrapper start -->
+		<div class="page-wrapper">
+			
+      <!-- Sidebar wrapper start -->
+			<nav id="sidebar" class="sidebar-wrapper">
+
+				<!-- Sidebar brand start  -->
+				<div class="sidebar-brand">
+					
+					<a href="index.html" class="logo">
+						<img src="img/icon_fav.png" alt="YEONOL Admin Dashboard" />
+						<div class="admin-user-info">
+							<span class="admin-user-text">YeoNol</span>
+							<span class="admin-user-email">budlpilip@gmail.com</span>
+						</div>
+					</a>
+				</div>
+				<!-- Sidebar brand end  -->
+
+				<!-- Sidebar search start -->
+				<div class="sidebar-search">
+					<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+					<i class="icon-search1 icon1"></i>
+					<i class="icon-search1 icon2"></i>
+				</div>
+				<div class="sidebar-hr">
+					<div class="hr-bar"></div>
+				</div>
+
+				<!-- Sidebar search end -->
+	
+				<!-- Sidebar content start -->
+				<div class="sidebar-content">
+
+					<!-- sidebar menu start -->
+					<div class="sidebar-menu">
+						<ul>
+							<li>
+								<a href="index.html">
+									<i class="icon-devices_other"></i>
+									<span class="menu-text">대쉬보드</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="user-list.html">
+									<i class="icon-users"></i>
+									<span class="menu-text">유저관리</span>
+								</a>
+								
+							</li>
+							
+							<li>
+								<a href="chat.html">
+									<i class="icon-message-circle"></i>
+									<span class="menu-text">채팅관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="party.html">
+									<i class="icon-toys"></i>
+									<span class="menu-text">파티관리</span>
+								</a>
+							</li>
+							
+							<li class="sidebar-dropdown">
+								<a href="#">
+									<i class="icon-film"></i>
+									<span class="menu-text">컨텐츠관리</span>
+								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li class="current-page">
+											<a href="content-shorts.html">쇼츠(영상)</a>
+										</li>
+										<li>
+											<a href="content-photo.html">일상(사진)</a>
+										</li>
+										<li>
+											<a href="content-audio.html">오디오(음성)</a>
+										</li>
+									</ul>
+							</li>
+							
+							<li>
+								<a href="sales-all.html">
+									<i class="icon-database"></i>
+									<span class="menu-text">매출관리</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="coupon.html">
+									<i class="icon-grid"></i>
+									<span class="menu-text">쿠폰관리</span>
+								</a>
+							</li>
+							
+							<li class="active">
+								<a href="push.html">
+									<i class="icon-bell"></i>
+									<span class="menu-text">알림관리</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="report.html">
+									<i class="icon-minus-circle"></i>
+									<span class="menu-text">신고관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="admin-board.html">
+									<i class="icon-edit1"></i>
+									<span class="menu-text">관리자게시판</span>
+								</a>
+								
+							</li>
+						</ul>
+						<div class="sidebar-hr">
+							<div class="hr-bar"></div>
+						</div>
+						<div class="sidebar-menu-bottom">
+							<a href="/">
+								<i class="icon-log-in"></i>
+								<span class="menu-text">로그아웃</span>
+							</a>
+							<div class="version-wrapper">
+								<span class="menu-version">ver.</span>
+								<span class="menu-version">2.34</span>
+							</div>
+						</div>
+					</div>
+					<!-- sidebar menu end -->
+				</div>
+				<!-- Sidebar content end -->
+				
+			</nav>
+			<!-- Sidebar wrapper end -->
+			
+			<!-- Page content start  -->
+			<div class="page-content">
+
+				<!-- Header start -->
+				<header class="header">
+					<div class="toggle-btns">
+						<a id="toggle-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+						<a id="pin-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+					</div>
+					<div class="header-items">
+						<!-- Custom search start -->
+						<div class="custom-search">
+							<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+							<i class="icon-search1"></i>
+						</div>
+						<!-- Custom search end -->
+
+						<!-- Header actions start -->
+						<ul class="header-actions">
+							
+							<li class="dropdown">
+								<a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
+									<i class="icon-bell"></i>
+									<span class="count-label">8</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right lrg" aria-labelledby="notifications">
+									<div class="dropdown-menu-header">
+										새로운 알림 (40)
+									</div>
+									<ul class="header-notifications">
+										<li>
+											<a href="#">
+												<div class="user-img away">
+													<img src="img/user21.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">바나나킥</div>
+													<div class="noti-details">[신고] 바나나킥님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img busy">
+													<img src="img/user10.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">아마짱</div>
+													<div class="noti-details">[신고] 아마짱님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img online">
+													<img src="img/user6.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">사랑뽀</div>
+													<div class="noti-details">[문의] 사랑뽀님이 문의하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+
+						</ul>						
+						<!-- Header actions end -->
+					</div>
+				</header>
+				<!-- Header end -->
+
+				<!-- Page header start -->
+				<div class="page-header">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">Home</li>
+						<li class="breadcrumb-item active">알림관리</li>
+					</ol>
+
+					<!-- 오늘 날짜 선택 버튼 vendor/daterange/custom-daterange.js 참고-->
+					<ul class="app-actions">
+						<li>
+							<a href="#" id="reportrange">
+								<i class="icon-calendar"></i>	
+								<span class="range-text"></span>
+								<i class="icon-chevron-down"></i>	
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Page header end -->
+				
+				<!-- Main container start -->
+				<div class="main-container">
+					<!-- Row start -->
+					<div class="row gutters">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+								<!-- Tab navigation -->
+								<ul class="nav nav-tabs" id="notificationTabs" role="tablist">
+										<li class="nav-item">
+												<a class="nav-link active" id="send-tab" data-toggle="tab" href="#send" role="tab" aria-controls="send" aria-selected="true">
+													알림 발송
+												</a>
+										</li>
+										<li class="nav-item">
+												<a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false">
+													발송 내역
+												</a>
+										</li>
+								</ul>
+
+								<!-- Tab content -->
+								<div class="tab-content notification-tab-content" id="notificationTabContent">
+										<!-- 알림 발송 탭 -->
+										<div class="tab-pane fade show active" id="send" role="tabpanel" aria-labelledby="send-tab">
+												<div class="notification-card-01">
+														<div class="card-body">
+																<form id="notificationForm">
+																		<!-- 알림 유형 선택 -->
+																		<div class="form-group">
+																				<label for="notificationType">알림 유형</label>
+																				<select class="form-control" id="notificationType" required>
+																						<option value="">알림 유형을 선택하세요</option>
+																						<option value="general">일반 알림</option>
+																						<option value="event">이벤트 알림</option>
+																						<option value="urgent">긴급 알림</option>
+																						<option value="notice">공지사항</option>
+																				</select>
+																		</div>
+
+																		<!-- 발송 대상 선택 -->
+																		<div class="form-group">
+																				<label for="targetType">발송 대상</label>
+																				<select class="form-control" id="targetType" required>
+																					<option value="">발급 대상을 선택하세요</option>
+																					<option value="ALL">전체 회원</option>
+																					<option value="NEW">신규 가입자</option>
+																					<option value="INACTIVE">휴면 회원</option>
+																					<option value="GRADE">특정 등급 회원</option>
+																					<option value="CUSTOM">직접 선택</option>
+																				</select>
+																		</div>
+
+																		<!-- 직접 선택 시 표시될 영역 -->
+																		<div id="customSelection" style="display: none;">
+																				<div class="form-group">
+																						<label>사용자 검색</label>
+																						<div class="input-group">
+																								<input type="text" class="form-control" id="userSearch" placeholder="닉네임 또는 ID로 검색">
+																								<div class="input-group-append">
+																										<button class="btn btn-outline-secondary" type="button" id="searchBtn">
+																												<i class="icon-search1"></i> 검색
+																										</button>
+																								</div>
+																						</div>
+																						<div id="searchResults" class="mt-2"></div>
+																				</div>
+
+																				<!-- 선택된 사용자 목록 -->
+																				<div class="form-group">
+																						<label>선택된 사용자 (<span id="selectedUserCount">0</span>명)</label>
+																						<div id="selectedUsers" class="selected-users-container"></div>
+																				</div>
+																		</div>
+
+																		<!-- 알림 제목 -->
+																		<div class="form-group">
+																				<label for="notificationTitle">알림 제목</label>
+																				<input type="text" class="form-control" id="notificationTitle" placeholder="알림 제목을 입력하세요" required>
+																		</div>
+
+																		<!-- 알림 내용 -->
+																		<div class="form-group">
+																				<label for="notificationContent">알림 내용</label>
+																				<textarea class="form-control" id="notificationContent" 
+																									rows="4" placeholder="알림 내용을 입력하세요" required></textarea>
+																		</div>
+
+																		<!-- 미리보기 -->
+																		<div class="preview-box">
+																				<div class="preview-header">
+																						<span class="preview-title">알림 미리보기</span>
+																						<span id="previewType" class="notification-type-badge"></span>
+																				</div>
+																				<div class="preview-content">
+																						<h6 id="previewTitle" class="mb-2"></h6>
+																						<p id="previewContent" class="mb-0"></p>
+																				</div>
+																		</div>
+
+																		<!-- 발송 버튼 -->
+																		<div class="form-group mt-4 text-right">
+																				<button type="submit" class="btn btn-primary" id="sendBtn">
+																						<i class="icon-send"></i> 알림 발송
+																				</button>
+																		</div>
+																</form>
+														</div>
+												</div>
+										</div>
+
+										<!-- 발송 내역 탭 -->
+										<div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+												<div class="notification-card-02">
+														<div class="card-body">
+																<!-- 기간 설정 필터 -->
+																<div class="date-filter-wrapper mb-4">
+																		<div class="row align-items-center">
+																				<div class="col-md-auto">
+																						<div class="date-filter-label">기간 설정</div>
+																				</div>
+																				<div class="col-md-auto">
+																						<div class="btn-group date-quick-filters" role="group">
+																								<button type="button" class="btn btn-outline-secondary" data-period="today">오늘</button>
+																								<button type="button" class="btn btn-outline-secondary" data-period="week">1주일</button>
+																								<button type="button" class="btn btn-outline-secondary" data-period="month">1개월</button>
+																								<button type="button" class="btn btn-outline-secondary" data-period="3months">3개월</button>
+																						</div>
+																				</div>
+																				<div class="col-md-auto">
+																						<div class="date-range-picker">
+																								<div class="input-group">
+																										<input type="text" class="form-control" id="historyDateRange" readonly>
+																										<div class="input-group-append">
+																												<span class="input-group-text">
+																														<i class="icon-calendar"></i>
+																												</span>
+																										</div>
+																								</div>
+																						</div>
+																				</div>
+																		</div>
+																</div>
+
+																<!-- 발송 내역 테이블 -->
+																<div class="table-responsive">
+																		<table id="notificationHistoryTable" class="table custom-table">
+																				<thead>
+																						<tr>
+																								<th>발송번호</th>
+																								<th>알림유형</th>
+																								<th>제목</th>
+																								<th>발송대상</th>
+																								<th>발송일시</th>
+																								<th>상태</th>
+																								<th>관리</th>
+																						</tr>
+																				</thead>
+																				<tbody>
+																						<!-- 데이터는 JavaScript로 동적 추가됨 -->
+																				</tbody>
+																		</table>
+																</div>
+														</div>
+												</div>
+										</div>
+								</div>
+						</div>
+					</div>
+				<!-- Row end -->
+
+				</div>
+				<!-- Main container end -->
+
+			</div>
+			<!-- Page content end -->
+
+		</div>
+		<!-- Page wrapper end -->
+
+		<!-- 알림 상세정보 모달 -->
+		<div class="modal" id="notificationDetailModal" tabindex="-1" role="dialog" aria-labelledby="notificationDetailModalLabel">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="notificationDetailModalLabel">알림 상세정보</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+					</div>
+					<div class="modal-body">
+						<div class="notification-detail">
+							<div class="detail-header">
+								<div class="notification-id"></div>
+								<div class="notification-type"></div>
+							</div>
+							<div class="detail-content">
+								<div class="detail-row">
+									<label>제목</label>
+									<div class="notification-title"></div>
+								</div>
+								<div class="detail-row">
+									<label>내용</label>
+									<div class="notification-content"></div>
+								</div>
+								<div class="detail-row">
+									<label>발송대상</label>
+									<div class="notification-target"></div>
+								</div>
+								<div class="detail-row">
+									<label>발송일시</label>
+									<div class="notification-date"></div>
+								</div>
+								<div class="detail-row">
+									<label>발송상태</label>
+									<div class="notification-status"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+						<button type="button" class="btn btn-primary resend-btn">재발송</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--**************************
+							Required JavaScript Files
+		**************************-->
+		<!-- Required jQuery first, then Bootstrap Bundle JS -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/moment.js"></script>
+
+
+		
+		<!-- *************
+			************ Vendor Js Files *************
+		************* -->
+		<!-- Slimscroll JS -->
+		<script src="vendor/slimscroll/slimscroll.min.js"></script>
+		<script src="vendor/slimscroll/custom-scrollbar.js"></script>
+
+		<!-- Daterange -->
+		<script src="vendor/daterange/daterange.js"></script>
+		<script src="vendor/daterange/custom-daterange.js"></script>
+
+		<!-- Data Tables -->
+		<script src="vendor/datatables/dataTables.min.js"></script>
+		<script src="vendor/datatables/dataTables.bootstrap.min.js"></script>
+		
+		<!-- Custom Data tables -->
+		<script src="vendor/datatables/custom/custom-datatables.js"></script>
+		<script src="vendor/datatables/custom/fixedHeader.js"></script>
+
+
+		<!-- Polyfill JS -->
+		<script src="vendor/polyfill/polyfill.min.js"></script>
+
+		<!-- Main JS -->
+		<script src="js/main.js"></script>
+		<script src="js/notification-management.js"></script>
+	</body>
+</html>

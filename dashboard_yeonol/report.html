@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Meta -->
+		<meta name="description" content="여놀 플랫폼 관리자 페이지">
+		<meta name="author" content="주식회사 일마레">
+		<link rel="icon" href="/img/icon_fav.png" type="image/x-icon">
+		<title>여놀 - 관리자페이지</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+		<!-- Icomoon Font Icons css -->
+		<link rel="stylesheet" href="fonts/style.css"> 
+		<!-- Main css -->
+		<link rel="stylesheet" href="css/main.css">
+
+		
+		<!-- *************
+			************ Vendor Css Files *************
+		************ -->
+		<!-- DateRange css -->
+		<link rel="stylesheet" href="vendor/daterange/daterange.css" />
+
+		<!-- SweetAlert2 CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css">
+
+	</head>
+
+	<body>
+		<!-- Page wrapper start -->
+		<div class="page-wrapper">
+			
+      <!-- Sidebar wrapper start -->
+			<nav id="sidebar" class="sidebar-wrapper">
+
+				<!-- Sidebar brand start  -->
+				<div class="sidebar-brand">
+					
+					<a href="index.html" class="logo">
+						<img src="img/icon_fav.png" alt="YEONOL Admin Dashboard" />
+						<div class="admin-user-info">
+							<span class="admin-user-text">YeoNol</span>
+							<span class="admin-user-email">budlpilip@gmail.com</span>
+						</div>
+					</a>
+				</div>
+				<!-- Sidebar brand end  -->
+
+				<!-- Sidebar search start -->
+				<div class="sidebar-search">
+					<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+					<i class="icon-search1 icon1"></i>
+					<i class="icon-search1 icon2"></i>
+				</div>
+				<div class="sidebar-hr">
+					<div class="hr-bar"></div>
+				</div>
+
+				<!-- Sidebar search end -->
+	
+				<!-- Sidebar content start -->
+				<div class="sidebar-content">
+
+					<!-- sidebar menu start -->
+					<div class="sidebar-menu">
+						<ul>
+							<li>
+								<a href="index.html">
+									<i class="icon-devices_other"></i>
+									<span class="menu-text">대쉬보드</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="user-list.html">
+									<i class="icon-users"></i>
+									<span class="menu-text">유저관리</span>
+								</a>
+								
+							</li>
+							
+							<li>
+								<a href="chat.html">
+									<i class="icon-message-circle"></i>
+									<span class="menu-text">채팅관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="party.html">
+									<i class="icon-toys"></i>
+									<span class="menu-text">파티관리</span>
+								</a>
+							</li>
+							
+							<li class="sidebar-dropdown">
+								<a href="#">
+									<i class="icon-film"></i>
+									<span class="menu-text">컨텐츠관리</span>
+								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li class="current-page">
+											<a href="content-shorts.html">쇼츠(영상)</a>
+										</li>
+										<li>
+											<a href="content-photo.html">일상(사진)</a>
+										</li>
+										<li>
+											<a href="content-audio.html">오디오(음성)</a>
+										</li>
+									</ul>
+							</li>
+							
+							<li>
+								<a href="sales-all.html">
+									<i class="icon-database"></i>
+									<span class="menu-text">매출관리</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="coupon.html">
+									<i class="icon-grid"></i>
+									<span class="menu-text">쿠폰관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="push.html">
+									<i class="icon-bell"></i>
+									<span class="menu-text">알림관리</span>
+								</a>
+							</li>
+
+							<li class="active">
+								<a href="report.html">
+									<i class="icon-minus-circle"></i>
+									<span class="menu-text">신고관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="admin-board.html">
+									<i class="icon-edit1"></i>
+									<span class="menu-text">관리자게시판</span>
+								</a>
+								
+							</li>
+						</ul>
+						<div class="sidebar-hr">
+							<div class="hr-bar"></div>
+						</div>
+						<div class="sidebar-menu-bottom">
+							<a href="/">
+								<i class="icon-log-in"></i>
+								<span class="menu-text">로그아웃</span>
+							</a>
+							<div class="version-wrapper">
+								<span class="menu-version">ver.</span>
+								<span class="menu-version">2.34</span>
+							</div>
+						</div>
+					</div>
+					<!-- sidebar menu end -->
+				</div>
+				<!-- Sidebar content end -->
+				
+			</nav>
+			<!-- Sidebar wrapper end -->
+
+			<!-- Page content start  -->
+			<div class="page-content">
+
+				<!-- Header start -->
+				<header class="header">
+					<div class="toggle-btns">
+						<a id="toggle-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+						<a id="pin-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+					</div>
+					<div class="header-items">
+						<!-- Custom search start -->
+						<div class="custom-search">
+							<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+							<i class="icon-search1"></i>
+						</div>
+						<!-- Custom search end -->
+
+						<!-- Header actions start -->
+						<ul class="header-actions">
+							
+							<li class="dropdown">
+								<a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
+									<i class="icon-bell"></i>
+									<span class="count-label">8</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right lrg" aria-labelledby="notifications">
+									<div class="dropdown-menu-header">
+										새로운 알림 (40)
+									</div>
+									<ul class="header-notifications">
+										<li>
+											<a href="#">
+												<div class="user-img away">
+													<img src="img/user21.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">바나나킥</div>
+													<div class="noti-details">[신고] 바나나킥님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img busy">
+													<img src="img/user10.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">아마짱</div>
+													<div class="noti-details">[신고] 아마짱님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img online">
+													<img src="img/user6.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">사랑뽀</div>
+													<div class="noti-details">[문의] 사랑뽀님이 문의하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+
+						</ul>						
+						<!-- Header actions end -->
+					</div>
+				</header>
+				<!-- Header end -->
+
+				<!-- Page header start -->
+				<div class="page-header">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">Home</li>
+						<li class="breadcrumb-item active">신고관리</li>
+					</ol>
+
+					<!-- 오늘 날짜 선택 버튼 vendor/daterange/custom-daterange.js 참고-->
+					<ul class="app-actions">
+						<li>
+							<a href="#" id="reportrange">
+								<i class="icon-calendar"></i>	
+								<span class="range-text"></span>
+								<i class="icon-chevron-down"></i>	
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Page header end -->
+				
+				<!-- Main container start -->
+				<div class="main-container">
+          <!-- Row start -->
+          <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <!-- Card start -->
+              <div class="card">
+                
+                <div class="card-body">
+                  <!-- 기간 설정 필터 -->
+                  <!-- <div class="date-filter-wrapper mb-4">
+                    <div class="row align-items-center">
+                      <div class="col-md-auto">
+                        <div class="date-filter-label">기간 설정</div>
+                      </div>
+                      <div class="col-md-auto">
+                        <div class="btn-group date-quick-filters" role="group">
+                          <button type="button" class="btn btn-outline-secondary" data-period="today">오늘</button>
+                          <button type="button" class="btn btn-outline-secondary" data-period="week">1주일</button>
+                          <button type="button" class="btn btn-outline-secondary" data-period="month">1개월</button>
+                          <button type="button" class="btn btn-outline-secondary" data-period="3months">3개월</button>
+                        </div>
+                      </div>
+                      <div class="col-md-auto">
+                        <div class="date-range-picker">
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="reportDateRange" readonly>
+                            <div class="input-group-append">
+                              <span class="input-group-text">
+                                <i class="icon-calendar"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+
+                  <!-- 신고 내역 테이블 -->
+                  <div class="table-responsive">
+                    <table id="reportTable" class="table custom-table">
+                      <thead>
+                        <tr>
+                          <th>신고번호</th>
+                          <th>신고유형</th>
+                          <th>신고자</th>
+                          <th>신고대상</th>
+                          <th>신고일시</th>
+                          <th>처리상태</th>
+                          <th>관리</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- 데이터는 JavaScript로 동적 추가됨 -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- Card end -->
+            </div>
+          </div>
+          <!-- Row end -->
+
+        </div>
+				<!-- Main container end -->
+
+			</div>
+			<!-- Page content end -->
+
+		</div>
+		<!-- Page wrapper end -->
+    
+    <!-- 신고 상세정보 모달 -->
+		<div class="modal fade" 
+			 id="reportDetailModal" 
+			 tabindex="-1" 
+			 role="dialog" 
+			 aria-labelledby="reportDetailModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="reportDetailModalLabel">
+							<span class="report-id"></span>
+							<span class="report-type ms-2"></span>
+							<span class="report-date text-muted ms-2"></span>
+						</h5>
+						<button type="button" 
+								class="btn-close" 
+								data-bs-dismiss="modal" 
+								aria-label="닫기">
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="report-header mb-4">
+							<span class="report-id badge bg-secondary"></span>
+							<span class="report-type ms-2"></span>
+							<span class="report-date text-muted ms-2"></span>
+						</div>
+
+						<!-- 신고자 정보 섹션 -->
+						<div class="reporter-section mb-4">
+							<h6 class="section-title">신고자 정보</h6>
+							<div class="reporter-info"></div>
+						</div>
+
+						<!-- 신고 대상 컨텐츠 섹션 -->
+						<div class="reported-content-section mb-4">
+							<h6 class="section-title">신고 대상 게시글</h6>
+							<div class="content-container p-3 border rounded">
+								<!-- 컨텐츠 타입 및 작성자 정보 -->
+								<div class="content-header d-flex align-items-center justify-content-between mb-3">
+									<div class="content-type-badge"></div>
+									<div class="content-date text-muted small"></div>
+								</div>
+								
+								<!-- 작성자 정보 -->
+								<div class="content-author-info d-flex align-items-center mb-3">
+									<img src="" alt="" class="author-image rounded-circle" width="40" height="40">
+									<div class="author-details ms-2">
+										<div class="author-nickname fw-bold"></div>
+										<div class="author-id text-muted small"></div>
+									</div>
+								</div>
+
+								<!-- 컨텐츠 미리보기 -->
+								<div class="content-preview-container mb-3">
+									<!-- 썸네일 이미지 (있는 경우) -->
+									<div class="content-thumbnail mb-2 d-none">
+										<img src="" alt="컨텐츠 썸네일" class="img-fluid rounded">
+									</div>
+									<!-- 컨텐츠 텍스트 -->
+									<div class="content-text"></div>
+								</div>
+
+								<!-- 컨텐츠 상세 정보 -->
+								<div class="content-details small text-muted mb-3">
+									<span class="views">조회 <span class="views-count">0</span></span>
+									<span class="mx-2">·</span>
+									<span class="likes">좋아요 <span class="likes-count">0</span></span>
+									<span class="mx-2">·</span>
+									<span class="comments">댓글 <span class="comments-count">0</span></span>
+								</div>
+
+								<!-- 액션 버튼 -->
+								<div class="content-actions">
+									<button type="button" class="btn btn-primary btn-sm view-original">
+										<i class="icon-external-link"></i> 원본 게시글 보기
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<!-- 신고 사유 섹션 -->
+						<div class="report-reason-section mb-4">
+							<h6 class="section-title">신고 사유</h6>
+							<div class="report-reason p-3 border rounded"></div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="d-flex justify-content-between w-100">
+							<button type="button" 
+									class="btn btn-outline-secondary" 
+									id="modalCloseButton"
+									data-bs-dismiss="modal">
+								<i class="icon-x"></i> 닫기
+							</button>
+							<div class="action-buttons">
+								<button type="button" 
+										class="btn btn-warning me-2"
+										id="warnButton">
+									<i class="icon-alert-triangle"></i> 경고
+								</button>
+								<button type="button" 
+										class="btn btn-danger me-2"
+										id="blockButton">
+									<i class="icon-user-x"></i> 차단
+								</button>
+								<button type="button" 
+										class="btn btn-dark"
+										id="deleteButton">
+									<i class="icon-trash-2"></i> 삭제
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!--**************************
+							Required JavaScript Files
+		**************************-->
+		<!-- Required jQuery first, then Bootstrap Bundle JS -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/moment.js"></script>
+
+
+		
+		<!-- *************
+			************ Vendor Js Files *************
+		************* -->
+		<!-- Slimscroll JS -->
+		<script src="vendor/slimscroll/slimscroll.min.js"></script>
+		<script src="vendor/slimscroll/custom-scrollbar.js"></script>
+
+		<!-- Daterange -->
+		<script src="vendor/daterange/daterange.js"></script>
+		<script src="vendor/daterange/custom-daterange.js"></script>
+
+		<!-- Data Tables -->
+		<script src="vendor/datatables/dataTables.min.js"></script>
+		<script src="vendor/datatables/dataTables.bootstrap.min.js"></script>
+		
+		<!-- Custom Data tables -->
+		<script src="vendor/datatables/custom/custom-datatables.js"></script>
+		<script src="vendor/datatables/custom/fixedHeader.js"></script>
+
+
+		<!-- Polyfill JS -->
+		<script src="vendor/polyfill/polyfill.min.js"></script>
+
+
+		<!-- Main JS -->
+		<script src="js/main.js"></script>
+		<script src="js/report-management.js"></script>
+
+		<!-- SweetAlert2 JS -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	</body>
+</html>

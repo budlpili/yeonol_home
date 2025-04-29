@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Meta -->
+		<meta name="description" content="Responsive Bootstrap4 Dashboard Template">
+		<meta name="author" content="ParkerThemes">
+		<link rel="shortcut icon" href="img/icon_fav.png" />
+
+		<!-- Title -->
+		<title>여놀 - 관리자 로그인</title>
+		
+		<!-- *************
+			************ Common Css Files *************
+		************ -->
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+
+		<!-- Master CSS -->
+		<link rel="stylesheet" href="css/main.css" />
+
+		<!-- reCAPTCHA v2로 변경 -->
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		
+		<!-- SweetAlert2 -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		
+	</head>
+
+	<body>
+
+		<!-- Container start -->
+		<div class="login-fullpage-wrap">
+			<div class="login-card">
+				<!-- <img src="img/icon_fav.png" alt="YEONOL" class="login-logo"> -->
+				<div class="login-title">로그인</div>
+				<form id="loginForm" autocomplete="off">
+					<div class="login-error" id="loginError" style="display: none;">아이디 또는 비밀번호를 확인하세요.</div>
+					<div class="form-group">
+						<label for="adminId">아이디</label>
+						<input type="text" class="form-control" id="adminId" name="adminId" placeholder="아이디를 입력해주세요" required autocomplete="off">
+					</div>
+					<div class="form-group">
+						<label for="adminPw">비밀번호</label>
+						<input type="password" class="form-control" id="adminPw" name="adminPw" 
+							   placeholder="비밀번호를 입력해주세요" required autocomplete="off">
+					</div>
+					<div class="save-options">
+						<label>
+							<input type="checkbox" id="saveId"> 아이디 저장
+						</label>
+						<label>
+							<input type="checkbox" id="savePw"> 비밀번호 저장
+						</label>
+					</div>
+					<!-- reCAPTCHA v2 요소 추가 -->
+					<div class="form-group">
+						<div class="g-recaptcha" 
+							 data-sitekey="6LccFSgrAAAAAIU4n_lcOodiCaSFnTLsUOUDunU1"
+							 data-callback="onRecaptchaSuccess">
+						</div>
+					</div>
+					
+					<button type="submit" class="btn btn-primary login-btn">로그인</button>
+				</form>
+				<div class="social-login">
+					<button type="button" class="social-btn google">
+						<img src="img/sns-logo/google.png" alt="Google">
+						<span>구글로그인</span>
+					</button>
+					<button type="button" class="social-btn naver">
+						<img src="img/sns-logo/naver.png" alt="Naver">
+						<span>네이버로그인</span>
+					</button>
+					<button type="button" class="social-btn kakao">
+						<img src="img/sns-logo/kakao.png" alt="Kakao">
+						<span>카카오로그인</span>
+					</button>
+				</div>
+				<div class="porgot">
+					<a href="login-find-id.html">아이디 찾기</a>
+					<a href="login-find-password.html">비밀번호 찾기</a>
+					<a href="login-register.html">회원가입</a>
+				</div>
+			</div>
+		</div>
+		<!-- Container end -->
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+
+		<script src="js/login.js"></script>
+
+	</body>
+</html>

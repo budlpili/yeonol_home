@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Meta -->
+		<meta name="description" content="여놀 플랫폼 관리자 페이지">
+		<meta name="author" content="주식회사 일마레">
+		<link rel="icon" href="/img/icon_fav.png" type="image/x-icon">
+		<title>여놀 - 관리자페이지</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+		<!-- Icomoon Font Icons css -->
+		<link rel="stylesheet" href="fonts/style.css"> 
+		<!-- Main css -->
+		<link rel="stylesheet" href="css/main.css">
+
+		<!-- DateRange css -->
+		<link rel="stylesheet" href="vendor/daterange/daterange.css" />
+
+	</head>
+
+	<body>
+		<!-- Page wrapper start -->
+		<div class="page-wrapper">
+			
+			<!-- Sidebar wrapper start -->
+			<nav id="sidebar" class="sidebar-wrapper">
+				
+				<!-- Sidebar brand start  -->
+				<div class="sidebar-brand">
+					
+					<a href="index.html" class="logo">
+						<img src="img/icon_fav.png" alt="YEONOL Admin Dashboard" />
+						<div class="admin-user-info">
+							<span class="admin-user-text">YeoNol</span>
+							<span class="admin-user-email">budlpilip@gmail.com</span>
+						</div>
+					</a>
+				</div>
+				<!-- Sidebar brand end  -->
+
+				<!-- Sidebar search start -->
+				<div class="sidebar-search">
+					<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+					<i class="icon-search1 icon1"></i>
+					<i class="icon-search1 icon2"></i>
+				</div>
+				<div class="sidebar-hr">
+					<div class="hr-bar"></div>
+				</div>
+
+				<!-- Sidebar search end -->
+	
+				<!-- Sidebar content start -->
+				<div class="sidebar-content">
+
+					<!-- sidebar menu start -->
+					<div class="sidebar-menu">
+						<ul>
+							<li class="active">
+								<a href="index.html">
+									<i class="icon-devices_other"></i>
+									<span class="menu-text">대쉬보드</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="user-list.html">
+									<i class="icon-users"></i>
+									<span class="menu-text">유저관리</span>
+								</a>
+								
+							</li>
+							
+							<li>
+								<a href="chat.html">
+									<i class="icon-message-circle"></i>
+									<span class="menu-text">채팅관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="party.html">
+									<i class="icon-toys"></i>
+									<span class="menu-text">파티관리</span>
+								</a>
+							</li>
+							
+							<li class="sidebar-dropdown">
+								<a href="#">
+									<i class="icon-film"></i>
+									<span class="menu-text">컨텐츠관리</span>
+								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li class="current-page">
+											<a href="content-shorts.html">쇼츠(영상)</a>
+										</li>
+										<li>
+											<a href="content-photo.html">일상(사진)</a>
+										</li>
+										<li>
+											<a href="content-audio.html">오디오(음성)</a>
+										</li>
+									</ul>
+							</li>
+							
+							<li>
+								<a href="sales-all.html">
+									<i class="icon-database"></i>
+									<span class="menu-text">매출관리</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="coupon.html">
+									<i class="icon-grid"></i>
+									<span class="menu-text">쿠폰관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="push.html">
+									<i class="icon-bell"></i>
+									<span class="menu-text">알림관리</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="report.html">
+									<i class="icon-minus-circle"></i>
+									<span class="menu-text">신고관리</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="admin-board.html">
+									<i class="icon-edit1"></i>
+									<span class="menu-text">관리자게시판</span>
+								</a>
+								
+							</li>
+						</ul>
+						<div class="sidebar-hr">
+							<div class="hr-bar"></div>
+						</div>
+						<div class="sidebar-menu-bottom">
+							<a href="/" id="logoutBtn">
+								<i class="icon-log-in"></i>
+								<span class="menu-text">로그아웃</span>
+							</a>
+							<div class="version-wrapper">
+								<span class="menu-version">ver.</span>
+								<span class="menu-version">2.34</span>
+							</div>
+						</div>
+					</div>
+					<!-- sidebar menu end -->
+				</div>
+				<!-- Sidebar content end -->
+				
+			</nav>
+			<!-- Sidebar wrapper end -->
+
+			<!-- Page content start  -->
+			<div class="page-content">
+
+				<!-- Header start -->
+				<header class="header">
+					<div class="toggle-btns">
+						<a id="toggle-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+						<a id="pin-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+					</div>
+					<div class="header-items">
+						<!-- Custom search start -->
+						<div class="custom-search">
+							<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+							<i class="icon-search1"></i>
+						</div>
+						<!-- Custom search end -->
+
+						<!-- Header actions start -->
+						<ul class="header-actions">
+							
+							<li class="dropdown">
+								<a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
+									<i class="icon-bell"></i>
+									<span class="count-label">8</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right lrg" aria-labelledby="notifications">
+									<div class="dropdown-menu-header">
+										새로운 알림 (40)
+									</div>
+									<ul class="header-notifications">
+										<li>
+											<a href="#">
+												<div class="user-img away">
+													<img src="img/user21.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">바나나킥</div>
+													<div class="noti-details">[신고] 바나나킥님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img busy">
+													<img src="img/user10.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">아마짱</div>
+													<div class="noti-details">[신고] 아마짱님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img online">
+													<img src="img/user6.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">사랑뽀</div>
+													<div class="noti-details">[문의] 사랑뽀님이 문의하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+
+						</ul>						
+						<!-- Header actions end -->
+					</div>
+				</header>
+				<!-- Header end -->
+
+				<!-- Page header start -->
+				<div class="page-header">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">Home</li>
+						<li class="breadcrumb-item active">대쉬보드</li>
+					</ol>
+
+					<!-- 오늘 날짜 선택 버튼 vendor/daterange/custom-daterange.js 참고-->
+					<ul class="app-actions">
+						<li>
+							<a href="#" id="reportrange">
+								<i class="icon-calendar"></i>	
+								<span class="range-text"></span>
+								<i class="icon-chevron-down"></i>	
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Page header end -->
+				
+				<!-- Main container start -->
+				<div class="main-container">
+
+					<!-- 통계 현황 start -->
+					<div class="info-stats-container">
+						<div class="info-stats">
+							<div class="info-icon">
+								<i class="icon-loader"></i>
+							</div>
+							<div class="sale-num">
+								<p>온라인중인 유저</p>
+								<div class="sale-num-text">
+									<h3>100</h3>
+									<span>명</span>
+								</div>
+							</div>
+						</div>
+						<div class="info-stats">
+							<div class="info-icon">
+								<i class="icon-users"></i>
+							</div>
+							<div class="sale-num">
+								<p>총 사용자</p>
+								<div class="sale-num-text">
+									<h3>10,500</h3>
+									<span>명</span>
+								</div>
+							</div>
+						</div>
+						<div class="info-stats">
+							<div class="info-icon">
+								<i class="icon-user-plus"></i>
+							</div>
+							<div class="sale-num">
+								<p>신규회원</p>
+								<div class="sale-num-text">
+									<h3>9500</h3>
+									<span>명</span>
+								</div>
+							</div>
+						</div>
+						<div class="info-stats">
+							<div class="info-icon">
+								<i class="icon-credit-card"></i>
+							</div>
+							<div class="sale-num">
+								<p>매출액</p>
+								<div class="sale-num-text">
+									<h3>1,000,000</h3>
+									<span>원</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 통계 현황 end -->
+
+					<!-- 채팅, 파티 현황 start -->
+					<div class="row gutters">
+
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">채팅/파티 현황</div>
+									<div class="card-title-sub">마지막 업데이트 2025.04.08</div>
+								</div>
+								<div class="card-body">
+									<div class="chatting-list">
+										<div class="chatting-content">
+											<span>1:1 채팅(self-chat)</span>
+											<div class="chatting-content-num">
+												<span class="delay-count">100</span>
+												<span class="ing-count">100</span>
+											</div>
+										</div>
+										<div class="chatting-content">
+											<span>파티(party)</span>
+											<div class="chatting-content-num">
+												<span class="delay-count">100</span>
+												<span class="ing-count">100</span>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+					<!--그래프 가입자 매출 현황 start -->
+					<div class="row gutters">
+						<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">가입자 현황</div>
+								</div>
+								<div class="card-body pt-0">
+									<div id="members"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">매출 현황</div>
+								</div>
+								<div class="card-body pt-0 pb-0">
+									<div id="income"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 그래프 가입자 매출 현황 end -->
+
+					<!-- 매출 현황 start -->
+					<div class="row gutters">
+						
+						<!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">신규가입자</div>
+								</div>
+								<div class="card-body">
+									<div class="customScroll5">
+										<div class="quick-analytics">
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 500,000 New Orders
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 950,000 Products
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 325,010 Retail Stores
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 780,500 Movies Downloaded
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 250,000 Images Uploaded
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 870,000 Monthly Visits
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 350,500 Tickets Booked
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 500,000 New Orders
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 950,000 Products
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 325,010 Retail Stores
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 780,500 Movies Downloaded
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 250,000 Images Uploaded
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 870,000 Monthly Visits
+											</a>
+											<a href="#">
+												<img src="./img/avatar/Avatar=1.png"> 350,500 Tickets Booked
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> -->
+						
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-title">거래내역</div>
+								</div>
+								<div class="card-body table-body">
+									
+									<div class="table-container">
+										<!-- <div class="t-header"></div> -->
+										<div class="table-responsive">
+											<table id="rowSelection" class="table custom-table">
+												<thead>
+													<tr>
+														<th>주문번호</th>
+														<th>주문일자</th>
+														<th>유저</th>
+														<th>내용</th>
+														<th>주문금액</th>
+														<th>비고</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+													<tr>
+														<td>2158</td>
+														<td>2025.04.08</td>
+														<td>바나나킥</td>
+														<td>쇼츠 구매</td>
+														<td>10,000원</td>
+														<td>결제완료</td>
+													</tr>
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<!-- 매출 현황 end -->
+
+				</div>
+				<!-- Main container end -->
+
+			</div>
+			<!-- Page content end -->
+
+		</div>
+		<!-- Page wrapper end -->
+
+
+
+		<!--**************************
+							Required JavaScript Files
+		**************************-->
+		<!-- Required jQuery first, then Bootstrap Bundle JS -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/moment.js"></script>
+
+
+		
+		<!-- *************
+			************ Vendor Js Files *************
+		************* -->
+		<!-- Daterange -->
+		<script src="vendor/daterange/daterange.js"></script>
+		<script src="vendor/daterange/custom-daterange.js"></script>
+
+		<!-- Data Tables -->
+		<script src="vendor/datatables/dataTables.min.js"></script>
+		<script src="vendor/datatables/dataTables.bootstrap.min.js"></script>
+		
+		<!-- Custom Data tables -->
+		<script src="vendor/datatables/custom/custom-datatables.js"></script>
+		<script src="vendor/datatables/custom/fixedHeader.js"></script>
+
+
+		<!-- Polyfill JS -->
+		<script src="vendor/polyfill/polyfill.min.js"></script>
+
+		<!-- Apex Charts -->
+		<script src="vendor/apex/apexcharts.min.js"></script>
+		<script src="vendor/apex/admin/members.js"></script>
+		<script src="vendor/apex/admin/deals.js"></script>
+		<script src="vendor/apex/admin/income.js"></script>
+		<script src="vendor/apex/admin/customers.js"></script>
+
+		
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+		<!-- Main JS -->
+		<script src="js/main.js"></script>
+
+		<!-- SweetAlert2 -->
+
+	</body>
+</html>

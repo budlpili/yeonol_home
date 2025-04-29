@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Meta -->
+		<meta name="description" content="여놀 플랫폼 관리자 페이지">
+		<meta name="author" content="주식회사 일마레">
+		<link rel="icon" href="/img/icon_fav.png" type="image/x-icon">
+		<title>여놀 - 관리자페이지</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+		<!-- Icomoon Font Icons css -->
+		<link rel="stylesheet" href="fonts/style.css"> 
+		<!-- Main css -->
+		<link rel="stylesheet" href="css/main.css">
+    <!-- Quill Editor CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    
+    <!-- DateRange CSS -->
+    <link rel="stylesheet" href="vendor/daterange/daterange.css" />
+
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css">
+
+    <!-- Icomoon Font Icons css -->
+    <link rel="stylesheet" href="fonts/style.css"> 
+		<link rel="stylesheet" href="css/main.css">
+
+    <!-- Perfect Scrollbar CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/perfect-scrollbar@1.5.5/css/perfect-scrollbar.css">
+
+    <!-- Summernote CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Page wrapper start -->
+    <div class="page-wrapper">
+      <!-- Sidebar wrapper start -->
+			<nav id="sidebar" class="sidebar-wrapper">
+				
+				<!-- Sidebar brand start  -->
+				<div class="sidebar-brand">
+					
+					<a href="index.html" class="logo">
+						<img src="img/icon_fav.png" alt="YEONOL Admin Dashboard" />
+						<div class="admin-user-info">
+							<span class="admin-user-text">YeoNol</span>
+							<span class="admin-user-email">budlpilip@gmail.com</span>
+						</div>
+					</a>
+				</div>
+				<!-- Sidebar brand end  -->
+
+				<!-- Sidebar search start -->
+				<div class="sidebar-search">
+					<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+					<i class="icon-search1 icon1"></i>
+					<i class="icon-search1 icon2"></i>
+				</div>
+				<div class="sidebar-hr">
+					<div class="hr-bar"></div>
+				</div>
+
+				<!-- Sidebar search end -->
+	
+				<!-- Sidebar content start -->
+				<div class="sidebar-content">
+
+					<!-- sidebar menu start -->
+					<div class="sidebar-menu">
+						<ul>
+							<li>
+								<a href="index.html">
+									<i class="icon-devices_other"></i>
+									<span class="menu-text">대쉬보드</span>
+								</a>
+							</li>
+
+							<li class="">
+								<a href="user-list.html">
+									<i class="icon-users"></i>
+									<span class="menu-text">유저관리</span>
+								</a>
+								<!-- <div class="sidebar-submenu">
+									<ul>
+										<li class="current-page">
+											<a href="user-list.html">유저리스트</a>
+										</li>
+										<li>
+											<a href="user-profile.html">유저프로필</a>
+										</li>
+									</ul>
+								</div> -->
+							</li>
+							
+							<li>
+								<a href="chat.html">
+									<i class="icon-message-circle"></i>
+									<span class="menu-text">채팅관리</span>
+								</a>
+							</li>
+							
+							<li class="">
+								<a href="party.html">
+									<i class="icon-toys"></i>
+									<span class="menu-text">파티관리</span>
+								</a>
+							</li>
+							
+							<li class="sidebar-dropdown">
+								<a href="#">
+									<i class="icon-film"></i>
+									<span class="menu-text">컨텐츠관리</span>
+								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li class="current-page">
+											<a href="content-shorts.html">쇼츠(영상)</a>
+										</li>
+										<li>
+											<a href="content-photo.html">일상(사진)</a>
+										</li>
+										<li>
+											<a href="content-audio.html">오디오(음성)</a>
+										</li>
+									</ul>
+							</li>
+							
+							<li class="">
+								<a href="sales-all.html">
+									<i class="icon-database"></i>
+									<span class="menu-text">매출관리</span>
+								</a>
+							</li>
+
+							<li class="">
+								<a href="coupon.html">
+									<i class="icon-grid"></i>
+									<span class="menu-text">쿠폰관리</span>
+								</a>
+							</li>
+							
+							<li class="">
+								<a href="push.html">
+									<i class="icon-bell"></i>
+									<span class="menu-text">알림관리</span>
+								</a>
+							</li>
+
+							<li class="">
+								<a href="report.html">
+									<i class="icon-minus-circle"></i>
+									<span class="menu-text">신고관리</span>
+								</a>
+							</li>
+							
+							<li class="active">
+								<a href="#">
+									<i class="icon-edit1"></i>
+									<span class="menu-text">관리자게시판</span>
+								</a>
+							</li>
+						</ul>
+						<div class="sidebar-hr">
+							<div class="hr-bar"></div>
+						</div>
+						<div class="sidebar-menu-bottom">
+							<a href="login.html">
+								<i class="icon-log-in"></i>
+								<span class="menu-text">로그인</span>
+							</a>
+							<div class="version-wrapper">
+								<span class="menu-version">ver.</span>
+								<span class="menu-version">2.34</span>
+							</div>
+						</div>
+					</div>
+					<!-- sidebar menu end -->
+				</div>
+				<!-- Sidebar content end -->
+				
+			</nav>
+			<!-- Sidebar wrapper end -->
+
+        <!-- Page content start -->
+        <div class="page-content">
+            <!-- Header start -->
+				<header class="header">
+					<div class="toggle-btns">
+						<a id="toggle-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+						<a id="pin-sidebar" href="#">
+							<i class="icon-list"></i>
+						</a>
+					</div>
+					<div class="header-items">
+						<!-- Custom search start -->
+						<div class="custom-search">
+							<input type="text" class="search-query" placeholder="검색어를 입력해주세요.">
+							<i class="icon-search1"></i>
+						</div>
+						<!-- Custom search end -->
+
+						<!-- Header actions start -->
+						<ul class="header-actions">
+							
+							<li class="dropdown">
+								<a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
+									<i class="icon-bell"></i>
+									<span class="count-label">8</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right lrg" aria-labelledby="notifications">
+									<div class="dropdown-menu-header">
+										새로운 알림 (40)
+									</div>
+									<ul class="header-notifications">
+										<li>
+											<a href="#">
+												<div class="user-img away">
+													<img src="img/user21.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">바나나킥</div>
+													<div class="noti-details">[신고] 바나나킥님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img busy">
+													<img src="img/user10.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">아마짱</div>
+													<div class="noti-details">[신고] 아마짱님이 음란사진 신고하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<div class="user-img online">
+													<img src="img/user6.png" alt="User">
+												</div>
+												<div class="details">
+													<div class="user-title">사랑뽀</div>
+													<div class="noti-details">[문의] 사랑뽀님이 문의하셨습니다.</div>
+													<div class="noti-date">25년 12월 12일 오전 10:00</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+
+						</ul>						
+						<!-- Header actions end -->
+					</div>
+				</header>
+				<!-- Header end -->
+
+				<!-- Page header start -->
+				<div class="page-header">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">Home</li>
+						<li class="breadcrumb-item active">관리자게시판</li>
+					</ol>
+
+					<ul class="app-actions">
+						<li>
+							<a href="#" id="reportrange">
+								<i class="icon-calendar"></i>	
+								<span class="range-text"></span>
+								<i class="icon-chevron-down"></i>	
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Page header end -->
+
+            <!-- Main container start -->
+            <div class="main-container">
+							<!-- 탭 네비게이션 -->
+									<ul class="nav nav-tabs" id="boardTabs" role="tablist">
+											<li class="nav-item">
+													<a class="nav-link active" id="notice-tab" data-toggle="tab" href="#notice" role="tab" aria-controls="notice" aria-selected="true">
+															공지사항
+													</a>
+											</li>
+											<li class="nav-item">
+													<a class="nav-link" id="guide-tab" data-toggle="tab" href="#guide" role="tab" aria-controls="guide" aria-selected="false">
+															가이드
+													</a>
+											</li>
+									</ul>
+
+									<!-- 탭 컨텐츠 -->
+									<div class="tab-content admin-board-tab-content" id="boardTabContent">
+											<!-- 공지사항 탭 -->
+											<div class="tab-pane fade show active" id="notice" role="tabpanel" aria-labelledby="notice-tab">
+													<!--공지사항 게시글 목록 영역 -->
+													<div class="notice-list-section">
+															<div class="card notice-card-01">
+																	<div class="card-header d-flex justify-content-between align-items-center">
+																			<h6 class="mb-0">공지사항 목록보기</h6>
+																			<div class="btn-group-wrap">
+																					<button id="deleteSelected" class="btn btn-outline-danger">선택삭제</button>
+																					<button id="writeButton" class="btn btn-primary">글쓰기</button>
+																			</div>
+																	</div>
+																	<div class="card-body-01">
+																		<table id="noticeTable" class="table table-striped table-bordered">
+																			<thead>
+																				<tr>
+																					<th class="select-checkbox"></th>
+																					<th class="notice-number">번호</th>
+																					<th class="notice-title">제목</th>
+																					<th class="notice-writer">작성자</th>
+																					<th class="notice-date">작성일</th>
+																					<th class="notice-views">조회수</th>
+																					<th class="notice-manage">관리</th>
+																				</tr>
+																			</thead>
+																		</table>
+																	</div>
+															</div>
+													</div>
+
+													<!--공지사항 게시글 보기 영역 (초기에는 숨김) -->
+													<div class="notice-view-section" style="display: none;">
+														<div class="card notice-card-01">
+															<div class="card-header d-flex justify-content-between align-items-center">
+																<h6 class="mb-0">공지사항 게시글 보기</h6>
+																<button class="btn btn-secondary btn-sm btn-back">목록으로</button>
+															</div>
+															<div class="card-body-01">
+																<div class="notice-view-header">
+																	<h5 class="notice-title mb-3"></h5>
+																	<div class="notice-info d-flex justify-content-between text-muted">
+																		<div>
+																			<span class="notice-text">작성자 : <span class="notice-author"></span></span>
+																			<span class="notice-text">작성일 : <span class="notice-date"></span></span>
+																		</div>
+																		<div>
+																			<span class="notice-text">조회수 : <span class="notice-views"></span></span>
+																		</div>
+																	</div>
+																</div>
+																<hr>
+																<div class="notice-content mb-4"></div>
+																<div class="notice-actions text-end">
+																	<button class="btn btn-outline-primary btn-edit-post">수정</button>
+																	<button class="btn btn-outline-danger btn-delete-post">삭제</button>
+																	<button class="btn btn-secondary btn-back">목록</button>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<!--공지사항 글쓰기/수정 영역 -->
+													<div class="notice-write-section" style="display: none;">
+															<div class="card notice-card-01">
+																	<div class="card-header d-flex justify-content-between align-items-center">
+																				<h6 class="mb-0 write-title">공지사항 새글작성</h6>
+																				<button class="btn btn-secondary btn-sm btn-back">목록으로</button>
+																	</div>
+																	<div class="card-body-01">
+																				<form id="noticeForm">
+																						<input type="hidden" id="postId">
+																						<div class="mb-3">
+																									<div class="form-check mb-2">
+																													<input class="form-check-input" type="checkbox" id="pinToTop">
+																													<label class="form-check-label" for="pinToTop">상단 고정</label>
+																									</div>
+																									<input type="text" class="form-control" id="postTitle" placeholder="제목을 입력하세요" required>
+																						</div>
+																						<div class="mb-3">
+																									<div id="editor"></div>
+																						</div>
+																						<div class="text-end mt-3">
+																									<button type="button" class="btn btn-secondary btn-cancel">취소</button>
+																									<button type="submit" class="btn btn-primary">저장</button>
+																						</div>
+																				</form>
+																	</div>
+															</div>
+													</div>
+											</div>
+
+											<!-- 가이드 탭 -->
+											<div class="tab-pane fade" id="guide" role="tabpanel" aria-labelledby="guide-tab">
+													<!-- 게시글 목록 영역 -->
+													<div class="guide-list-section">
+															<div class="card notice-card-01">
+																	<div class="card-header d-flex justify-content-between align-items-center">
+																			<h6 class="mb-0">가이드 목록보기</h6>
+																			<div class="btn-group-wrap">
+																					<button id="deleteGuideSelected" class="btn btn-outline-danger">선택삭제</button>
+																					<button id="writeGuideButton" class="btn btn-primary">글쓰기</button>
+																			</div>
+																	</div>
+																	<div class="card-body-01">
+																		<table id="guideTable" class="table table-striped table-bordered">
+																			<thead>
+																				<tr>
+																					<th class="select-checkbox"></th>
+																					<th class="guide-number">번호</th>
+																					<th class="guide-title">제목</th>
+																					<th class="guide-writer">작성자</th>
+																					<th class="guide-date">작성일</th>
+																					<th class="guide-views">조회수</th>
+																					<th class="guide-manage">관리</th>
+																				</tr>
+																			</thead>
+																		</table>
+																	</div>
+															</div>
+													</div>
+
+													<!-- 가이드 게시글 보기 영역 (초기에는 숨김) -->
+													<div class="guide-view-section" style="display: none;">
+														<div class="card notice-card-01">
+															<div class="card-header d-flex justify-content-between align-items-center">
+																<h6 class="mb-0">가이드 게시글 보기</h6>
+																<button class="btn btn-secondary btn-sm btn-back-guide">목록으로</button>
+															</div>
+															<div class="card-body-01">
+																<div class="guide-view-header">
+																	<h5 class="guide-title mb-3"></h5>
+																	<div class="guide-info d-flex justify-content-between text-muted">
+																		<div>
+																			<span class="guide-text">작성자 : <span class="guide-author"></span></span>
+																			<span class="guide-text">작성일 : <span class="guide-date"></span></span>
+																		</div>
+																		<div>
+																			<span class="guide-text">조회수 : <span class="guide-views"></span></span>
+																		</div>
+																	</div>
+																</div>
+																<hr>
+																<div class="guide-content mb-4"></div>
+																<div class="guide-actions text-end">
+																	<button class="btn btn-outline-primary btn-edit-guide">수정</button>
+																	<button class="btn btn-outline-danger btn-delete-guide">삭제</button>
+																	<button class="btn btn-secondary btn-back-guide">목록</button>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<!-- 가이드 글쓰기/수정 영역 -->
+													<div class="guide-write-section" style="display: none;">
+															<div class="card notice-card-01">
+																	<div class="card-header d-flex justify-content-between align-items-center">
+																				<h6 class="mb-0 guide-write-title">가이드 새글작성</h6>
+																				<button class="btn btn-secondary btn-sm btn-back-guide">목록으로</button>
+																	</div>
+																	<div class="card-body-01">
+																				<form id="guideForm">
+																						<input type="hidden" id="guidePostId">
+																						<div class="mb-3">
+																									<div class="form-check mb-2">
+																													<input class="form-check-input" type="checkbox" id="guidePinToTop">
+																													<label class="form-check-label" for="guidePinToTop">상단 고정</label>
+																									</div>
+																									<input type="text" class="form-control" id="guidePostTitle" placeholder="제목을 입력하세요" required>
+																						</div>
+																						<div class="mb-3">
+																									<div id="guideEditor"></div>
+																						</div>
+																						<div class="text-end mt-3">
+																									<button type="button" class="btn btn-secondary btn-cancel-guide">취소</button>
+																									<button type="submit" class="btn btn-primary">저장</button>
+																						</div>
+																				</form>
+																	</div>
+															</div>
+													</div>
+											</div>
+									</div>
+            </div>
+            <!-- Main container end -->
+        </div>
+        <!-- Page content end -->
+    </div>
+    <!-- Page wrapper end -->
+
+
+    <!-- Required Scripts - 순서 중요! -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/moment.js"></script>
+
+
+
+    <!-- Quill Editor -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+    <!-- DataTables -->
+    <script src="vendor/datatables/dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap.min.js"></script>
+
+    <!-- Daterange -->
+    <script src="vendor/daterange/daterange.js"></script>
+    <script src="vendor/daterange/custom-daterange.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Summernote JS -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <!-- Summernote 한글화 -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/lang/summernote-ko-KR.min.js"></script>
+
+		<!-- SweetAlert2 CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css">
+
+    <!-- Custom Scripts - 마지막에 로드 -->
+    <script src="js/main.js"></script>
+    <script src="js/admin-board.js"></script>
+</body>
+</html> 

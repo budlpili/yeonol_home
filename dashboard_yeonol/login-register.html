@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/icon_fav.png" />
+    <title>여놀 - 회원가입</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- Font Awesome CDN 추가 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="login-fullpage-wrap">
+        <div class="login-card">
+            <div class="login-title">회원가입</div>
+            <form id="registerForm" autocomplete="off">
+                <div class="form-group">
+                    <label for="userId">아이디</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="userId" name="userId" 
+                               placeholder="아이디를 입력해주세요" required>
+                        <button type="button" class="btn btn-outline-secondary" id="checkIdBtn">중복확인</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="userPw">비밀번호</label>
+                    <div class="input-group toggle-password-group">
+                        <input type="password" class="form-control" id="userPw" name="userPw" 
+                               placeholder="비밀번호를 입력해주세요" required>
+                        <button type="button" class="btn toggle-password">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="form-text text-muted">영문 대/소문자, 숫자, 특수문자 조합 8-20자</span>
+                </div>
+                <div class="form-group">
+                    <label for="userPwConfirm">비밀번호 확인</label>
+                    <div class="input-group toggle-password-group">
+                        <input type="password" class="form-control" id="userPwConfirm" 
+                               placeholder="비밀번호를 다시 입력해주세요" required>
+                        <button type="button" class="btn toggle-password-confirm">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="form-text confirm-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="userName">이름</label>
+                    <input type="text" class="form-control" id="userName" name="userName" 
+                           placeholder="이름을 입력해주세요" required>
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">이메일</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="userEmail" name="userEmail" 
+                               placeholder="이메일을 입력해주세요" required>
+                        <button type="button" class="btn btn-outline-secondary" id="sendVerificationBtn">
+                            인증번호 발송
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="verificationCode">이메일 인증번호</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="verificationCode" 
+                               placeholder="인증번호를 입력해주세요" required>
+                        <button type="button" class="btn btn-outline-secondary" id="verifyCodeBtn">확인</button>
+                    </div>
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                    <label class="form-check-label" for="agreeTerms">
+                        <a href="javascript:void(0);" onclick="openTerms('terms.html')">이용약관</a> 및 
+                        <a href="javascript:void(0);" onclick="openTerms('privacy.html')">개인정보처리방침</a>에 동의합니다
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary login-btn">회원가입</button>
+                <button type="button" class="btn btn-link mt-2" onclick="location.href='login.html'">
+                    로그인으로 돌아가기
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/login.js"></script>
+    <script>
+        function openTerms(pageUrl) {
+            // 창 크기 설정 (가로 600px, 높이 자동)
+            const windowWidth = 600;
+            const windowHeight = 800; // 초기 높이 설정
+            
+            // 창을 화면 중앙에 위치시키기 위한 좌표 계산
+            const left = Math.floor((window.screen.width - windowWidth) / 2);
+            const top = Math.floor((window.screen.height - windowHeight) / 2);
+            
+            // 새 창 열기 (높이는 자동으로 조절되도록 설정)
+            const windowFeatures = `width=600,height=${windowHeight},top=${top},left=${left},scrollbars=yes,resizable=yes`;
+            window.open(pageUrl, '약관', windowFeatures);
+        }
+    </script>
+</body>
+</html> 
