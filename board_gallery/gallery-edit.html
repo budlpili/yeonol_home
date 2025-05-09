@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="여놀 - 당신의 특별한 만남을 위한 공간">
+    <meta name="keywords" content="여놀, 여놀 소개, 여놀 소개 페이지, 여놀 소개 페이지 소개, 여놀 소개 페이지 소개 소개">
+    <meta name="author" content="여놀">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="google" content="notranslate">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="여놀">
+    <title>여놀 - 게시글 수정</title>
+    <link rel="icon" href="../images/icon_fav.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/animation.css">
+    <link rel="stylesheet" href="../css/style-items.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <!-- 헤더 섹션 -->
+    <header>
+        <nav class="navbar" id="navbar">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./images/yeonol_bal.gif" alt="여기서놀자 로고" class="logo-img animated rubberBand">
+                </a>
+            </div>
+            <button type="button" class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="./board_com/community.html">커뮤니티</a></li>
+                <li><a href="./board_gallery/gallery.html">핫플레이스</a></li>
+                <li><a href="./customer-service.html">고객센터</a></li>
+
+                <ul class="login-links">
+                    <li><a href="./login.html" class="login-link">로그인</a></li>
+                    <li><a href="./my-info.html" class="my-info-link">내정보</a></li>
+                </ul>
+            </ul>
+            
+        </nav>
+    </header>
+
+    <main class="write-main">
+        <div class="write-container">
+            <h2>핫플레이스 글수정</h2>
+            <form id="galleryEditForm" class="gallery-edit-form">
+                <div class="form-group">
+                    <label for="category">카테고리</label>
+                    <select id="category" name="category" required>
+                        <option value="">카테고리 선택</option>
+                        <option value="date">데이트</option>
+                        <option value="couple">커플</option>
+                        <option value="food">맛집</option>
+                        <option value="travel">여행</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" id="title" name="title" required value="기존 게시글 제목 예시" placeholder="제목을 입력하세요">
+                </div>
+
+                <div class="form-group">
+                    <label for="file">파일 첨부</label>
+                    <div class="file-upload" id="dropZone">
+                        <div class="upload-area">
+                            <input type="file" id="file" name="file" multiple style="display: none;">
+                            <div class="upload-text">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>이미지를 드래그하거나 클릭하여 업로드</p>
+                                <span class="upload-hint">JPG, PNG 파일 (최대 5MB)</span>
+                            </div>
+                        </div>
+                        <div class="file-preview">
+                            <!-- 기존 첨부파일 미리보기 예시 -->
+                            <div class="file-item">
+                                <div class="file-preview-container">
+                                    <img src="../images/cafe_01.png" alt="sample1.jpg" class="file-image">
+                                    <button type="button" class="remove-file"><i class="fas fa-times"></i></button>
+                                    <span class="file-name">sample1.jpg</span>
+                                </div>
+                            </div>
+                            <div class="file-item">
+                                <div class="file-preview-container">
+                                    <img src="../images/cafe_01.png" alt="sample1.jpg" class="file-image">
+                                    <button type="button" class="remove-file"><i class="fas fa-times"></i></button>
+                                    <span class="file-name">sample1.jpg</span>
+                                </div>
+                            </div>
+                            <div class="file-item">
+                                <div class="file-preview-container">
+                                    <img src="../images/cafe_01.png" alt="sample1.jpg" class="file-image">
+                                    <button type="button" class="remove-file"><i class="fas fa-times"></i></button>
+                                    <span class="file-name">sample1.jpg</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="editor">내용</label>
+                    <div id="editor-container">
+                        <div id="editor">기존 게시글 <b>내용</b>이 여기에 표시됩니다.</div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="cancel-btn"><span>취소</span></button>
+                    <button type="submit" class="submit-btn"><span>수정</span></button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="../rules/privacy-policy.html" target="_blank" rel="noopener noreferrer">개인정보처리방침</a></li>
+                        <li><a href="../rules/terms-of-service.html" target="_blank" rel="noopener noreferrer">이용약관</a></li>
+                        <li><a href="../rules/location-service.html" target="_blank" rel="noopener noreferrer">위치기반서비스이용약관</a></li>
+                        <li><a href="../rules/youth-protection.html" target="_blank" rel="noopener noreferrer">청소년보호정책</a></li>
+                        <li><a href="../customer-service.html#report">불법촬영물신고</a></li>
+                        <li><a href="../customer-service.html#qna">1:1 문의</a></li>
+                        <li><a href="../customer-service.html#faq">자주묻는질문</a></li>
+                    </ul>
+                </div>
+                <div class="company-info">
+                    <div class="logo-text">
+                        <div class="footer-brand">
+                            <img src="../images/logo_ball_white.png" alt="여기서놀자 로고" class="footer-logo">
+                        </div>
+                        <div class="company-info-text">
+                            <p>(주)일마레 | 대표자: 서인정</p>
+                            <p>사업자등록번호: 681-88-02902</p>
+                            <p>주소: 전북특별자치도 군산시 대학로 342-1</p>
+                            <!-- <p>통신판매신고번호: 제 2024-서울강남-00001호</p> -->
+                            <p>고객센터: <a href="mailto:help@yeonol.com">help@yeonol.com</a> | TEL 063-464-4580</p>
+                            <div class="copyright">&copy; 2025 ILMARE. All rights reserved.</div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/gallery-write.js"></script>
+</body>
+</html> 

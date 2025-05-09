@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logo_ball_160.png">
+    <title>여놀_Dashboard</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="/" class="logo">
+            <img src="/images/logo_ball_300.png" alt="로고">
+            <div class="logo-name">
+                YEO<span>NOL</span>
+            </div>
+        </a>
+        
+        <ul class="side-menu">
+            <li><a href="/"><i class='bx bxs-dashboard'></i>대쉬보드</a></li>
+            <li><a href="/sp_users.html"><i class='bx bxs-group'></i>유저관리</a></li>
+            <li><a href="/chatting.html"><i class='bx bxs-message-square-dots'></i>채팅관리</a></li>
+            <li><a href="/party.html"><i class='bx bxs-party'></i>파티관리</a></li>
+            <li><a href="/shorts_gram.html"><i class='bx bxs-video-recording'></i>쇼츠&그램</a></li>
+            <li><a href="/sales.html"><i class='bx bxs-coin-stack'></i>매출관리</a></li>
+            <li><a href="/coupon.html"><i class='bx bxs-coupon'></i>쿠폰관리</a></li>
+            <li class="active"><a href="/push.html"><i class='bx bxs-down-arrow-circle'></i>푸쉬관리</a></li>
+            <li><a href="/announcement.html"><i class='bx bxs-edit-alt'></i>공지관리</a></li>
+            <li><a href="/report.html"><i class='bx bxs-no-entry'></i>신고관리</a></li>
+            <li><a href="/guide.html"><i class='bx bxs-book-open'></i>여놀가이드</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout" onclick="handleLogout(event)">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./images/avatar/Avatar=14.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <div class="breadcrumb-header">
+                <div class="left">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/">HOME</a>
+                            <i class='bx bx-chevron-right'></i>
+                        </li>
+                        <li class="active">
+                            <a href="#">푸쉬관리</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="push-management">
+
+                <div class="push-list">
+
+                    <div class="header">
+                        <div class="title-wrap">
+                            <i class='bx bx-group'></i>
+                            <h3>유저리스트</h3>
+                        </div>
+                        
+                        <div class="search-send-wrap">
+                            <div class="search-box">
+                                <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                                <button class="btn-search"><i class="bx bx-search"></i></button>
+                            </div>
+                            <button class="send-btn-plus">
+                                <span>보내기</span>
+                                <!-- <i class='bx bx-send' ></i> -->
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table class="push-user-list">
+                            <thead>
+                                <tr>
+                                    <th class="all-check"><input type="checkbox"></th>
+                                    <th class="name"><a href="#">이름</a></th>
+                                    <th class="user-id"><a href="#">유저ID</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-1">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-1">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-1">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-1">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-1">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-1">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-1">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-1">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-1">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-1">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-1">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-1">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>asdfasdfasdfsdfsdf</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    
+                </div>
+
+
+
+                <!-- 알림보내기 -->
+                <div class="push-send-list">
+
+                    <div class="header">
+                        <i class='bx bx-user-pin'></i>
+                        <h3>알림보내기</h3>
+
+                        <div class="search-box">
+                            <input type="text" class="input-search" placeholder="이름을 입력해주세요">
+                            <button class="btn-search"><i class="bx bx-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="user-push-table">
+                            <thead>
+                                <tr>
+                                    <th class="all-check"><input type="checkbox"></th>
+                                    <th class="data data-name"><a href="#">이름</a></th>
+                                    <th class="data data-userid"><a href="#">유저ID</a></th>
+                                    <th class="data data-con"><a href="#">알림내용</a></th>
+                                    <th class="data data-daytime"><a href="#">보낸일시</a></th>
+                                    <th class="data data-st"><a href="#">상태</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-id">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>ksdkdkdkdkskdkk d8skd9</td>
+                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                    <td>2024/05/05, 16:44:01</td>
+                                    <td class="btn">
+                                        확인/미확인
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-id">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>ksdkdkdkdkskdkk d8skd9</td>
+                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                    <td>2024/05/05, 16:44:01</td>
+                                    <td class="btn">
+                                        확인/미확인
+                                    </td> 
+                                    
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-id">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>ksdkdkdkdkskdkk d8skd9</td>
+                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                    <td>2024/05/05, 16:44:01</td>
+                                    <td class="btn">
+                                        확인/미확인
+                                    </td> 
+                                    
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-id">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>ksdkdkdkdkskdkk d8skd9</td>
+                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                    <td>2024/05/05, 16:44:01</td>
+                                    <td class="btn">
+                                        확인/미확인
+                                    </td> 
+                                    
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-id">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>ksdkdkdkdkskdkk d8skd9</td>
+                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                    <td>2024/05/05, 16:44:01</td>
+                                    <td class="btn">
+                                        확인/미확인
+                                    </td> 
+                                    
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-id">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>ksdkdkdkdkskdkk d8skd9</td>
+                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                    <td>2024/05/05, 16:44:01</td>
+                                    <td class="btn">
+                                        확인/미확인
+                                    </td> 
+                                    
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-id">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>ksdkdkdkdkskdkk d8skd9</td>
+                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                    <td>2024/05/05, 16:44:01</td>
+                                    <td class="btn">
+                                        확인/미확인
+                                    </td> 
+                                    
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="one-check"></td>
+                                    <td class="user-id">
+                                        <img src="./images/avatar/Avatar=13.png">
+                                        <p>우리두리 알콩달콩</p>
+                                    </td>
+                                    <td>ksdkdkdkdkskdkk d8skd9</td>
+                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                    <td>2024/05/05, 16:44:01</td>
+                                    <td class="btn">
+                                        확인/미확인
+                                    </td> 
+                                    
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- pagination -->
+                    <div class="chat-page">
+                        <div class="showing-count">
+                            <span>Showing:</span>
+                            <span>1 - 8</span>
+                            <span>of</span>
+                            <span>78</span>
+                        </div>
+                        <ul class="pagination">
+                            <li><a href="#"><i class='bx bx-chevrons-left' ></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevron-left' ></i></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#"><i class='bx bx-chevron-right' ></i></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevrons-right' ></i></a></li>
+                            
+                        </ul>
+                    </div>
+                        
+
+                </div>
+                
+
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <span>Copyright</span>
+                    <span>&copy;</span>
+                    <span><a href="#">ILMARE</a> </span>
+                    <span>2025 YEONOL</span>
+                </div>
+                <div class="version">v1.4.2</div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // 로그아웃 처리
+        function handleLogout(event) {
+            event.preventDefault();
+            // 로그아웃 로직 구현
+            window.location.href = 'login.html';
+        }
+
+        // 사이드바 토글
+        document.querySelector('.bx-menu').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('close');
+        });
+
+        // 전체 선택 체크박스 기능
+        document.querySelectorAll('.all-check input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const table = this.closest('table');
+                const checkboxes = table.querySelectorAll('.one-check');
+                checkboxes.forEach(cb => {
+                    cb.checked = this.checked;
+                });
+            });
+        });
+
+        // 보내기 버튼 클릭 이벤트
+        document.querySelector('.send-btn-plus').addEventListener('click', function() {
+            const checkedUsers = document.querySelectorAll('.push-user-list .one-check:checked');
+            if (checkedUsers.length === 0) {
+                alert('선택된 유저가 없습니다.');
+                return;
+            }
+            // 여기에 푸시 보내기 로직 구현
+        });
+    </script>
+</body>
+
+</html>

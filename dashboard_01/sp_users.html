@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/datatable.css">
+    <link rel="icon" href="images/logo_ball_160.png">
+    <title>여놀_Dashboard</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="/" class="logo">
+            <img src="/images/logo_ball_300.png" alt="로고">
+            <div class="logo-name">
+                YEO<span>NOL</span>
+            </div>
+        </a>
+        <ul class="side-menu">
+            <li><a href="/"><i class='bx bxs-dashboard'></i>대쉬보드</a></li>
+            <li class="active"><a href="/sp_users.html"><i class='bx bxs-group'></i>유저관리</a></li>
+            <li><a href="/chatting.html"><i class='bx bxs-message-square-dots'></i>채팅관리</a></li>
+            <li><a href="/party.html"><i class='bx bxs-party'></i>파티관리</a></li>
+            <li><a href="/shorts_gram.html"><i class='bx bxs-video-recording'></i>쇼츠&그램</a></li>
+            <li><a href="/sales.html"><i class='bx bxs-coin-stack'></i>매출관리</a></li>
+            <li><a href="/coupon.html"><i class='bx bxs-coupon'></i>쿠폰관리</a></li>
+            <li><a href="/push.html"><i class='bx bxs-down-arrow-circle'></i>푸쉬관리</a></li>
+            <li><a href="/announcement.html"><i class='bx bxs-edit-alt'></i>공지관리</a></li>
+            <li><a href="/report.html"><i class='bx bxs-no-entry'></i>신고관리</a></li>
+            <li><a href="/guide.html"><i class='bx bxs-book-open'></i>여놀가이드</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout" onclick="handleLogout(event)">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./images/avatar/Avatar=14.png">
+            </a>
+        </nav>
+        <main>
+            <div class="breadcrumb-header">
+                <div class="left">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/">HOME</a>
+                            <i class='bx bx-chevron-right'></i>
+                        </li>
+                        <li class="active">
+                            <a href="#">유저관리</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="user-management">
+                <div class="user-list">
+                        <div class="header">
+                            <i class='bx bx-user'></i>
+                            <h3>유저리스트</h3>
+                            <div class="search-box">
+                                <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                                <button class="btn-search"><i class="bx bx-search"></i></button>
+                            </div>
+                        </div>
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="all-check"></th>
+                                <th class="data data-name"><a href="#" data-sort="name">이름</a></th>
+                                <th class="data data-email"><a href="#" data-sort="email">이메일</a></th>
+                                <th class="data data-phone"><a href="#" data-sort="phone">핸드폰</a></th>
+                                <th class="data data-userid"><a href="#" data-sort="userid">유저 ID</a></th>
+                                <th class="data data-datetime"><a href="#" data-sort="datetime">가입일시</a></th>
+                                <th class="data data-status"><a href="#" data-sort="status">승인여부</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=10.png">
+                                        <p>너에요</p>
+                                    </a>
+                                    
+                                </td>
+                                <td>11112231231@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status completed">승인완료</span></td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=4.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status pending">보류중</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=7.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=10.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=10.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=10.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=10.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=10.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=12.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=9.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=7.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=4.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="profile-name">
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=2.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td>asdfsdfefawfefa9fasdfasdfasdf</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- pagination -->
+                    <div class="chat-page">
+                        <div class="showing-count">
+                            <span>Showing:</span>
+                            <span>1 - 8</span>
+                            <span>of</span>
+                            <span>78</span>
+                        </div>
+                        <ul class="pagination">
+                            <li><a href="#"><i class='bx bx-chevrons-left' ></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevron-left' ></i></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#"><i class='bx bx-chevron-right' ></i></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevrons-right' ></i></a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <span>Copyright</span>
+                    <span>&copy;</span>
+                    <span><a href="#">ILMARE</a> </span>
+                    <span>2025 YEONOL</span>
+                </div>
+                <div class="version">v1.4.2</div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+</body>
+
+</html>

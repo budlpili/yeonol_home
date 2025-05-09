@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logo_ball_160.png">
+    <title>여놀_Dashboard</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="/" class="logo">
+            <img src="/images/logo_ball_300.png" alt="로고">
+            <div class="logo-name">
+                YEO<span>NOL</span>
+            </div>
+        </a>
+        
+        <ul class="side-menu">
+            <li class="active"><a href="/"><i class='bx bxs-dashboard'></i>대쉬보드</a></li>
+            <li><a href="sp_users.html"><i class='bx bxs-group'></i>유저관리</a></li>
+            <li><a href="chatting.html"><i class='bx bxs-message-square-dots'></i>채팅관리</a></li>
+            <li><a href="party.html"><i class='bx bxs-party'></i>파티관리</a></li>
+            <li><a href="shorts_gram.html"><i class='bx bxs-video-recording'></i>쇼츠&그램</a></li>
+            <li><a href="sales.html"><i class='bx bxs-coin-stack'></i>매출관리</a></li>
+            <li><a href="coupon.html"><i class='bx bxs-coupon'></i>쿠폰관리</a></li>
+            <li><a href="push.html"><i class='bx bxs-down-arrow-circle'></i>푸쉬관리</a></li>
+            <li><a href="announcement.html"><i class='bx bxs-edit-alt'></i>공지관리</a></li>
+            <li><a href="report.html"><i class='bx bxs-no-entry'></i>신고관리</a></li>
+            <li><a href="guide.html"><i class='bx bxs-book-open'></i>여놀가이드</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="/logout" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./images/avatar/Avatar=14.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <div class="breadcrumb-header">
+                <div class="left">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/">HOME</a>
+                            <i class='bx bx-chevron-right'></i>
+                        </li>
+                        <li class="active">
+                            <a href="#">대쉬보드</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Insights -->
+            <ul class="insights">
+                <li>
+                    <i class='bx bx-user' ></i>
+                    <span class="info">
+                        <p>총 사용자</p>
+                        <span class="count">1,074</span>명
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-user-plus' ></i>
+                    <span class="info">
+                        <p>금일 신규회원</p>
+                        <span class="count">1,026</span>명
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-coin' ></i>
+                    <span class="info">
+                        <p>금일 매출액</p>
+                        <span class="count">5,255,100</span>원
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-coin-stack' ></i>
+                    <span class="info">
+                        <p>월 매출누적액</p>
+                        <span class="count">100,089,000</span>원
+                    </span>
+                </li>
+            </ul>
+            <!-- End of Insights -->
+            <div class="bottom-data">
+                <div class="new-user">
+                    <div class="header">
+                        <i class='bx bx-user'></i>
+                        <h3>금일 신규회원</h3>
+                        <i class='bx bx-filter'></i>
+                        <i class='bx bx-search'></i>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>이름</th>
+                                <th>이메일</th>
+                                <th>핸드폰</th>
+                                <th>승인여부</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=10.png">
+                                        <p>누구에요</p>
+                                    </a>
+                                    
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td><span class="status completed">승인완료</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=1.png">
+                                        <p>나에요</p>
+                                    </a>
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td><span class="status pending">보류중</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=9.png">
+                                        <p>너군요</p>
+                                    </a>
+                                    
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=6.png">
+                                        <p>너군요</p>
+                                    </a>
+                                    
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="user-profile.html">
+                                        <img src="./images/avatar/Avatar=8.png">
+                                        <p>너군요</p>    
+                                    </a>
+                                    
+                                </td>
+                                <td>11111111@gmail.com</td>
+                                <td>010-8888-8888</td>
+                                <td><span class="status process">대기중</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- user-top-5 -->
+                <div class="user-top-sales">
+                    <div class="header">
+                        <i class='bx bx-coin'></i>
+                        <h3>금일 매출 TOP 5</h3>
+                        <i class='bx bx-plus'></i>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>순위</th>
+                                <th>이름</th>
+                                <th>금일 매출액</th>
+                                <th>월 누적매출액</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1위</td>
+                                <td>
+                                    <img src="./images/avatar/Avatar=10.png">
+                                    <p>누구에요</p>
+                                </td>
+                                <td class="day-sales">500,000원</td>
+                                <td class="month-sales">750,000원</td>
+                            </tr>
+                            <tr>
+                                <td>2위</td>
+                                <td>
+                                    <img src="./images/avatar/Avatar=5.png">
+                                    <p>나에요</p>
+                                </td>
+                                <td class="day-sales">500,000원</td>
+                                <td class="month-sales">750,000원</td>
+                            </tr>
+                            <tr>
+                                <td>3위</td>
+                                <td>
+                                    <img src="./images/avatar/Avatar=2.png">
+                                    <p>너군요</p>
+                                </td>
+                                <td class="day-sales">500,000원</td>
+                                <td class="month-sales">750,000원</td>
+                            </tr>
+                            <tr>
+                                <td>4위</td>
+                                <td>
+                                    <img src="./images/avatar/Avatar=4.png">
+                                    <p>너군요</p>
+                                </td>
+                                <td class="day-sales">500,000원</td>
+                                <td class="month-sales">750,000원</td>
+                            </tr>
+                            <tr>
+                                <td>5위</td>
+                                <td>
+                                    <img src="./images/avatar/Avatar=7.png">
+                                    <p>너군요</p>
+                                </td>
+                                <td class="day-sales">500,000원</td>
+                                <td class="month-sales">750,000원</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- End of user-top-5-->
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <span>Copyright</span>
+                    <span>&copy;</span>
+                    <span><a href="#">ILMARE</a> </span>
+                    <span>2025 YEONOL</span>
+                </div>
+                <div class="version">v1.4.2</div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -3,18 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./images/logo_ball_160.png">
+    <meta name="description" content="여놀 - 당신의 특별한 만남을 위한 공간">
+    <meta name="keywords" content="여놀, 여놀 소개, 여놀 소개 페이지, 여놀 소개 페이지 소개, 여놀 소개 페이지 소개 소개">
+    <meta name="author" content="여놀">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="google" content="notranslate">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="여놀">
+    
     <title>여놀 - 당신의 특별한 만남을 위한 공간</title>
+    <link rel="icon" href="./images/icon_fav.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/animation.css">
     <link rel="stylesheet" href="./css/style-items.css">
     <link rel="stylesheet" href="./css/style.css">
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <!-- 헤더 섹션 -->
     <header>
-        <nav class="navbar" >
+        <nav class="navbar" id="navbar">
             <div class="logo">
                 <a href="./index.html">
                     <img src="./images/yeonol_bal.gif" alt="여기서놀자 로고" class="logo-img animated rubberBand">
@@ -26,13 +44,14 @@
                 <span></span>
             </button>
             <ul class="nav-links">
+                <li><a href="index.html">홈</a></li>
                 <li><a href="./board_com/community.html">커뮤니티</a></li>
                 <li><a href="./board_gallery/gallery.html">핫플레이스</a></li>
                 <li><a href="./customer-service.html">고객센터</a></li>
 
                 <ul class="login-links">
-                    <li><a href="./login.html" class="login-btn">로그인</a></li>
-                    <li><a href="./login.html" class="login-btn">내정보</a></li>
+                    <li><a href="./login.html" class="login-link">로그인</a></li>
+                    <li><a href="./my-info.html" class="my-info-link">내정보</a></li>
                 </ul>
             </ul>
             
@@ -109,7 +128,7 @@
             </div>
         </section>
         <!-- 셀프소개팅 앱소개 섹션 -->
-        <section class="daily-intro self-">
+        <section class="daily-intro self-intro">
             <div class="description-container">
                 <div class="section-header description-header mb-7 pt-5">
                     <h1 class="animated fadeIn">셀프소개팅<br>내 인연은 내가 고른다!</h1>
@@ -197,11 +216,7 @@
                 </div>
                 <div class="voice-chat-container">
                     <img src="./images/voice-chat.png" alt="보이스챗 통화 이미지" class="voice-chat-img animated fadeInRight">
-                    <div class="voice-chat-overlay">
-                        <div class="voice-wave"></div>
-                        <div class="voice-wave"></div>
-                        <div class="voice-wave"></div>
-                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -258,10 +273,11 @@
                         </button>
                     </div>
                 </div>
-                <p class="etc-notice">* 회원가입은 모바일 앱에서만 가능합니다.</p>
+                <!-- <p class="etc-notice">* 회원가입은 모바일 앱에서만 가능합니다.</p> -->
             </div>
         </section>
 
+        
         <!-- 페이지 상단으로 이동하는 버튼 -->
         <button type="button" id="pageTop" class="page-top" aria-label="페이지 상단으로 이동">
             <i class="fas fa-arrow-up"></i>
@@ -273,13 +289,13 @@
             <div class="footer-info">
                 <div class="footer-links">
                     <ul>
-                        <li><a href="#">개인정보처리방침</a></li>
-                        <li><a href="#">이용약관</a></li>
-                        <li><a href="#">위치기반서비스이용약관</a></li>
-                        <li><a href="#">청소년보호정책</a></li>
-                        <li><a href="#">문의보내기/신고하기</a></li>
-                        <li><a href="#">불법촬영물신고</a></li>
-                        <li><a href="#">자주묻는질문</a></li>
+                        <li><a href="./rules/privacy-policy.html" target="_blank" rel="noopener noreferrer">개인정보처리방침</a></li>
+                        <li><a href="./rules/terms-of-service.html" target="_blank" rel="noopener noreferrer">이용약관</a></li>
+                        <li><a href="./rules/location-service.html" target="_blank" rel="noopener noreferrer">위치기반서비스이용약관</a></li>
+                        <li><a href="./rules/youth-protection.html" target="_blank" rel="noopener noreferrer">청소년보호정책</a></li>
+                        <li><a href="./report-write.html">불법촬영물신고</a></li>
+                        <li><a href="./customer-service.html#qna">1:1 문의</a></li>
+                        <li><a href="./customer-service.html#faq">자주묻는질문</a></li>
                     </ul>
                 </div>
                 <div class="company-info">
@@ -307,6 +323,6 @@
         
     </footer>
 
-    <script src="./js/script.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

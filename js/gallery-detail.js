@@ -4,9 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (likeBtn) {
         likeBtn.addEventListener('click', () => {
             likeBtn.classList.toggle('active');
-            const likeCount = likeBtn.querySelector('span');
-            const currentCount = parseInt(likeCount.textContent.split(' ')[1]);
-            likeCount.textContent = `좋아요 ${likeBtn.classList.contains('active') ? currentCount + 1 : currentCount - 1}`;
+            const likeIcon = likeBtn.querySelector('i');
+            const likeCount = likeBtn.querySelector('.like-count');
+            const currentCount = parseInt(likeCount.textContent);
+            
+            // 아이콘 변경
+            if (likeBtn.classList.contains('active')) {
+                likeIcon.classList.remove('fa-regular');
+                likeIcon.classList.add('fa-solid');
+                likeCount.textContent = currentCount + 1;
+            } else {
+                likeIcon.classList.remove('fa-solid');
+                likeIcon.classList.add('fa-regular');
+                likeCount.textContent = currentCount - 1;
+            }
         });
     }
 
@@ -52,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="comment-text">${commentText}</p>
                     <div class="comment-actions">
                         <button class="reply-btn">답글</button>
-                        <button class="delete-btn">삭제</button>
+                        <button class="reply-delete-btn">삭제</button>
                     </div>
                 `;
 
@@ -132,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // 답글 삭제 버튼
-        if (e.target.classList.contains('delete-btn')) {
+        if (e.target.classList.contains('reply-delete-btn')) {
             if (confirm('댓글을 삭제하시겠습니까?')) {
                 const comment = e.target.closest('.comment');
                 comment.remove();
@@ -245,3 +256,4 @@ function initializeSlider() {
         imageCounter.textContent = `${currentIndex + 1} / ${totalImages}`;
     }
 } 
+

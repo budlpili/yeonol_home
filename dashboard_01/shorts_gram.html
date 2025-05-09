@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logo_ball_160.png">
+
+    <title>여놀_Dashboard</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="/" class="logo">
+            <img src="/images/logo_ball_300.png" alt="로고">
+            <div class="logo-name">
+                YEO<span>NOL</span>
+            </div>
+        </a>
+        <ul class="side-menu">
+            <li><a href="/"><i class='bx bxs-dashboard'></i>대쉬보드</a></li>
+            <li><a href="/sp_users.html"><i class='bx bxs-group'></i>유저관리</a></li>
+            <li><a href="/chatting.html"><i class='bx bxs-message-square-dots'></i>채팅관리</a></li>
+            <li><a href="/party.html"><i class='bx bxs-party'></i>파티관리</a></li>
+            <li class="active"><a href="/shorts_gram.html"><i class='bx bxs-video-recording'></i>쇼츠&그램</a></li>
+            <li><a href="/sales.html"><i class='bx bxs-coin-stack'></i>매출관리</a></li>
+            <li><a href="/coupon.html"><i class='bx bxs-coupon'></i>쿠폰관리</a></li>
+            <li><a href="/push.html"><i class='bx bxs-down-arrow-circle'></i>푸쉬관리</a></li>
+            <li><a href="/announcement.html"><i class='bx bxs-edit-alt'></i>공지관리</a></li>
+            <li><a href="/report.html"><i class='bx bxs-no-entry'></i>신고관리</a></li>
+            <li><a href="/guide.html"><i class='bx bxs-book-open'></i>여놀가이드</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout" onclick="handleLogout(event)">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./images/avatar/Avatar=14.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <div class="breadcrumb-header">
+                <div class="left">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/">HOME</a>
+                            <i class='bx bx-chevron-right'></i>
+                        </li>
+                        <li class="active">
+                            <a href="#">쇼츠&그램</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="short_gram-management">
+                <!-- 쇼츠 -->
+                <div class="short_gram-list">
+                    <div class="header">
+                        <div class="header-left">
+                            <i class='bx bx-video-recording'></i>
+                            <h3>쇼츠</h3>
+                            <span>(최근 등록순)</span>
+                            <div class="search-box">
+                                <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                                <button class="btn-search"><i class="bx bx-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="short-list-wrap">
+                        <button class="scroll-btn scroll-left">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="short-list-content">
+
+                            <div class="short-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="video-checkbox">
+                                </div>
+                                <div class="video-item">
+                                    <video width="100%" height="200px" autoplay controls loop muted>
+                                        <source src="./images/video/flower-01.mp4" type="video/mp4">
+                                        브라우저가 동영상을 지원하지 않습니다.
+                                    </video>
+                                </div>
+                                <div class="short-bottom-wrap">
+                                    <a href="#" class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</a>
+                                </div>
+                            </div>
+                            <div class="short-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="video-checkbox">
+                                </div>
+                                <div class="video-item">
+                                    <video width="100%" height="200px" autoplay controls loop muted>
+                                        <source src="./images/video/back-01.mp4" type="video/mp4">
+                                        브라우저가 동영상을 지원하지 않습니다.
+                                    </video>
+                                </div>
+                                <div class="short-bottom-wrap">
+                                    <a href="#" class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</a>
+                                </div>
+                            </div>
+                            <div class="short-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="video-checkbox">
+                                </div>
+                                <div class="video-item">
+                                    <video width="100%" height="200px" autoplay controls loop muted>
+                                        <source src="./images/video/back-02.mp4" type="video/mp4">
+                                        브라우저가 동영상을 지원하지 않습니다.
+                                    </video>
+                                </div>
+                                <div class="short-bottom-wrap">
+                                    <a href="#" class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</a>
+                                </div>
+                            </div>
+                            <div class="short-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="video-checkbox">
+                                </div>
+                                <div class="video-item">
+                                    <video width="100%" height="200px" autoplay controls loop muted>
+                                        <source src="./images/video/flower-01.mp4" type="video/mp4">
+                                        브라우저가 동영상을 지원하지 않습니다.
+                                    </video>
+                                </div>
+                                <div class="short-bottom-wrap">
+                                    <a href="#" class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</a>
+                                </div>
+                            </div>
+                            <div class="short-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="video-checkbox">
+                                </div>
+                                <div class="video-item">
+                                    <video width="100%" height="200px" autoplay controls loop muted>
+                                        <source src="./images/video/back-01.mp4" type="video/mp4">
+                                        브라우저가 동영상을 지원하지 않습니다.
+                                    </video>
+                                </div>
+                                <div class="short-bottom-wrap">
+                                    <a href="#" class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</a>
+                                </div>
+                            </div>
+                            <div class="short-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="video-checkbox">
+                                </div>
+                                <div class="video-item">
+                                    <video width="100%" height="200px" autoplay controls loop muted>
+                                        <source src="./images/video/back-02.mp4" type="video/mp4">
+                                        브라우저가 동영상을 지원하지 않습니다.
+                                    </video>
+                                </div>
+                                
+                                <div class="short-bottom-wrap">
+                                    <a href="#" class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button class="scroll-btn scroll-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="management-content">
+                        <div class="management-right-item">
+                            <i class="fa-regular fa-hand-point-right"></i>
+                            <span class="text-item">쇼츠 아이템 :</span> 
+                        </div>
+                        <span class="selected-count selected-count-text">0개 선택</span>
+                        <div class="btn-wrap">
+                            <button class="btn-delete-shot" id="btn-delete-short">
+                                <span>삭제</span> 
+                            </button>
+                            <button class="btn-massage-send" id="btn-message-short">
+                                <span>관리</span> 
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 일상생활 -->
+                <div class="life_gram-list">
+                    <div class="header">
+                        <div class="header-left">
+                            <i class="fa-regular fa-image"></i>
+                            <h3>일상생활</h3>
+                            <span>(최근 등록순)</span>
+                            <div class="search-box">
+                                <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                                <button class="btn-search"><i class="bx bx-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="life-list-wrap">
+                        <button class="life-scroll-btn life-scroll-left">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="life-list-content">
+                            <div class="short-content life-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="life-checkbox">
+                                </div>
+                                <div class="video-item">
+                                    <img src="./images/video/plug5.jpg" width="100%" height="200px">
+                                        
+                                </div>
+                                <div class="short-bottom-wrap">
+                                    <a href="#" class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</a>
+                                </div>
+                            </div>
+                            <div class="short-content life-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="life-checkbox">
+                                </div>
+                                <div class="video-item">
+                                    <img src="./images/video/plug5.jpg" width="100%" height="200px">
+                                        
+                                </div>
+                                <div class="short-bottom-wrap">
+                                    <a href="#" class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</a>
+                                </div>
+                            </div>
+                            <div class="short-content life-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="life-checkbox">
+                                </div>
+                                <div class="video-item">
+                                    <img src="./images/video/plug5.jpg" width="100%" height="200px">
+                                        
+                                </div>
+                                <div class="short-bottom-wrap">
+                                    <a href="#" class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</a>
+                                </div>
+                            </div>
+                            <div class="short-content life-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="life-checkbox">
+                                </div>
+                                <div class="video-item">
+                                    <img src="./images/video/plug5.jpg" width="100%" height="200px">
+                                        
+                                </div>
+                                <div class="short-bottom-wrap">
+                                    <a href="#" class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</a>
+                                </div>
+                            </div>
+                            <div class="short-content life-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="life-checkbox">
+                                </div>
+                                <div class="video-item">
+                                    <img src="./images/video/plug5.jpg" width="100%" height="200px">
+                                        
+                                </div>
+                                <div class="short-bottom-wrap">
+                                    <a href="#" class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</a>
+                                </div>
+                            </div>
+                            <div class="short-content life-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="life-checkbox">
+                                </div>
+                                <div class="video-item">
+                                    <img src="./images/video/plug5.jpg" width="100%" height="200px">
+                                        
+                                </div>
+                                <div class="short-bottom-wrap">
+                                    <a href="#" class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button class="scroll-btn life-scroll-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="management-content">
+                        <div class="management-right-item">
+                            <i class="fa-regular fa-hand-point-right"></i>
+                            <span class="text-item">일상 아이템 : </span> 
+                        </div>
+                        <span class="life-selected-count selected-count-text">0개 선택</span>
+                        <div class="btn-wrap">
+                            <button class="btn-delete-shot" id="btn-delete-life">
+                                <span>삭제</span> 
+                            </button>
+                            <button class="btn-massage-send" id="btn-message-life">
+                                <span>관리</span> 
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 오디오 -->
+                <div class="audio_gram-list">
+                    <div class="header">
+                        <div class="header-left">
+                            <i class='bx bx-video-recording'></i>
+                            <h3>오디오</h3>
+                            <span>(최근 등록순)</span>
+                            <div class="search-box">
+                                <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                                <button class="btn-search"><i class="bx bx-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="audio-list-wrap">
+                        <button class="scroll-btn audio-scroll-left">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="audio-list-content">
+                            <div class="audio-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="audio-checkbox">
+                                </div>
+                                
+                                <div class="audio-item">
+                                    <div class="audio-wrap">
+                                        <audio controls disableRemotePlayback src="./images/audio/bird3.mp3"></audio>
+                                    </div>
+                                </div>
+                                
+                                <div class="audio-bottom-wrap">
+                                    <div class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</div>
+                                </div>
+                            </div>
+                            <div class="audio-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="audio-checkbox">
+                                </div>
+                                
+                                <div class="audio-item">
+                                    <div class="audio-wrap">
+                                        <audio controls disableRemotePlayback src="./images/audio/bird3.mp3"></audio>
+                                    </div>
+                                </div>
+                                
+                                <div class="audio-bottom-wrap">
+                                    <div class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</div>
+                                </div>
+                            </div>
+                            <div class="audio-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="audio-checkbox">
+                                </div>
+                                
+                                <div class="audio-item">
+                                    <div class="audio-wrap">
+                                        <audio controls disableRemotePlayback src="./images/audio/bird3.mp3"></audio>
+                                    </div>
+                                </div>
+                                
+                                <div class="audio-bottom-wrap">
+                                    <div class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</div>
+                                </div>
+                            </div>
+                            <div class="audio-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="audio-checkbox">
+                                </div>
+                                
+                                <div class="audio-item">
+                                    <div class="audio-wrap">
+                                        <audio controls disableRemotePlayback src="./images/audio/bird3.mp3"></audio>
+                                    </div>
+                                </div>
+                                
+                                <div class="audio-bottom-wrap">
+                                    <div class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</div>
+                                </div>
+                            </div>
+                            <div class="audio-content">
+                                <div class="content-title">
+                                    <div class="video-top-wrap">
+                                        <a href="#" class="video-user-img">
+                                            <img src="./images/avatar/Avatar=1.png">
+                                        </a>
+                                        <div class="video-user-info">
+                                            <div class="video-user-id">마리아</div>
+                                            <div class="video-user-date">25년 4월 1일</div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="audio-checkbox">
+                                </div>
+                                
+                                <div class="audio-item">
+                                    <div class="audio-wrap">
+                                        <audio controls disableRemotePlayback src="./images/audio/bird3.mp3"></audio>
+                                    </div>
+                                </div>
+                                
+                                <div class="audio-bottom-wrap">
+                                    <div class="video-bottom-text">오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.오늘 하루도 행복하세요.</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <button class="scroll-btn audio-scroll-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="management-content">
+                        <div class="management-right-item">
+                            <i class="fa-regular fa-hand-point-right"></i>
+                            <span class="text-item">오디오 아이템 : </span> 
+                        </div>
+                        <span class="audio-selected-count selected-count-text">0개 선택</span>
+                        <div class="btn-wrap">
+                            <button class="btn-delete-shot" id="btn-delete-audio">
+                                <span>삭제</span> 
+                            </button>
+                            <button class="btn-massage-send" id="btn-message-audio">
+                                <span>관리</span> 
+                            </button>
+                        </div>
+                    </div>
+                    <!-- pagination -->
+                    <!-- <div class="chat-page">
+                        <div class="showing-count">
+                            <span>Showing:</span>
+                            <span>1 - 5</span>
+                            <span>of</span>
+                            <span>78</span>
+                        </div>
+                        <ul class="pagination">
+                            <li><a href="#"><i class='bx bx-chevrons-left' ></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevron-left' ></i></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#"><i class='bx bx-chevron-right' ></i></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevrons-right' ></i></a></li>
+                            
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <span>Copyright</span>
+                    <span>&copy;</span>
+                    <span><a href="#">ILMARE</a> </span>
+                    <span>2025 YEONOL</span>
+                </div>
+                <div class="version">v1.4.2</div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

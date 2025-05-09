@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logo_ball_160.png">
+    <title>여놀_Dashboard</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="/" class="logo">
+            <img src="/images/logo_ball_300.png" alt="로고">
+            <div class="logo-name">
+                YEO<span>NOL</span>
+            </div>
+        </a>
+        
+        <ul class="side-menu">
+            <li><a href="/"><i class='bx bxs-dashboard'></i>대쉬보드</a></li>
+            <li><a href="/sp_users.html"><i class='bx bxs-group'></i>유저관리</a></li>
+            <li><a href="/chatting.html"><i class='bx bxs-message-square-dots'></i>채팅관리</a></li>
+            <li><a href="/party.html"><i class='bx bxs-party'></i>파티관리</a></li>
+            <li><a href="/shorts_gram.html"><i class='bx bxs-video-recording'></i>쇼츠&그램</a></li>
+            <li><a href="/sales.html"><i class='bx bxs-coin-stack'></i>매출관리</a></li>
+            <li><a href="/coupon.html"><i class='bx bxs-coupon'></i>쿠폰관리</a></li>
+            <li><a href="/push.html"><i class='bx bxs-down-arrow-circle'></i>푸쉬관리</a></li>
+            <li><a href="/announcement.html"><i class='bx bxs-edit-alt'></i>공지관리</a></li>
+            <li><a href="/report.html"><i class='bx bxs-no-entry'></i>신고관리</a></li>
+            <li class="active"><a href="/guide.html"><i class='bx bxs-book-open'></i>여놀가이드</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout" onclick="handleLogout(event)">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="검색어를 입력해주세요">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./images/avatar/Avatar=14.png">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <div class="breadcrumb-header">
+                <div class="left">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/">HOME</a>
+                            <i class='bx bx-chevron-right'></i>
+                        </li>
+                        <li class="active">
+                            <a href="#">여놀 가이드</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="guide-management">
+                <div class="guide-list">
+
+                    <div class="header">
+                        <i class='bx bx-book-open'></i>
+                        <h3>가이드</h3>
+
+                        <div class="search-box">
+                            <input type="text" class="input-search" placeholder="검색어를 입력해주세요">
+                            <button class="btn-search"><i class="bx bx-search"></i></button>
+                        </div>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="input"><input type="checkbox" class="all-check"></th>
+                                <th class="data data-class"><a href="#" data-sort="name">분류</a></th>
+                                <th class="data data-title"><a href="#" data-sort="email">제목</a></th>
+                                <th class="data data-anndate"><a href="#" data-sort="phone">공지 일시</a></th>
+                                <th class="data data-btn"><a href="#" data-sort="userid">상태</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="event">[ 이벤트 ]</td>
+                                <td>썸푸닝 가이드</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status completed">수정</span>
+                                    <span class="status danger">삭제</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="event">[ 이벤트 ]</td>
+                                <td>썸푸닝 가이드</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status completed">수정</span>
+                                    <span class="status danger">삭제</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="one-check"></td>
+                                <td class="event">[ 이벤트 ]</td>
+                                <td>썸푸닝 가이드</td>
+                                <td>2024/04/01, 16:44:62</td>
+                                <td><span class="status completed">수정</span>
+                                    <span class="status danger">삭제</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- pagination -->
+                    <div class="bl-page">
+                        <div class="showing-count">
+                            <span>Showing:</span>
+                            <span>1 - 3</span>
+                            <span>of</span>
+                            <span>78</span>
+                        </div>
+                        <ul class="pagination">
+                            <li><a href="#"><i class='bx bx-chevrons-left' ></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevron-left' ></i></i></a></li>
+                            <li><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#"><i class='bx bx-chevron-right' ></i></i></a></li>
+                            <li><a href="#"><i class='bx bx-chevrons-right' ></i></a></li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="editor-wrap">
+                        <div class="dropdown-wrap">
+                            <div class="dropdown">
+                                <button class="dropbtn">
+                                    <span class="dropbtn_icon" style="display: none;">more_horiz</span>
+                                    <span class="dropbtn_content">--- 분류 ---</span>
+                                    <span class="dropbtn_click">arrow_drop_down</span>
+                                </button>
+        
+                                <div class="dropdown-content">
+                                    <div class="dataclass">[ 포인트 ]</div>
+                                    <div class="dataclass">[ 긴 급 ]</div>
+                                    <div class="dataclass">[ 이벤트 ]</div>
+                                    <div class="dataclass">[ 기타1 ]</div>
+                                </div>
+                            </div>
+                            <div class="class-title-wrap">
+                                <input type="text" class="class-title" placeholder="제목을 입력해주세요">
+                            </div>
+                            <div class="editor-btn">가이드 올리기</div>
+                        </div>
+    
+                        <div class="editor-container">
+                            <div class="options">
+                                <div class="option-wrap">
+                                    <!-- Text Format -->
+                                    <button id="bold" class="option-button format">
+                                        <i class="fa-solid fa-bold"></i>
+                                    </button>
+                                    <button id="italic" class="option-button format">
+                                        <i class="fa-solid fa-italic"></i>
+                                    </button>
+                                    <button id="underline" class="option-button format">
+                                        <i class="fa-solid fa-underline"></i>
+                                    </button>
+                                    <button id="strikethrough" class="option-button format">
+                                        <i class="fa-solid fa-strikethrough"></i>
+                                    </button>
+                                    <button id="superscript" class="option-button script">
+                                        <i class="fa-solid fa-superscript"></i>
+                                    </button>
+                                    <button id="subscript" class="option-button script">
+                                        <i class="fa-solid fa-subscript"></i>
+                                    </button>
+                            
+                                    <!-- List -->
+                                    <button id="insertOrderedList" class="option-button">
+                                        <div class="fa-solid fa-list-ol"></div>
+                                    </button>
+                                    <button id="insertUnorderedList" class="option-button">
+                                        <i class="fa-solid fa-list"></i>
+                                    </button>
+                                    <!-- Undo/Redo -->
+                                    <button id="undo" class="option-button">
+                                        <i class="fa-solid fa-rotate-left"></i>
+                                    </button>
+                                    <button id="redo" class="option-button">
+                                        <i class="fa-solid fa-rotate-right"></i>
+                                    </button>
+                            
+                                    <!-- Link -->
+                                    <button id="createLink" class="adv-option-button">
+                                        <i class="fa fa-link"></i>
+                                    </button>
+                                    <button id="unlink" class="option-button">
+                                        <i class="fa fa-unlink"></i>
+                                    </button>
+                                </div>
+    
+                                <div class="option-wrap">
+                                    <!-- Alignment -->
+                                    <button id="justifyLeft" class="option-button align">
+                                        <i class="fa-solid fa-align-left"></i>
+                                    </button>
+                                    <button id="justifyCenter" class="option-button align">
+                                        <i class="fa-solid fa-align-center"></i>
+                                    </button>
+                                    <button id="justifyRight" class="option-button align">
+                                        <i class="fa-solid fa-align-right"></i>
+                                    </button>
+                                    <button id="justifyFull" class="option-button align">
+                                        <i class="fa-solid fa-align-justify"></i>
+                                    </button>
+                                    <button id="indent" class="option-button spacing">
+                                        <i class="fa-solid fa-indent"></i>
+                                    </button>
+                                    <button id="outdent" class="option-button spacing">
+                                        <i class="fa-solid fa-outdent"></i>
+                                    </button>
+                                </div>
+    
+                                <div class="option-wrap">
+                                    <!-- Headings -->
+                                    <select id="formatBlock" class="adv-option-button">
+                                        <option value="H1">H1</option>
+                                        <option value="H2">H2</option>
+                                        <option value="H3">H3</option>
+                                        <option value="H4">H4</option>
+                                        <option value="H5">H5</option>
+                                        <option value="H6">H6</option>
+                                    </select>
+                            
+                                    <!-- Font -->
+                                    <select id="fontName" class="adv-option-button"></select>
+                                    <select id="fontSize" class="adv-option-button"></select>
+                            
+                                </div>
+    
+                                <div class="option-wrap">
+                                    <!-- Color -->
+                                    <div class="input-wrapper">
+                                        <input type="color" id="foreColor" class="adv-option-button" />
+                                        <label for="foreColor">Font Color</label>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <input type="color" id="backColor" class="adv-option-button" />
+                                        <label for="backColor">Highlight Color</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="text-input" contenteditable="true"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <span>Copyright</span>
+                    <span>&copy;</span>
+                    <span><a href="#">ILMARE</a> </span>
+                    <span>2025 YEONOL</span>
+                </div>
+                <div class="version">v1.4.2</div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/text_editor.js"></script>
+</body>
+
+</html>

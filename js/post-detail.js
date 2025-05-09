@@ -2,11 +2,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // 좋아요 버튼 기능
     const likeBtn = document.querySelector('.like-btn');
     if (likeBtn) {
+        // 초기 좋아요 상태 설정
+        let isLiked = false;
+        const likeCount = likeBtn.querySelector('.like-count');
+        let currentCount = parseInt(likeCount.textContent) || 0;
+
         likeBtn.addEventListener('click', () => {
+            isLiked = !isLiked;
             likeBtn.classList.toggle('active');
-            const likeCount = likeBtn.querySelector('span');
-            const currentCount = parseInt(likeCount.textContent.split(' ')[1]);
-            likeCount.textContent = `좋아요 ${likeBtn.classList.contains('active') ? currentCount + 1 : currentCount - 1}`;
+            
+            // 좋아요 상태에 따라 카운트 증가/감소
+            if (isLiked) {
+                currentCount++;
+                likeBtn.querySelector('i').classList.remove('fa-regular');
+                likeBtn.querySelector('i').classList.add('fa-solid');
+            } else {
+                currentCount--;
+                likeBtn.querySelector('i').classList.remove('fa-solid');
+                likeBtn.querySelector('i').classList.add('fa-regular');
+            }
+            
+            // 카운트 업데이트
+            likeCount.textContent = currentCount;
         });
     }
 

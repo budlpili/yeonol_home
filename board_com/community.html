@@ -1,25 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>커뮤니티 - 여놀</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="여놀 - 당신의 특별한 만남을 위한 공간">
+        <meta name="keywords" content="여놀, 여놀 소개, 여놀 소개 페이지, 여놀 소개 페이지 소개, 여놀 소개 페이지 소개 소개">
+        <meta name="author" content="여놀">
+        <meta name="robots" content="index, follow">
+        <meta name="googlebot" content="index, follow">
+        <meta name="google" content="notranslate">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="여놀">
+        
+        <title>여놀 - 당신의 특별한 만남을 위한 공간</title>
+        <link rel="icon" href="../images/icon_fav.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="../css/animation.css">
+        <link rel="stylesheet" href="../css/style-items.css">
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
 <body>
+    <!-- 헤더 섹션 -->
     <header>
-        <nav>
+        <nav class="navbar" id="navbar">
             <div class="logo">
-                <h1>여기서놀자</h1>
+                <a href="../index.html">
+                    <img src="../images/yeonol_bal.gif" alt="여기서놀자 로고" class="logo-img animated rubberBand">
+                </a>
             </div>
+            <button type="button" class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="../index.html">홈</a></li>
                 <li><a href="../board_com/community.html">커뮤니티</a></li>
-                <li><a href="../board_gallery/gallery.html">갤러리</a></li>
+                <li><a href="../board_gallery/gallery.html">핫플레이스</a></li>
                 <li><a href="../customer-service.html">고객센터</a></li>
-                <li><a href="../login.html">로그인</a></li>
-                <li><a href="../register.html">회원가입</a></li>
+
+                <ul class="login-links">
+                    <li><a href="../login.html" class="login-link">로그인</a></li>
+                    <li><a href="../my-info.html" class="my-info-link">내정보</a></li>
+                </ul>
             </ul>
+            
         </nav>
     </header>
 
@@ -27,7 +53,7 @@
         <div class="community-container">
             <div class="board-header">
                 <h2>커뮤니티 게시판</h2>
-                <button class="write-btn" onclick="location.href='../board_com/write.html'">글쓰기</button>
+                <button class="write-btn" onclick="location.href='../board_com/post-write.html'">글쓰기</button>
             </div>
 
             <div class="board-categories">
@@ -63,6 +89,7 @@
                     <span class="col-num">1</span>
                     <span class="col-category">연애상담</span>
                     <span class="col-title">
+                        <img src="../images/cafe_01.png" alt="썸네일이미지" class="board-thumbnail">
                         <a href="../board_com/post-detail.html">데이트 장소 추천해주세요!</a>
                     </span>
                     <span class="col-author">데이트초보</span>
@@ -159,39 +186,62 @@
                     <span class="col-date">2024.03.20</span>
                     <span class="col-views">42</span>
                 </div>
-
-
             </div>
 
             <div class="pagination">
-                <a href="#" class="page-btn">&lt;</a>
-                <a href="#" class="page-btn active">1</a>
-                <a href="#" class="page-btn">2</a>
-                <a href="#" class="page-btn">3</a>
-                <a href="#" class="page-btn">4</a>
-                <a href="#" class="page-btn">5</a>
-                <a href="#" class="page-btn">&gt;</a>
+                <a href="#" class="pagination-btn">&lt;</a>
+                <a href="#" class="active pagination-btn">1</a>
+                <a href="#" class="pagination-btn">2</a>
+                <a href="#" class="pagination-btn">3</a>
+                <a href="#" class="pagination-btn">4</a>
+                <a href="#" class="pagination-btn">5</a>
+                <a href="#" class="pagination-btn">&gt;</a>
             </div>
         </div>
     </main>
 
+    <!-- 푸터 -->
     <footer>
         <div class="footer-content">
-            <div class="company-info">
-                <p>회사명: 데이팅앱</p>
-                <p>이메일: contact@datingapp.com</p>
-                <p>전화: 02-123-4567</p>
-            </div>
-            <div class="social-links">
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
+            <div class="footer-info">
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="../rules/privacy-policy.html" target="_blank" rel="noopener noreferrer">개인정보처리방침</a></li>
+                        <li><a href="../rules/terms-of-service.html" target="_blank" rel="noopener noreferrer">이용약관</a></li>
+                        <li><a href="../rules/location-service.html" target="_blank" rel="noopener noreferrer">위치기반서비스이용약관</a></li>
+                        <li><a href="../rules/youth-protection.html" target="_blank" rel="noopener noreferrer">청소년보호정책</a></li>
+                        <li><a href="../customer-service.html#report">불법촬영물신고</a></li>
+                        <li><a href="../customer-service.html#qna">1:1 문의</a></li>
+                        <li><a href="../customer-service.html#faq">자주묻는질문</a></li>
+                    </ul>
+                </div>
+                <div class="company-info">
+                    <div class="logo-text">
+                        <div class="footer-brand">
+                            <img src="../images/logo_ball_white.png" alt="여기서놀자 로고" class="footer-logo">
+                        </div>
+                        <div class="company-info-text">
+                            <p>(주)일마레 | 대표자: 서인정</p>
+                            <p>사업자등록번호: 681-88-02902</p>
+                            <p>주소: 전북특별자치도 군산시 대학로 342-1</p>
+                            <!-- <p>통신판매신고번호: 제 2024-서울강남-00001호</p> -->
+                            <p>고객센터: <a href="mailto:help@yeonol.com">help@yeonol.com</a> | TEL 063-464-4580</p>
+                            <div class="copyright">&copy; 2025 ILMARE. All rights reserved.</div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
+        
     </footer>
 
-    <script src="./js/script.js"></script>
-    <script src="./js/community.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/community.js"></script>
 
 </body>
 </html>

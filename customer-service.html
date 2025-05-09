@@ -3,313 +3,804 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>고객센터 - 여놀</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <meta name="description" content="여놀 - 당신의 특별한 만남을 위한 공간">
+    <meta name="keywords" content="여놀, 여놀 소개, 여놀 소개 페이지, 여놀 소개 페이지 소개, 여놀 소개 페이지 소개 소개">
+    <meta name="author" content="여놀">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="google" content="notranslate">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="여놀">
+    
+    <title>여놀 - 당신의 특별한 만남을 위한 공간</title>
+    <link rel="icon" href="../images/icon_fav.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/animation.css">
+    <link rel="stylesheet" href="../css/style-items.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-<body>
+<body class="cs-body">
+    <!-- 헤더 섹션 -->
     <header>
-        <nav>
+        <nav class="navbar" id="navbar">
             <div class="logo">
-                <h1>여기서놀자</h1>
+                <a href="./index.html">
+                    <img src="./images/yeonol_bal.gif" alt="여기서놀자 로고" class="logo-img animated rubberBand">
+                </a>
             </div>
-            <div class="menu-toggle">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+            <button type="button" class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
-              <li><a href="../index.html">홈</a></li>
-              <li><a href="../board_com/community.html">커뮤니티</a></li>
-              <li><a href="../board_gallery/gallery.html">갤러리</a></li>
-              <li><a href="../customer-service.html">고객센터</a></li>
-              <li><a href="../login.html">로그인</a></li>
-              <li><a href="../register.html">회원가입</a></li>
-          </ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="./board_com/community.html">커뮤니티</a></li>
+                <li><a href="./board_gallery/gallery.html">핫플레이스</a></li>
+                <li><a href="./customer-service.html">고객센터</a></li>
+
+                <ul class="login-links">
+                    <li><a href="./login.html" class="login-link">로그인</a></li>
+                    <li><a href="./my-info.html" class="my-info-link">내정보</a></li>
+                </ul>
+            </ul>
+            
         </nav>
     </header>
 
-    <main class="cs-main">
+    <div class="cs-main">
         <div class="cs-container">
-            
-            <div class="cs-content">
-              <!-- 사이드 메뉴 -->
-              <div class="cs-sidebar">
-                <div class="side-sticky">
-                  <div class="cs-header">
+            <!-- 사이드 메뉴 -->
+            <div class="cs-sidebar">
+                <div class="cs-header">
                     <h2>고객센터</h2>
-                    <!-- <p>궁금한 점이 있으신가요? 아래에서 자주 묻는 질문을 확인하시거나 문의하기를 통해 질문해주세요.</p> -->
-                  </div>
-                  <ul class="cs-menu">
-                      <li class="active" data-tab="faq">자주 묻는 질문</li>
-                      <li data-tab="notice">공지사항</li>
-                      <li data-tab="qna">1:1 문의하기</li>
-                      <li data-tab="inquiry-list">나의 문의내역</li>
-                  </ul>
-                  <div class="cs-contact-info">
-                      <h3>고객센터 연락처</h3>
-                      <p>02-123-4567</p>
-                      <p>평일 09:00 - 18:00</p>
-                      <p>주말 및 공휴일 휴무</p>
-                  </div>
-                </div>
-                
-              </div>
+                    <p>자주 묻는 질문을 확인하시거나 문의하기를 통해 질문해주세요.</p>
+                    </div>
+                    <ul class="cs-menu">
+                        <li class="active" data-tab="faq">자주 묻는 질문</li>
+                        <li data-tab="notice">공지사항</li>
+                        <li data-tab="qna">1:1 문의하기</li>
+                        <li data-tab="report">신고하기</li>
+                        <li data-tab="inquiry-list">나의 문의내역</li>
+                    </ul>
+                    <div class="cs-contact-info">
+                        <h3>고객센터 연락처</h3>
+                        <p>02-123-4567</p>
+                        <p>평일 09:00 - 18:00</p>
+                        <p>주말 및 공휴일 휴무</p>
+                    </div>
+            </div>
+            <div class="cs-content">
+                <!-- 내용 영역 -->
+                <div class="cs-main-content">
+                    <!-- FAQ 섹션 -->
+                    <div class="cs-tab-content active" id="faq">
+                        <div class="h3"><span>자주 묻는 질문</span></div>
 
-              <!-- 내용 영역 -->
-              <div class="cs-main-content">
-                  <!-- FAQ 섹션 -->
-                  <div class="cs-tab-content active" id="faq">
-                      <div class="h3"><span>자주 묻는 질문</span></div>
-
-                      <div class="cs-search">
-                          <input type="text" placeholder="검색어를 입력하세요">
-                          <button>검색</button>
-                      </div>
-                      <div class="faq-categories">
-                          <button class="active">전체</button>
-                          <button>회원정보</button>
-                          <button>앱 이용</button>
-                          <button>결제</button>
-                          <button>기타</button>
-                      </div>
-                      <div class="accordion-container">
-                          <div class="accordion">
-                              <div class="accordion-header">
-                                  <span class="faq-category">회원정보</span>
-                                  <h4>비밀번호를 잊어버렸어요. 어떻게 찾을 수 있나요?</h4>
-                                  <span class="accordion-icon">+</span>
-                              </div>
-                              <div class="accordion-content">
-                                  <p>로그인 화면에서 '비밀번호 찾기'를 클릭하시면 가입 시 등록한 이메일로 인증번호가 발송됩니다. 인증 후 새로운 비밀번호를 설정하실 수 있습니다.</p>
-                              </div>
-                          </div>
-                          <div class="accordion">
-                              <div class="accordion-header">
-                                  <span class="faq-category">회원정보</span>
-                                  <h4>회원 탈퇴는 어떻게 하나요?</h4>
-                                  <span class="accordion-icon">+</span>
-                              </div>
-                              <div class="accordion-content">
-                                  <p>마이페이지 > 설정 > 회원 탈퇴 메뉴에서 진행하실 수 있습니다. 탈퇴 시 모든 개인정보는 즉시 삭제되며 복구가 불가능합니다.</p>
-                              </div>
-                          </div>
-                          <div class="accordion">
-                              <div class="accordion-header">
-                                  <span class="faq-category">앱 이용</span>
-                                  <h4>매칭은 어떤 기준으로 이루어지나요?</h4>
-                                  <span class="accordion-icon">+</span>
-                              </div>
-                              <div class="accordion-content">
-                                  <p>사용자의 프로필 정보, 관심사, 위치 등을 고려한 알고리즘을 통해 매칭이 이루어집니다. 프로필을 자세히 작성할수록 더 적합한 매칭이 가능합니다.</p>
-                              </div>
-                          </div>
-                          <div class="accordion">
-                              <div class="accordion-header">
-                                  <span class="faq-category">결제</span>
-                                  <h4>결제 내역은 어디서 확인할 수 있나요?</h4>
-                                  <span class="accordion-icon">+</span>
-                              </div>
-                              <div class="accordion-content">
-                                  <p>마이페이지 > 결제 내역에서 확인하실 수 있습니다. 영수증 발급도 같은 메뉴에서 가능합니다.</p>
-                              </div>
-                          </div>
-                          <div class="accordion">
-                              <div class="accordion-header">
-                                  <span class="faq-category">기타</span>
-                                  <h4>부적절한 사용자를 신고하고 싶어요.</h4>
-                                  <span class="accordion-icon">+</span>
-                              </div>
-                              <div class="accordion-content">
-                                  <p>해당 사용자의 프로필이나 메시지 화면에서 '신고하기' 버튼을 통해 신고하실 수 있습니다. 모든 신고는 24시간 내에 검토됩니다.</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- 공지사항 섹션 -->
-                  <div class="cs-tab-content" id="notice">
-                      <div class="h3"><span>공지사항</span></div>
-                      <div class="notice-list">
-                          <table>
-                              <thead>
-                                  <tr>
-                                      <th width="10%">번호</th>
-                                      <th width="70%">제목</th>
-                                      <th width="20%">등록일</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td>10</td>
-                                      <td><a href="#">[중요] 개인정보 처리방침 개정 안내</a></td>
-                                      <td>2024.03.15</td>
-                                  </tr>
-                                  <tr>
-                                      <td>9</td>
-                                      <td><a href="#">앱 버전 2.0 업데이트 안내</a></td>
-                                      <td>2024.03.10</td>
-                                  </tr>
-                                  <tr>
-                                      <td>8</td>
-                                      <td><a href="#">서비스 점검 안내 (03/05 02:00~04:00)</a></td>
-                                      <td>2024.03.04</td>
-                                  </tr>
-                                  <tr>
-                                      <td>7</td>
-                                      <td><a href="#">신규 이벤트 안내: 봄맞이 데이트 코스 추천</a></td>
-                                      <td>2024.02.28</td>
-                                  </tr>
-                                  <tr>
-                                      <td>6</td>
-                                      <td><a href="#">데이팅앱 서비스 오픈 안내</a></td>
-                                      <td>2024.02.15</td>
-                                  </tr>
-                                  <tr>
-                                      <td>5</td>
-                                      <td><a href="#">[중요] 개인정보 처리방침 개정 안내</a></td>
-                                      <td>2024.03.15</td>
-                                  </tr>
-                                  <tr>
-                                      <td>4</td>
-                                      <td><a href="#">앱 버전 2.0 업데이트 안내</a></td>
-                                      <td>2024.03.10</td>
-                                  </tr>
-                                  <tr>
-                                      <td>3</td>
-                                      <td><a href="#">서비스 점검 안내 (03/05 02:00~04:00)</a></td>
-                                      <td>2024.03.04</td>
-                                  </tr>
-                                  <tr>
-                                      <td>2</td>
-                                      <td><a href="#">신규 이벤트 안내: 봄맞이 데이트 코스 추천</a></td>
-                                      <td>2024.02.28</td>
-                                  </tr>
-                                  <tr>
-                                      <td>1</td>
-                                      <td><a href="#">데이팅앱 서비스 오픈 안내</a></td>
-                                      <td>2024.02.15</td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                            <div class="pagination">
-                                <a href="#" class="page-btn">&lt;</a>
-                                <a href="#" class="page-btn active">1</a>
-                                <a href="#" class="page-btn">2</a>
-                                <a href="#" class="page-btn">3</a>
-                                <a href="#" class="page-btn">4</a>
-                                <a href="#" class="page-btn">5</a>
-                                <a href="#" class="page-btn">&gt;</a>
+                        <div class="cs-search">
+                            <input type="text" placeholder="검색어를 입력하세요">
+                            <button>검색</button>
+                        </div>
+                        <div class="faq-categories">
+                            <button class="active">전체</button>
+                            <button>회원정보</button>
+                            <button>앱 이용</button>
+                            <button>결제</button>
+                            <button>기타</button>
+                        </div>
+                        <div class="accordion-container">
+                            <div class="accordion">
+                                <div class="accordion-header">
+                                    <span class="faq-category">회원정보</span>
+                                    <h4>비밀번호를 잊어버렸어요. 어떻게 찾을 수 있나요?</h4>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <p>로그인 화면에서 '비밀번호 찾기'를 클릭하시면 가입 시 등록한 이메일로 인증번호가 발송됩니다. 인증 후 새로운 비밀번호를 설정하실 수 있습니다.</p>
+                                </div>
+                            </div>
+                            <div class="accordion">
+                                <div class="accordion-header">
+                                    <span class="faq-category">회원정보</span>
+                                    <h4>회원 탈퇴는 어떻게 하나요?</h4>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <p>마이페이지 > 설정 > 회원 탈퇴 메뉴에서 진행하실 수 있습니다. 탈퇴 시 모든 개인정보는 즉시 삭제되며 복구가 불가능합니다.</p>
+                                </div>
+                            </div>
+                            <div class="accordion">
+                                <div class="accordion-header">
+                                    <span class="faq-category">앱 이용</span>
+                                    <h4>매칭은 어떤 기준으로 이루어지나요?</h4>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <p>사용자의 프로필 정보, 관심사, 위치 등을 고려한 알고리즘을 통해 매칭이 이루어집니다. 프로필을 자세히 작성할수록 더 적합한 매칭이 가능합니다.</p>
+                                </div>
+                            </div>
+                            <div class="accordion">
+                                <div class="accordion-header">
+                                    <span class="faq-category">결제</span>
+                                    <h4>결제 내역은 어디서 확인할 수 있나요?</h4>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <p>마이페이지 > 결제 내역에서 확인하실 수 있습니다. 영수증 발급도 같은 메뉴에서 가능합니다.</p>
+                                </div>
+                            </div>
+                            <div class="accordion">
+                                <div class="accordion-header">
+                                    <span class="faq-category">기타</span>
+                                    <h4>부적절한 사용자를 신고하고 싶어요.</h4>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-content">
+                                    <p>해당 사용자의 프로필이나 메시지 화면에서 '신고하기' 버튼을 통해 신고하실 수 있습니다. 모든 신고는 24시간 내에 검토됩니다.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                  <!-- 1:1 문의하기 섹션 -->
-                  <div class="cs-tab-content" id="qna">
-                      <div class="h3"><span>1:1 문의하기</span></div>
-                      <form class="inquiry-form">
-                          <div class="form-group">
-                              <label for="inquiry-type">문의 유형</label>
-                              <select id="inquiry-type" required>
-                                  <option value="">선택해주세요</option>
-                                  <option value="account">계정 관련</option>
-                                  <option value="payment">결제 관련</option>
-                                  <option value="bug">오류 신고</option>
-                                  <option value="suggestion">기능 제안</option>
-                                  <option value="other">기타 문의</option>
-                              </select>
-                          </div>
-                          <div class="form-group">
-                              <label for="inquiry-title">제목</label>
-                              <input type="text" id="inquiry-title" required placeholder="문의 제목을 입력해주세요">
-                          </div>
-                          <div class="form-group">
-                              <label for="inquiry-content">내용</label>
-                              <textarea id="inquiry-content" required placeholder="문의 내용을 자세히 작성해주세요"></textarea>
-                          </div>
-                          <div class="form-group">
-                              <label for="inquiry-file">파일 첨부</label>
-                              <input type="file" id="inquiry-file" multiple>
-                              <p class="file-hint">이미지, 문서 파일 첨부 가능 (최대 5MB)</p>
-                          </div>
-                          <div class="form-group">
-                              <label>
-                                  <input type="checkbox" required>
-                                  개인정보 수집 및 이용에 동의합니다.
-                              </label>
-                          </div>
-                          <div class="form-buttons">
-                              <button type="reset" class="cancel-btn">취소</button>
-                              <button type="submit" class="submit-btn">문의하기</button>
-                          </div>
-                      </form>
-                  </div>
-
-                  <!-- 나의 문의내역 섹션 -->
-                  <div class="cs-tab-content" id="inquiry-list">
-                      <div class="h3"><span>나의 문의내역</span></div>
-                      <div class="my-inquiry-list">
-                          <table>
-                              <thead>
-                                  <tr>
-                                      <th width="15%">문의 유형</th>
-                                      <th width="45%">제목</th>
-                                      <th width="15%">등록일</th>
-                                      <th width="15%">처리상태</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td>결제 관련</td>
-                                      <td><a href="#">결제가 완료되었는데 프리미엄 혜택이 적용되지 않아요</a></td>
-                                      <td>2024.03.18</td>
-                                      <td><span class="status waiting">답변대기</span></td>
-                                  </tr>
-                                  <tr>
-                                      <td>오류 신고</td>
-                                      <td><a href="#">매칭 기능 사용 시 앱이 종료됩니다</a></td>
-                                      <td>2024.03.10</td>
-                                      <td><span class="status completed">답변완료</span></td>
-                                  </tr>
-                                  <tr>
-                                      <td>기능 제안</td>
-                                      <td><a href="#">데이트 코스 추천 기능이 있으면 좋겠어요</a></td>
-                                      <td>2024.02.28</td>
-                                      <td><span class="status completed">답변완료</span></td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                          <div class="pagination">
-                            <a href="#" class="page-btn">&lt;</a>
-                            <a href="#" class="page-btn active">1</a>
-                            <a href="#" class="page-btn">2</a>
-                            <a href="#" class="page-btn">3</a>
-                            <a href="#" class="page-btn">4</a>
-                            <a href="#" class="page-btn">5</a>
-                            <a href="#" class="page-btn">&gt;</a>
+                    <!-- 공지사항 섹션 -->
+                    <div class="cs-tab-content" id="notice">
+                        <div class="h3"><span>공지사항</span></div>
+                        <div class="notice-list">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="10%">번호</th>
+                                        <th width="70%">제목</th>
+                                        <th width="20%">등록일</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="cs-number">10</td>
+                                        <td class="cs-title"><a href="#" class="notice-title-link" data-notice-id="10">[중요] 개인정보 처리방침 개정 안내</a></td>
+                                        <td class="cs-date">2024.03.15</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">9</td>
+                                        <td class="cs-title"><a href="#" class="notice-title-link" data-notice-id="9">앱 버전 2.0 업데이트 안내</a></td>
+                                        <td class="cs-date">2024.03.10</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">8</td>
+                                        <td class="cs-title"><a href="#" class="notice-title-link" data-notice-id="8">서비스 점검 안내 (03/05 02:00~04:00)</a></td>
+                                        <td class="cs-date">2024.03.04</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">7</td>
+                                        <td class="cs-title"><a href="#" class="notice-title-link" data-notice-id="7">신규 이벤트 안내: 봄맞이 데이트 코스 추천</a></td>
+                                        <td class="cs-date">2024.02.28</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">6</td>
+                                        <td class="cs-title"><a href="#" class="notice-title-link" data-notice-id="6">데이팅앱 서비스 오픈 안내</a></td>
+                                        <td class="cs-date">2024.02.15</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">5</td>
+                                        <td class="cs-title"><a href="#">[중요] 개인정보 처리방침 개정 안내</a></td>
+                                        <td class="cs-date">2024.03.15</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">4</td>
+                                        <td class="cs-title"><a href="#">앱 버전 2.0 업데이트 안내</a></td>
+                                        <td class="cs-date">2024.03.10</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">3</td>
+                                        <td class="cs-title"><a href="#">서비스 점검 안내 (03/05 02:00~04:00)</a></td>
+                                        <td class="cs-date">2024.03.04</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">2</td>
+                                        <td class="cs-title"><a href="#">신규 이벤트 안내: 봄맞이 데이트 코스 추천</a></td>
+                                        <td class="cs-date">2024.02.28</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">1</td>
+                                        <td class="cs-title"><a href="#">데이팅앱 서비스 오픈 안내</a></td>
+                                        <td class="cs-date">2024.02.15</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="pagination">
+                                <a href="#" class="pagination-btn">&lt;</a>
+                                <a href="#" class="pagination-btn active">1</a>
+                                <a href="#" class="pagination-btn">2</a>
+                                <a href="#" class="pagination-btn">3</a>
+                                <a href="#" class="pagination-btn">4</a>
+                                <a href="#" class="pagination-btn">5</a>
+                                <a href="#" class="pagination-btn">&gt;</a>
+                            </div>
                         </div>
-                      </div>
-                  </div>
-              </div>
+
+                        <!-- 공지사항 상세보기 -->
+                        <div class="notice-view" id="noticeView" style="display: none;">
+                            <div class="notice-header">
+                                <div class="notice-title">
+                                    <h2>[중요] 개인정보 처리방침 개정 안내</h2>
+                                </div>
+                                <div class="notice-meta">
+                                    <span>작성자: 관리자</span>
+                                    <span>등록일: 2024.03.15</span>
+                                    <span>조회수: 1,234</span>
+                                </div>
+                            </div>
+                            <div class="notice-content">
+                                <p>안녕하세요, 여놀입니다.</p>
+                                <p>개인정보 보호법 개정에 따라 개인정보 처리방침이 변경되었음을 알려드립니다.</p>
+                                <p>주요 변경사항:</p>
+                                <p>1. 개인정보 수집 및 이용 목적 명확화</p>
+                                <p>2. 개인정보 보유기간 상세화</p>
+                                <p>3. 개인정보 제3자 제공 현황 추가</p>
+                                <p>4. 이용자의 권리 및 행사방법 구체화</p>
+                                <p>자세한 내용은 첨부된 파일을 참고해 주시기 바랍니다.</p>
+                            </div>
+                            <div class="notice-files">
+                                <h4>첨부파일</h4>
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fas fa-file-pdf"></i>
+                                            개인정보처리방침_20240315.pdf
+                                            <span class="file-size">(2.5MB)</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="notice-navigation">
+                                <div class="prev-next">
+                                    <div class="prev">
+                                        <span class="label">이전글</span>
+                                        <a href="#">앱 버전 2.0 업데이트 안내</a>
+                                    </div>
+                                    <div class="next">
+                                        <span class="label">다음글</span>
+                                        <a href="#">서비스 점검 안내 (03/05 02:00~04:00)</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notice-actions">
+                                <button class="back-btn" id="noticeBackToListBtn">
+                                    <i class="fas fa-list"></i> 목록으로
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 1:1 문의하기 섹션 -->
+                    <div class="cs-tab-content" id="qna">
+                        <div class="h3"><span>1:1 문의하기</span></div>
+                        <form class="inquiry-form">
+                            <div class="form-group">
+                                <label for="inquiry-type">문의 유형</label>
+                                <select id="inquiry-type" required>
+                                    <option value="">선택해주세요</option>
+                                    <option value="account">계정 관련</option>
+                                    <option value="payment">결제 관련</option>
+                                    <option value="bug">오류 신고</option>
+                                    <option value="suggestion">기능 제안</option>
+                                    <option value="other">기타 문의</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inquiry-title">제목</label>
+                                <input type="text" id="inquiry-title" required placeholder="문의 제목을 입력해주세요">
+                            </div>
+                            <div class="form-group">
+                                <label for="inquiry-content">내용</label>
+                                <textarea id="inquiry-content" required placeholder="문의 내용을 자세히 작성해주세요"></textarea>
+                            </div>
+
+                            <!-- 파일 첨부 -->
+                            <div class="form-group">
+                                <label for="reportEvidence">파일첨부 (선택사항)</label>
+                                <div class="file-upload report-file-upload">
+                                    <label for="reportEvidence" class="file-label report-file-label">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span>파일을 선택하거나 여기에 끌어다 놓으세요</span>
+                                    </label>
+                                    <input type="file" id="reportEvidence" name="reportEvidence" multiple style="display: none;">
+                                    <div class="file-list" id="fileList"></div>
+                                </div>
+                            </div>
+
+                            <!-- 개인정보 수집 및 이용에 동의 -->
+                            <div class="form-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" required>
+                                    <span>개인정보 수집 및 이용에 동의합니다.</span>
+                                </label>
+                            </div>
+                            <div class="form-buttons">
+                                <button type="reset" class="cancel-btn">취소</button>
+                                <button type="submit" class="submit-btn">문의하기</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 신고하기 섹션 -->
+                    <div class="cs-tab-content" id="report">
+                        <div class="h3 tab-header">
+                            <span>신고하기</span>
+                        </div>
+                        
+                        <!-- 신고 목록 -->
+                        <div class="report-list" id="reportList">
+                            <div class="write-btn-container">
+                                <button class="write-btn" id="writeReportBtn">
+                                    <i class="fas fa-pen"></i> 글쓰기
+                                </button>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>신고 유형</th>
+                                        <th>제목</th>
+                                        <th>등록일</th>
+                                        <th>처리상태</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="cs-number">10</td>
+                                        <td class="cs-type">욕설/비방</td>
+                                        <td class="cs-title">
+                                            <a href="#" class="report-title-link" data-report-id="10">
+                                                부적절한 댓글 신고합니다부적절한 댓글 신고합니다
+                                                <i class="fas fa-paperclip file-icon" title="첨부파일 있음"></i>
+                                            </a>
+                                        </td>
+                                        <td class="cs-date">2024.03.18</td>
+                                        <td class="cs-status"><span class="status-badge status-pending">처리중</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">9</td>
+                                        <td class="cs-type">스팸/광고</td>
+                                        <td class="cs-title">
+                                            <a href="#" class="report-title-link" data-report-id="9">광고성 게시물 신고</a></td>
+                                        <td class="cs-date">2024.03.15</td>
+                                        <td class="cs-status"><span class="status-badge status-completed">처리완료</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">8</td>
+                                        <td class="cs-type">부적절한 콘텐츠</td>
+                                        <td class="cs-title"><a href="#">부적절한 이미지 신고</a></td>
+                                        <td class="cs-date">2024.03.10</td>
+                                        <td class="cs-status"><span class="status-badge status-completed">처리완료</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">7</td>
+                                        <td class="cs-type">욕설/비방</td>
+                                        <td class="cs-title">
+                                            <a href="#" class="report-title-link" data-report-id="7">
+                                                부적절한 댓글 신고합니다
+                                                <i class="fas fa-paperclip file-icon" title="첨부파일 있음"></i>
+                                            </a>
+                                        </td>
+                                        <td class="cs-date">2024.03.18</td>
+                                        <td class="cs-status"><span class="status-badge status-pending">처리중</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">6</td>
+                                        <td class="cs-type">스팸/광고</td>
+                                        <td class="cs-title">
+                                            <a href="#" class="report-title-link" data-report-id="6">
+                                                광고성 게시물 신고
+                                                <i class="fas fa-paperclip file-icon" title="첨부파일 있음"></i>
+                                            </a>
+                                        </td>
+                                        <td class="cs-date">2024.03.15</td>
+                                        <td class="cs-status"><span class="status-badge status-completed">처리완료</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">5</td>
+                                        <td class="cs-type">부적절한 콘텐츠</td>
+                                        <td class="cs-title">
+                                            <a href="#" class="report-title-link" data-report-id="5">
+                                                부적절한 이미지 신고
+                                                <i class="fas fa-paperclip file-icon" title="첨부파일 있음"></i>
+                                            </a>
+                                        </td>
+                                        <td class="cs-date">2024.03.10</td>
+                                        <td class="cs-status"><span class="status-badge status-completed">처리완료</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">4</td>
+                                        <td class="cs-type">부적절한 콘텐츠</td>
+                                        <td class="cs-title">
+                                            <a href="#" class="report-title-link" data-report-id="4">
+                                                부적절한 이미지 신고
+                                                <i class="fas fa-paperclip file-icon" title="첨부파일 있음"></i>
+                                            </a>
+                                        </td>
+                                        <td class="cs-date">2024.03.10</td>
+                                        <td class="cs-status"><span class="status-badge status-completed">처리완료</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">3</td>
+                                        <td class="cs-type">욕설/비방</td>
+                                        <td class="cs-title">
+                                            <a href="#" class="report-title-link" data-report-id="3">
+                                                부적절한 댓글 신고합니다
+                                                <i class="fas fa-paperclip file-icon" title="첨부파일 있음"></i>
+                                            </a>
+                                        </td>
+                                        <td class="cs-date">2024.03.18</td>
+                                        <td class="cs-status"><span class="status-badge status-pending">처리중</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">2</td>
+                                        <td class="cs-type">스팸/광고</td>
+                                        <td class="cs-title">
+                                            <a href="#" class="report-title-link" data-report-id="2">
+                                                광고성 게시물 신고
+                                                <i class="fas fa-paperclip file-icon" title="첨부파일 있음"></i>
+                                            </a>
+                                        </td>
+                                        <td class="cs-date">2024.03.15</td>
+                                        <td class="cs-status"><span class="status-badge status-completed">처리완료</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-number">1</td>
+                                        <td class="cs-type">부적절한 콘텐츠</td>
+                                        <td class="cs-title">
+                                            <a href="#" class="report-title-link" data-report-id="1">
+                                                부적절한 이미지 신고
+                                                <i class="fas fa-paperclip file-icon" title="첨부파일 있음"></i>
+                                            </a>
+                                        </td>
+                                        <td class="cs-date">2024.03.10</td>
+                                        <td class="cs-status"><span class="status-badge status-completed">처리완료</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="pagination">
+                                <a href="#" class="pagination-btn">&lt;</a>
+                                <a href="#" class="active pagination-btn">1</a>
+                                <a href="#" class="pagination-btn">2</a>
+                                <a href="#" class="pagination-btn">3</a>
+                                <a href="#" class="pagination-btn">4</a>
+                                <a href="#" class="pagination-btn">5</a>
+                                <a href="#" class="pagination-btn">&gt;</a>
+                            </div>
+                        </div>
+
+                        <!-- 신고 작성 폼 -->
+                        <div class="report-form" id="reportForm" style="display: none;">
+                            <div class="form-group">
+                                <label for="reportType">신고 유형</label>
+                                <select id="reportType" name="reportType" required>
+                                    <option value="select-title">신고 유형을 선택해주세요</option>
+                                    <option value="abuse">욕설/비방</option>
+                                    <option value="spam">스팸/광고</option>
+                                    <option value="inappropriate">부적절한 콘텐츠</option>
+                                    <option value="harassment">성희롱/성추행</option>
+                                    <option value="illegal">불법 콘텐츠</option>
+                                    <option value="other">기타</option>
+                                </select>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="reportTitle">제목</label>
+                                <input type="text" id="reportTitle" name="reportTitle" placeholder="제목을 입력해주세요" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="reportContent">신고 내용</label>
+                                <textarea id="reportContent" name="reportContent" placeholder="신고하시는 내용을 자세히 설명해주세요." required></textarea>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="reportEvidence">증거 자료 (선택사항)</label>
+                                <div class="file-upload report-file-upload">
+                                    <label for="reportEvidence" class="file-label report-file-label">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        파일을 선택하거나 여기에 끌어다 놓으세요
+                                    </label>
+                                    <input type="file" id="reportEvidence" name="reportEvidence" multiple style="display: none;">
+                                    <div class="file-list" id="fileList"></div>
+                                </div>
+                            </div>
+        
+                            <div class="form-notice">
+                                <h3>신고 시 주의사항</h3>
+                                <ul>
+                                    <li>허위 신고는 서비스 이용에 제한을 받을 수 있습니다.</li>
+                                    <li>신고된 내용은 검토 후 적절한 조치가 이루어집니다.</li>
+                                    <li>긴급한 상황의 경우 즉시 경찰에 신고하시기 바랍니다.</li>
+                                    <li>신고 내용은 최대한 구체적으로 작성해 주시기 바랍니다.</li>
+                                </ul>
+                            </div>
+        
+                            <div class="form-buttons">
+                                <button type="button" class="cancel-btn" id="cancelReportBtn">취소</button>
+                                <button type="submit" class="submit-btn">신고하기</button>
+                            </div>
+                        </div>
+
+                        <!-- 신고 상세보기 -->
+                        <div class="report-view" id="reportView" style="display: none;">
+                            <div class="report-info">
+                                <div class="report-title">
+                                    <h2>부적절한 댓글 신고합니다</h2>
+                                    <span class="status-badge status-pending">처리중</span>
+                                </div>
+                                <div class="report-meta">
+                                    <span>신고 유형: 욕설/비방</span>
+                                    <span>등록일: 2024.03.18</span>
+                                </div>
+                            </div>
+                            <div class="report-content">
+                                <p>해당 사용자가 작성한 댓글에 욕설과 비방이 포함되어 있습니다. 구체적인 내용은 첨부된 이미지를 참고해주세요.</p>
+                            </div>
+                            <div class="report-files">
+                                <h3>첨부파일</h3>
+                                <ul class="file-list">
+                                    <li>
+                                        <a href="#" class="file-link">
+                                            <i class="fas fa-file-image"></i>
+                                            evidence_1.jpg
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="report-response">
+                                <div class="report-comments">
+                                    <h3>댓글 <span class="comment-count">0</span></h3>
+                                    <div class="comment-write">
+                                        <textarea placeholder="댓글을 입력하세요"></textarea>
+                                        <button class="submit-comment">등록</button>
+                                    </div>
+            
+                                    <div class="comment-list">
+                                        <div class="comment admin">
+                                            <div class="comment-info">
+                                                <img src="./images/profile/pro_01.png" alt="프로필" class="comment-profile">
+                                                <span class="comment-author">관리자</span>
+                                                <span class="comment-date">2024.03.20</span>
+                                            </div>
+                                            <p class="comment-text">신고해 주셔서 감사합니다. 검토 후 조치하도록 하겠습니다.</p>
+                                            <div class="comment-actions">
+                                                <button class="reply-btn">답글</button>
+                                                <button class="reply-delete-btn">삭제</button>
+                                            </div>
+                                            <!-- 답글 작성 폼 -->
+                                            <div class="reply-form" style="display: none;">
+                                                <textarea placeholder="답글을 입력하세요"></textarea>
+                                                <div class="reply-buttons">
+                                                    <button class="submit-reply">등록</button>
+                                                    <button class="cancel-reply">취소</button>
+                                                </div>
+                                            </div>
+                                            <!-- 답글 목록 -->
+                                            <div class="reply-list">
+                                                <div class="comment reply">
+                                                    <div class="comment-info">
+                                                        <img src="./images/profile/pro_03.png" alt="프로필" class="comment-profile">
+                                                        <span class="comment-author">홍길동</span>
+                                                        <span class="comment-date">2024.03.20</span>
+                                                    </div>
+                                                    <p class="comment-text">빠른 조치 부탁드립니다.</p>
+                                                    <div class="comment-actions">
+                                                        <button class="reply-delete-btn">삭제</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+
+                            <div class="report-actions">
+                                <button class="back-btn" id="backToListBtn">
+                                    <i class="fas fa-list"></i> 목록으로
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 나의 문의내역 섹션 -->
+                    <div class="cs-tab-content" id="inquiry-list">
+                        <div class="h3 tab-header">
+                            <span>나의 문의내역</span>
+                        </div>
+                        
+                        <!-- 문의 목록 -->
+                        <div class="inquiry-list" id="inquiryList">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="15%">문의 유형</th>
+                                        <th width="45%">제목</th>
+                                        <th width="15%">등록일</th>
+                                        <th width="15%">처리상태</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="cs-type">결제 관련</td>
+                                        <td>
+                                            <a href="#" class="inquiry-title-link" data-inquiry-id="1">
+                                                결제가 완료되었는데 프리미엄 혜택이 적용되지 않아요
+                                                <i class="fas fa-paperclip file-icon" title="첨부파일 있음"></i>
+                                            </a>
+                                        </td>
+                                        <td class="cs-date">2024.03.18</td>
+                                        <td class="cs-status"><span class="status-badge status-waiting">답변대기</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-type">오류 신고</td>
+                                        <td>
+                                            <a href="#" class="inquiry-title-link" data-inquiry-id="2">
+                                                매칭 기능 사용 시 앱이 종료됩니다
+                                            </a>
+                                        </td>
+                                        <td class="cs-date">2024.03.10</td>
+                                        <td class="cs-status"><span class="status-badge status-completed">답변완료</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cs-type">기능 제안</td>
+                                        <td>
+                                            <a href="#" class="inquiry-title-link" data-inquiry-id="3">
+                                                데이트 코스 추천 기능이 있으면 좋겠어요
+                                            </a>
+                                        </td>
+                                        <td class="cs-date">2024.02.28</td>
+                                        <td class="cs-status"><span class="status-badge status-completed">답변완료</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="pagination">
+                                <a href="#" class="pagination-btn">&lt;</a>
+                                <a href="#" class="pagination-btn active">1</a>
+                                <a href="#" class="pagination-btn">2</a>
+                                <a href="#" class="pagination-btn">3</a>
+                                <a href="#" class="pagination-btn">4</a>
+                                <a href="#" class="pagination-btn">5</a>
+                                <a href="#" class="pagination-btn">&gt;</a>
+                            </div>
+                        </div>
+
+                        <!-- 문의 상세보기 -->
+                        <div class="inquiry-view" id="inquiryView" style="display: none;">
+                            <div class="inquiry-info">
+                                <div class="inquiry-title">
+                                    <h2>결제가 완료되었는데 프리미엄 혜택이 적용되지 않아요</h2>
+                                    <span class="status-badge status-waiting">답변대기</span>
+                                </div>
+                                <div class="inquiry-meta">
+                                    <span>문의 유형: 결제 관련</span>
+                                    <span>등록일: 2024.03.18</span>
+                                </div>
+                            </div>
+                            <div class="inquiry-content">
+                                <p>안녕하세요, 프리미엄 결제를 완료했는데 혜택이 적용되지 않아 문의드립니다. <br>
+                                결제 완료 메일은 받았는데, 앱에서 프리미엄 기능을 사용할 수 없습니다. <br>
+                                결제 내역과 함께 스크린샷을 첨부했습니다.</p>
+                            </div>
+                            <div class="inquiry-files">
+                                <h3>첨부파일</h3>
+                                <ul class="file-list">
+                                    <li>
+                                        <a href="#" class="file-link">
+                                            <i class="fas fa-file-image"></i>
+                                            evidence_1.jpg
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="inquiry-response">
+                                <div class="inquiry-comments">
+                                    <h3>답변 <span class="comment-count">0</span></h3>
+                                    <div class="comment-write">
+                                        <textarea placeholder="답변을 입력하세요"></textarea>
+                                        <button class="submit-comment">등록</button>
+                                    </div>
+            
+                                    <div class="comment-list">
+                                        <div class="comment admin">
+                                            <div class="comment-info">
+                                                <img src="./images/profile/pro_01.png" alt="프로필" class="comment-profile">
+                                                <span class="comment-author">관리자</span>
+                                                <span class="comment-date">2024.03.20</span>
+                                            </div>
+                                            <p class="comment-text">신고해 주셔서 감사합니다. 검토 후 조치하도록 하겠습니다.</p>
+                                            <div class="comment-actions">
+                                                <button class="reply-btn">답글</button>
+                                                <button class="reply-delete-btn">삭제</button>
+                                            </div>
+                                            <!-- 답글 작성 폼 -->
+                                            <div class="reply-form" style="display: none;">
+                                                <textarea placeholder="답글을 입력하세요"></textarea>
+                                                <div class="reply-buttons">
+                                                    <button class="submit-reply">등록</button>
+                                                    <button class="cancel-reply">취소</button>
+                                                </div>
+                                            </div>
+                                            <!-- 답글 목록 -->
+                                            <div class="reply-list">
+                                                <div class="comment reply">
+                                                    <div class="comment-info">
+                                                        <img src="./images/profile/pro_03.png" alt="프로필" class="comment-profile">
+                                                        <span class="comment-author">홍길동</span>
+                                                        <span class="comment-date">2024.03.20</span>
+                                                    </div>
+                                                    <p class="comment-text">빠른 조치 부탁드립니다.</p>
+                                                    <div class="comment-actions">
+                                                        <button class="reply-delete-btn">삭제</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inquiry-actions">
+                                <button class="back-btn" id="inquiryBackToListBtn">
+                                    <i class="fas fa-list"></i> 목록으로
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
             </div>
         </div>
-    </main>
+        
+    </div>
 
     <footer>
         <div class="footer-content">
-            <div class="company-info">
-                <p>회사명: 데이팅앱</p>
-                <p>이메일: contact@datingapp.com</p>
-                <p>전화: 02-123-4567</p>
-            </div>
-            <div class="social-links">
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
+            <div class="footer-info">
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="../rules/privacy-policy.html" target="_blank" rel="noopener noreferrer">개인정보처리방침</a></li>
+                        <li><a href="../rules/terms-of-service.html" target="_blank" rel="noopener noreferrer">이용약관</a></li>
+                        <li><a href="../rules/location-service.html" target="_blank" rel="noopener noreferrer">위치기반서비스이용약관</a></li>
+                        <li><a href="../rules/youth-protection.html" target="_blank" rel="noopener noreferrer">청소년보호정책</a></li>
+                        <li><a href="../customer-service.html#report">불법촬영물신고</a></li>
+                        <li><a href="../customer-service.html#qna">1:1 문의</a></li>
+                        <li><a href="../customer-service.html#faq">자주묻는질문</a></li>
+                    </ul>
+                </div>
+                <div class="company-info">
+                    <div class="logo-text">
+                        <div class="footer-brand">
+                            <img src="../images/logo_ball_white.png" alt="여기서놀자 로고" class="footer-logo">
+                        </div>
+                        <div class="company-info-text">
+                            <p>(주)일마레 | 대표자: 서인정</p>
+                            <p>사업자등록번호: 681-88-02902</p>
+                            <p>주소: 전북특별자치도 군산시 대학로 342-1</p>
+                            <!-- <p>통신판매신고번호: 제 2024-서울강남-00001호</p> -->
+                            <p>고객센터: <a href="mailto:help@yeonol.com">help@yeonol.com</a> | TEL 063-464-4580</p>
+                            <div class="copyright">&copy; 2025 ILMARE. All rights reserved.</div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
+        
     </footer>
 
-    <script src="../js/script.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/customer-service.js"></script>
 </body>
 </html> 
