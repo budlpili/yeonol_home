@@ -1,7 +1,7 @@
 // 공통 알림창 관리
 const CommonAlerts = {
     // 성공 알림
-    showSuccess: function(message, title = '성공') {
+    showSuccess: function (message, title = '성공') {
         return Swal.fire({
             icon: 'success',
             title: title,
@@ -11,7 +11,7 @@ const CommonAlerts = {
     },
 
     // 에러 알림
-    showError: function(message, title = '오류') {
+    showError: function (message, title = '오류') {
         return Swal.fire({
             icon: 'error',
             title: title,
@@ -21,7 +21,7 @@ const CommonAlerts = {
     },
 
     // 경고 알림
-    showWarning: function(message, title = '경고') {
+    showWarning: function (message, title = '경고') {
         return Swal.fire({
             icon: 'warning',
             title: title,
@@ -31,7 +31,7 @@ const CommonAlerts = {
     },
 
     // 확인 대화상자
-    showConfirm: function(message, title = '확인') {
+    showConfirm: function (message, title = '확인') {
         return Swal.fire({
             icon: 'question',
             title: title,
@@ -43,7 +43,7 @@ const CommonAlerts = {
     },
 
     // 삭제 확인 대화상자
-    showDeleteConfirm: function(message = '정말 삭제하시겠습니까?') {
+    showDeleteConfirm: function (message = '정말 삭제하시겠습니까?') {
         return Swal.fire({
             icon: 'warning',
             title: '삭제 확인',

@@ -4036,8 +4036,6 @@ button:focus { outline: none; }
 .btn-link:focus, .btn-link.focus { text-decoration: none; box-shadow: none; }
 .btn-link:disabled, .btn-link.disabled { color: #017725; opacity: 0.7; pointer-events: none; }
 
-
-
 .btn-link.secondary { color: #484848; }
 .btn-link.secondary:hover { color: #222222; }
 .btn-link.secondary:disabled, .btn-link.secondary.disabled { color: #222222; }
