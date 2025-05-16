@@ -81,11 +81,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         scrollTimeout = window.requestAnimationFrame(function() {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
         });
     });
 
@@ -137,11 +137,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // 메뉴 토글
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    
+
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', function() {
             navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+        menuToggle.classList.toggle('active');
         });
     }
 
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             links.forEach(link => {
                                 link.addEventListener('click', function() {
                                     navLinks.classList.remove('active');
-                                    menuToggle.classList.remove('active');
+            menuToggle.classList.remove('active');
                                 });
                             });
                         }
@@ -233,29 +233,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 페이지 상단으로 이동하는 버튼 기능
     const pageTopBtn = document.getElementById('pageTop');
-    
+
     if (pageTopBtn) {
         let pageTopScrollTimeout;
-        window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function() {
             if (pageTopScrollTimeout) {
                 window.cancelAnimationFrame(pageTopScrollTimeout);
             }
             
             pageTopScrollTimeout = window.requestAnimationFrame(function() {
-                if (window.scrollY > 100) {
-                    pageTopBtn.classList.add('show');
-                } else {
-                    pageTopBtn.classList.remove('show');
-                }
+        if (window.scrollY > 100) {
+            pageTopBtn.classList.add('show');
+        } else {
+            pageTopBtn.classList.remove('show');
+        }
             });
-        });
+    });
 
-        pageTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+    pageTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
+    });
     }
 
     // 이미지 스크롤 애니메이션

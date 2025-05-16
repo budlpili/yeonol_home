@@ -3,21 +3,21 @@ if (typeof jQuery !== 'undefined') {
 	$(document).ready(function () {
 		// 로그아웃 버튼 이벤트
 		$('#logoutBtn').on('click', function (e) {
-			e.preventDefault();
-			Swal.fire({
-				title: '정말 로그아웃 하시겠습니까?',
-				icon: 'question',
-				showCancelButton: true,
-				confirmButtonText: '로그아웃',
-				cancelButtonText: '취소',
-				confirmButtonColor: '#d33',
-				cancelButtonColor: '#3085d6'
-			}).then((result) => {
-				if (result.isConfirmed) {
-					window.location.href = 'login.html';
-				}
-			});
+		e.preventDefault();
+		Swal.fire({
+			title: '정말 로그아웃 하시겠습니까?',
+			icon: 'question',
+			showCancelButton: true,
+			confirmButtonText: '로그아웃',
+			cancelButtonText: '취소',
+			confirmButtonColor: '#d33',
+			cancelButtonColor: '#3085d6'
+		}).then((result) => {
+			if (result.isConfirmed) {
+				window.location.href = 'login.html';
+			}
 		});
+	});
 
 		// 비밀번호 보기/숨기기 토글
 		$('.toggle-password').on('click', function () {
@@ -36,12 +36,12 @@ if (typeof jQuery !== 'undefined') {
 		// 비밀번호 확인 보기/숨기기 토글
 		$('.toggle-password-confirm').on('click', function () {
 			const passwordInput = $(this).siblings('input');
-			const icon = $(this).find('i');
+	const icon = $(this).find('i');
 
 			if (passwordInput.attr('type') === 'password') {
 				passwordInput.attr('type', 'text');
 				icon.removeClass('fa-eye').addClass('fa-eye-slash');
-			} else {
+	} else {
 				passwordInput.attr('type', 'password');
 				icon.removeClass('fa-eye-slash').addClass('fa-eye');
 			}
@@ -182,6 +182,239 @@ if (typeof jQuery !== 'undefined') {
 				}
 			});
 		});
+
+		// 인증번호 발송 버튼 클릭 이벤트
+		$('#sendVerificationBtn').on('click', function() {
+			const phoneNumber = $('#userPhone').val();
+			
+			// 전화번호 형식 검증
+			if (!validatePhoneNumber(phoneNumber)) {
+				Swal.fire({
+					icon: 'error',
+					title: '입력 오류',
+					text: '올바른 전화번호 형식이 아닙니다.'
+				});
+				return;
+			}
+
+			// 인증번호 발송 API 호출
+			$.ajax({
+				url: '/api/send-verification',  // 백엔드 API 엔드포인트
+				method: 'POST',
+				data: {
+					phoneNumber: phoneNumber
+				},
+				success: function(response) {
+					if (response.success) {
+						Swal.fire({
+							icon: 'success',
+							title: '인증번호 발송',
+							text: '인증번호가 발송되었습니다.'
+						});
+						// 인증번호 입력 필드 활성화
+						$('#verificationCode').prop('disabled', false);
+						// 인증번호 확인 버튼 활성화
+						$('#verifyCodeBtn').prop('disabled', false);
+					} else {
+						Swal.fire({
+							icon: 'error',
+							title: '발송 실패',
+							text: '인증번호 발송에 실패했습니다.'
+						});
+					}
+				},
+				error: function() {
+					Swal.fire({
+						icon: 'error',
+						title: '오류 발생',
+						text: '서버 오류가 발생했습니다.'
+					});
+				}
+			});
+		});
+
+		// 인증번호 확인 버튼 클릭 이벤트
+		$('#verifyCodeBtn').on('click', function() {
+			const phoneNumber = $('#userPhone').val();
+			const verificationCode = $('#verificationCode').val();
+
+			// 인증번호 확인 API 호출
+			$.ajax({
+				url: '/api/verify-code',  // 백엔드 API 엔드포인트
+				method: 'POST',
+				data: {
+					phoneNumber: phoneNumber,
+					code: verificationCode
+				},
+				success: function(response) {
+					if (response.success) {
+						Swal.fire({
+							icon: 'success',
+							title: '인증 완료',
+							text: '휴대폰 인증이 완료되었습니다.'
+						});
+						// 인증 완료 후 필드 비활성화
+						$('#userPhone').prop('disabled', true);
+						$('#verificationCode').prop('disabled', true);
+						$('#sendVerificationBtn').prop('disabled', true);
+						$('#verifyCodeBtn').prop('disabled', true);
+					} else {
+						Swal.fire({
+							icon: 'error',
+							title: '인증 실패',
+							text: '인증번호가 일치하지 않습니다.'
+						});
+					}
+				},
+				error: function() {
+					Swal.fire({
+						icon: 'error',
+						title: '오류 발생',
+						text: '서버 오류가 발생했습니다.'
+					});
+				}
+			});
+		});
+
+		// 전화번호 형식 검증 함수
+		function validatePhoneNumber(phoneNumber) {
+			const phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+			return phoneRegex.test(phoneNumber);
+		}
+
+		// 전화번호 입력 시 자동 하이픈 추가
+		$('#userPhone').on('input', function() {
+			let value = $(this).val().replace(/[^0-9]/g, '');
+			if (value.length > 3 && value.length <= 7) {
+				value = value.replace(/(\d{3})(\d{1,4})/, '$1-$2');
+			} else if (value.length > 7) {
+				value = value.replace(/(\d{3})(\d{4})(\d{1,4})/, '$1-$2-$3');
+			}
+			$(this).val(value);
+		});
+
+		// KCP 본인인증 설정
+		const KCP_CONFIG = {
+			siteCode: 'AL4EH',
+			siteName: '여놀',
+			returnUrl: 'http://localhost:3000/api/kcp/callback',
+			errorUrl: 'http://localhost:3000/api/kcp/error',
+			popupYn: 'Y',
+			closeBtnYn: 'Y',
+			certType: '30',
+			certMethod: '01'
+		};
+
+		// 본인인증 버튼 클릭 이벤트
+		$('#kcpAuthBtn').on('click', function() {
+			// KCP 스크립트 로드 확인
+			if (typeof KCP_Auth_Request === 'undefined') {
+				Swal.fire({
+					icon: 'error',
+					title: '오류 발생',
+					text: '본인인증 서비스를 불러오는 중입니다. 잠시 후 다시 시도해주세요.'
+				});
+				return;
+			}
+			
+			// 인증 팝업 호출
+			try {
+				KCP_Auth_Request(KCP_CONFIG);
+			} catch (error) {
+				console.error('KCP 인증 요청 오류:', error);
+				Swal.fire({
+					icon: 'error',
+					title: '오류 발생',
+					text: '본인인증 서비스 호출 중 오류가 발생했습니다.'
+				});
+			}
+		});
+
+		// KCP 인증 완료 콜백
+		window.KCP_Auth_Complete = function(data) {
+			console.log('KCP 인증 응답:', data);  // 개발 시 로깅
+
+			if (data.res_cd === '0000') {
+				// 인증 성공
+				const phoneNumber = formatPhoneNumber(data.mobile_no);
+				const userName = data.name;
+
+				// UI 업데이트
+				updateAuthUI(phoneNumber, userName);
+				
+				// 서버에 인증 정보 전송
+				sendAuthData({
+					phoneNumber: data.mobile_no,
+					name: data.name,
+					birthDate: data.birth_date,
+					gender: data.gender,
+					authToken: data.auth_token,
+					ci: data.ci,
+					di: data.di
+				});
+			} else {
+				// 인증 실패
+				showAuthError(data.res_cd);
+			}
+		};
+
+		// UI 업데이트 함수
+		function updateAuthUI(phoneNumber, userName) {
+			$('#userPhone').val(phoneNumber);
+			$('#authResult').show();
+			$('#authResult .auth-status').text('인증완료').addClass('success');
+			$('#authResult .auth-name').text(userName + '님');
+			$('#kcpAuthBtn').prop('disabled', true).text('인증완료');
+		}
+
+		// 인증 데이터 서버 전송
+		function sendAuthData(authData) {
+			$.ajax({
+				url: '/api/kcp/verify',
+				method: 'POST',
+				data: authData,
+				success: function(response) {
+					if (!response.success) {
+						showError('인증 정보 저장 실패', response.message);
+					}
+				},
+				error: function() {
+					showError('서버 오류', '서버와의 통신 중 오류가 발생했습니다.');
+				}
+			});
+		}
+
+		// 에러 메시지 표시
+		function showAuthError(errorCode) {
+			let message = '본인인증에 실패했습니다.';
+			
+			switch(errorCode) {
+				case '0001':
+					message = '사용자가 인증을 취소했습니다.';
+					break;
+				case '0002':
+					message = '인증 시간이 초과되었습니다.';
+					break;
+				case '0003':
+					message = '인증 정보가 일치하지 않습니다.';
+					break;
+			}
+
+			showError('인증 실패', message);
+		}
+
+		function showError(title, message) {
+			Swal.fire({
+				icon: 'error',
+				title: title,
+				text: message
+			});
+		}
+
+		// 전화번호 포맷팅
+		function formatPhoneNumber(number) {
+			return number.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+		}
 	});
 }
 
@@ -337,10 +570,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	// 비밀번호 강도 체크
 	if (elements.pwInput && elements.strengthMeter) {
 		const strengthLabel = elements.strengthMeter.querySelector('.strength-label');
-
+		
 		elements.pwInput.addEventListener('input', function () {
 			const password = this.value;
-
+			
 			if (!password) {
 				elements.strengthMeter.style.display = 'none';
 				return;
@@ -348,7 +581,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			elements.strengthMeter.style.display = 'block';
 			let score = 0;
-
+			
 			if (password.length >= 8) score += 1;
 			if (password.length >= 12) score += 1;
 			if (/[0-9]/.test(password)) score += 1;
@@ -393,7 +626,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		toggleButton.addEventListener('click', function () {
 			const type = passwordInput.getAttribute('type');
 			const icon = toggleButton.querySelector('i');
-
+			
 			if (type === 'password') {
 				passwordInput.setAttribute('type', 'text');
 				icon.className = 'fa-solid fa-eye-slash';
@@ -409,7 +642,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		toggleConfirmButton.addEventListener('click', function () {
 			const type = confirmInput.getAttribute('type');
 			const icon = toggleConfirmButton.querySelector('i');
-
+			
 			if (type === 'password') {
 				confirmInput.setAttribute('type', 'text');
 				icon.className = 'fa-solid fa-eye-slash';
@@ -424,7 +657,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (passwordInput && messageElement) {
 		passwordInput.addEventListener('input', function () {
 			const password = this.value;
-
+			
 			// 조건 검사
 			const hasLength = password.length >= 8 && password.length <= 20;
 			const hasUpper = /[A-Z]/.test(password);
@@ -593,166 +826,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 
-	// 인증번호 발송
-	if (sendVerificationBtn) {
-		sendVerificationBtn.addEventListener('click', function () {
-			const phoneNumber = document.getElementById('userPhone').value.trim();
-			
-			// 전화번호 형식 검증
-			const phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
-			if (!phoneRegex.test(phoneNumber)) {
-				Swal.fire({
-					title: '입력 오류',
-					text: '올바른 전화번호 형식을 입력해주세요.',
-					icon: 'error',
-					confirmButtonText: '확인'
-				});
-				return;
-			}
-
-			// API 서버에 인증번호 발송 요청
-			$.ajax({
-				url: 'http://localhost:3000/api/send-verification',
-				method: 'POST',
-				contentType: 'application/json',
-				data: JSON.stringify({ phoneNumber }),
-				success: function(response) {
-					if (response.success) {
-						Swal.fire({
-							title: '인증번호 발송',
-							text: response.message,
-							icon: 'success',
-							confirmButtonText: '확인'
-						}).then((result) => {
-							if (result.isConfirmed) {
-								// 인증번호 입력 필드 활성화
-								$('#phoneVerificationCode').prop('disabled', false);
-								
-								// 3분 타이머 시작
-								startVerificationTimer();
-							}
-						});
-					} else {
-						Swal.fire({
-							title: '발송 실패',
-							text: response.message,
-							icon: 'error',
-							confirmButtonText: '확인'
-						});
-					}
-				},
-				error: function() {
-					Swal.fire({
-						title: '오류 발생',
-						text: '서버 통신 중 오류가 발생했습니다.',
-						icon: 'error',
-						confirmButtonText: '확인'
-					});
-				}
-			});
-		});
-	}
-
-	// 인증번호 확인
-	if (verifyCodeBtn) {
-		verifyCodeBtn.addEventListener('click', function () {
-			const phoneNumber = document.getElementById('userPhone').value.trim();
-			const verificationCode = document.getElementById('verificationCode').value.trim();
-			
-			if (!verificationCode) {
-				Swal.fire({
-					title: '입력 오류',
-					text: '인증번호를 입력해주세요.',
-					icon: 'error',
-					confirmButtonText: '확인'
-				});
-				return;
-			}
-
-			// 인증번호 확인 요청
-			$.ajax({
-				url: '/api/verify-code',  // 백엔드 API 엔드포인트
-				method: 'POST',
-				data: {
-					phoneNumber: phoneNumber,
-					code: verificationCode
-				},
-				success: function(response) {
-					if (response.success) {
-						Swal.fire({
-							title: '인증 완료',
-							text: '휴대폰 인증이 완료되었습니다.',
-							icon: 'success',
-							confirmButtonText: '확인'
-						});
-						
-						// 인증 완료 상태 저장
-						$('#userPhone').prop('readonly', true);
-						$('#verificationCode').prop('readonly', true);
-						$('#sendVerificationBtn').prop('disabled', true);
-						$('#verifyCodeBtn').prop('disabled', true);
-						
-						// 타이머 중지
-						stopVerificationTimer();
-					} else {
-						Swal.fire({
-							title: '인증 실패',
-							text: response.message || '인증번호가 일치하지 않습니다.',
-							icon: 'error',
-							confirmButtonText: '확인'
-						});
-					}
-				},
-				error: function() {
-					Swal.fire({
-						title: '오류 발생',
-						text: '서버 통신 중 오류가 발생했습니다.',
-						icon: 'error',
-						confirmButtonText: '확인'
-					});
-				}
-			});
-		});
-	}
-
-	// 인증번호 입력 필드 초기 상태 설정
-	$('#verificationCode').prop('disabled', true);
-	$('#verifyCodeBtn').prop('disabled', true);
-
-	// 인증 타이머 변수
-	let verificationTimer;
-	let timeLeft = 180; // 3분
-
-	// 타이머 시작 함수
-	function startVerificationTimer() {
-		const timerDisplay = $('<div class="timer-display"></div>');
-		$('.form-group:has(#verificationCode)').append(timerDisplay);
-		
-		verificationTimer = setInterval(function() {
-			timeLeft--;
-			const minutes = Math.floor(timeLeft / 60);
-			const seconds = timeLeft % 60;
-			timerDisplay.text(`남은 시간: ${minutes}:${seconds.toString().padStart(2, '0')}`);
-			
-			if (timeLeft <= 0) {
-				stopVerificationTimer();
-				Swal.fire({
-					title: '시간 초과',
-					text: '인증 시간이 만료되었습니다. 다시 시도해주세요.',
-					icon: 'warning',
-					confirmButtonText: '확인'
-				});
-			}
-		}, 1000);
-	}
-
-	// 타이머 중지 함수
-	function stopVerificationTimer() {
-		clearInterval(verificationTimer);
-		$('.timer-display').remove();
-		timeLeft = 180;
-	}
-
 	// 회원가입 단계 관리
 	let currentStep = 1;
 	const totalSteps = 2;
@@ -894,7 +967,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			tabButtons.forEach(btn => btn.classList.remove('active'));
 			// 클릭된 버튼에 active 클래스 추가
 			button.classList.add('active');
-
+	
 			// 모든 탭 콘텐츠 숨기기
 			tabContents.forEach(content => content.classList.remove('active'));
 			// 선택된 탭의 콘텐츠 표시
@@ -914,7 +987,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			this.querySelector('i').classList.toggle('fa-eye-slash');
 		});
 	});
-
+	
 	// 폼 제출 처리
 	const forms = {
 		loginForm: document.getElementById('loginForm'),
@@ -942,7 +1015,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			nickname: document.getElementById('userNickName').value,
 			phone: document.getElementById('userPhone').value
 		};
-		
+	
 		// TODO: 회원가입 API 호출
 		console.log('회원가입 시도:', formData);
 	});

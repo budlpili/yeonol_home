@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>내 정보 - 여놀</title>
+    <link rel="icon" href="./images/icon_fav.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -11,6 +12,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- SweetAlert2 추가 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css">
+    <!-- DataTables JavaScript -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 </head>
 <body>
     <!-- 헤더 섹션 -->
@@ -43,7 +48,7 @@
 
     <!-- 메인 콘텐츠 -->
     <main class="my-info-container">
-        <div class="my-info-card my-info-card-01">
+        <div class="my-info-card my-info-card-01" id="mainInfoSection">
             <!-- 프로필 섹션 -->
             <div class="profile-section">
                 <div class="profile-image-container">
@@ -75,40 +80,52 @@
                     <input type="tel" id="userPhone" class="form-control" placeholder="010-1234-5678" readonly>
                 </div>
 
-                <!-- 비밀번호 수정 -->
-                <div class="password-section">
-                    <button class="btn btn-link password-section-btn">비밀번호 변경하기</button>
-                    <div class="password-section-content">
-                        <div class="form-group">
-                            <label for="userPw">비밀번호</label>
-                            <div class="password-input-group">
-                                <input type="password" id="userPw" class="form-control" placeholder="새 비밀번호를 입력하세요">
-                                <button type="button" class="toggle-password">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                            <span class="form-text text-muted">영문 대/소문자, 숫자, 특수문자 조합 8-20자</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="userPwConfirm">비밀번호 확인</label>
-                            <div class="password-input-group">
-                                <input type="password" id="userPwConfirm" class="form-control" placeholder="새 비밀번호를 다시 입력하세요">
-                                <button type="button" class="toggle-password-confirm">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                            <span class="form-text confirm-message"></span>
-                        </div>
+                <div class="form-group password-section-container">
+                    <div class="password-section">
+                        <!-- 아이템이용내역 -->
+                        <button type="button" class="btn" id="showItemHistory">아이템 내역</button>
+                        <!-- 비밀번호 수정 -->
+                        <button type="button" class="btn" id="showPasswordChange">비밀번호 변경하기</button>
                     </div>
                 </div>
+                <!-- 탈퇴 -->
+                <button type="button" class="btn btn-link" id="showWithdrawal">탈퇴하기</button>
+                
             </form>
-            <div class="button-group">
-                <button type="button" class="btn btn-secondary">취소</button>
-                <button type="submit" class="btn btn-primary">저장</button>
-            </div>
         </div>
 
-        <div class="my-info-card my-info-card-02" style="display: none;">
+        <!-- 비밀번호 변경 섹션 -->
+        <div class="my-info-card pw-change-card" id="passwordChangeSection" style="display: none;">
+            <h3 class="section-title">비밀번호 변경</h3>
+            <form class="my-info-form" id="passwordChangeForm">
+                <div class="form-group">
+                    <label for="userPw">새 비밀번호</label>
+                    <div class="password-input-group">
+                        <input type="password" id="userPw" class="form-control" placeholder="새 비밀번호를 입력하세요">
+                        <button type="button" class="toggle-password">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="form-text text-muted">영문 대/소문자, 숫자, 특수문자 조합 8-20자</span>
+                </div>
+                <div class="form-group">
+                    <label for="userPwConfirm">새 비밀번호 확인</label>
+                    <div class="password-input-group">
+                        <input type="password" id="userPwConfirm" class="form-control" placeholder="새 비밀번호를 다시 입력하세요">
+                        <button type="button" class="toggle-password-confirm">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="form-text confirm-message"></span>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" id="cancelPasswordChange">취소</button>
+                    <button type="submit" class="btn btn-primary">변경하기</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="my-info-card my-info-card-02" style="display: block;">
             <div class="my-info-title">내 기본 정보</div>
             <!-- 정보 수정 폼 -->
             <form class="my-info-form sub-info-form">
@@ -150,10 +167,483 @@
                     <input type="text" id="userIntroduction" class="form-control" placeholder="프로그래머" readonly>
                 </div>
 
-                
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary">취소</button>
+                    <button type="submit" class="btn btn-primary">저장</button>
+                </div>
             </form>
         </div>
+        <!-- 아이템 사용내역 섹션 -->
+        <div class="my-info-card-03" id="itemHistorySection" style="display: none;">
+            <div class="tab-menu">
+                <button class="tab-button active" data-tab="usage">아이템 내역</button>
+                <button class="tab-button" data-tab="payment">결제내역</button>
+            </div>
 
+            <div class="tab-content">
+                <!-- 아이템 사용내역 탭 -->
+                <div class="tab-pane active" id="usage">
+                    <div class="item-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">
+                                <i class="fa-regular fa-gem"></i>
+                                <span>보유중인 아이템 :</span>
+                            </div>
+                            <div class="stat-value-container">
+                                <span class="stat-value">1,000,000,000</span><span class="stat-unit">개</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="date-filter">
+                        <div class="date-btn-container">
+                            <button class="date-btn active" data-days="all">전체</button>
+                            <button class="date-btn" data-days="1">오늘</button>
+                            <button class="date-btn" data-days="7">일주일</button>
+                            <button class="date-btn" data-days="30">한달</button>
+                            <button class="date-btn" data-days="custom">기간선택</button>
+                        </div>
+                        <div class="date-range-container">
+                            <div class="date-range-title">기간 선택</div>
+                            <div class="date-range">
+                                <input type="date" class="date-input" id="startDate">
+                                <span>~</span>
+                                <input type="date" class="date-input" id="endDate">
+                            </div>
+                            <button class="date-search-btn">검색</button>
+                        </div>
+                        
+                    </div>
+                    <!-- 검색 결과 수 표시 추가 -->
+                    <div class="search-result-count">
+                        <span class="count-text">검색결과 총 <span class="count-number">0</span>개</span>
+                    </div>
+                    <div class="table-container">
+                        <table class="history-table" id="itemHistoryTable">
+                            <thead>
+                                <tr>
+                                    <th class="history-date">일시</th>
+                                    <th class="history-item">내역</th>
+                                    <th class="history-profile">대상</th>
+                                    <th class="history-gem">보석개수</th>
+                                    <th class="history-status">상태</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-05-12</span> 
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">슈퍼좋아요 발송</td>
+                                    <td class="history-profile">
+                                        <div class="history-profile-image">
+                                            <img src="./images/profile/pro_01.png" alt="프로필 이미지">
+                                            <div class="history-profile-name">너랑나랑</div>
+                                        </div>
+                                    </td>
+                                    <td class="history-gem">
+                                        <span class="gem-count">-50</span>
+                                    </td>
+                                    <td class="history-status">
+                                        <span class="gem-status used">사용완료</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-05-11</span> 
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">슈퍼좋아요 발송</td>
+                                    <td class="history-profile">
+                                        <div class="history-profile-image">
+                                            <img src="./images/profile/pro_01.png" alt="프로필 이미지">
+                                            <div class="history-profile-name">너랑나랑</div>
+                                        </div>
+                                    </td>
+                                    <td class="history-gem">
+                                        <span class="gem-count">-50</span>
+                                    </td>
+                                    <td class="history-status">
+                                        <span class="gem-status used">사용완료</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="history-date">
+                                        <span class="date-text">2024-04-15</span> 
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">보석 충전</td>
+                                    <td class="history-profile">
+                                        <div class="history-profile-image">
+                                            <div class="history-profile-name">-</div>
+                                        </div>
+                                    </td>
+                                    <td class="history-gem">
+                                        <span class="gem-count">100</span>
+                                    </td>
+                                    <td class="history-status">
+                                        <span class="gem-status charged">충전완료</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-05-07</span> 
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">슈퍼좋아요 발송</td>
+                                    <td class="history-profile">
+                                        <div class="history-profile-image">
+                                            <img src="./images/profile/pro_01.png" alt="프로필 이미지">
+                                            <div class="history-profile-name">너랑나랑</div>
+                                        </div>
+                                    </td>
+                                    <td class="history-gem">
+                                        <span class="gem-count">-50</span>
+                                    </td>
+                                    <td class="history-status">
+                                        <span class="gem-status used">사용완료</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-05-12</span> 
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">슈퍼좋아요 발송</td>
+                                    <td class="history-profile">
+                                        <div class="history-profile-image">
+                                            <img src="./images/profile/pro_01.png" alt="프로필 이미지">
+                                            <div class="history-profile-name">너랑나랑</div>
+                                        </div>
+                                    </td>
+                                    <td class="history-gem">
+                                        <span class="gem-count">-50</span>
+                                    </td>
+                                    <td class="history-status">
+                                        <span class="gem-status used">사용완료</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-04-08</span> 
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">슈퍼좋아요 발송</td>
+                                    <td class="history-profile">
+                                        <div class="history-profile-image">
+                                            <img src="./images/profile/pro_01.png" alt="프로필 이미지">
+                                            <div class="history-profile-name">너랑나랑</div>
+                                        </div>
+                                    </td>
+                                    <td class="history-gem">
+                                        <span class="gem-count">-50</span>
+                                    </td>
+                                    <td class="history-status">
+                                        <span class="gem-status used">사용완료</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-05-09</span> 
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">슈퍼좋아요 발송</td>
+                                    <td class="history-profile">
+                                        <div class="history-profile-image">
+                                            <img src="./images/profile/pro_01.png" alt="프로필 이미지">
+                                            <div class="history-profile-name">너랑나랑</div>
+                                        </div>
+                                    </td>
+                                    <td class="history-gem">
+                                        <span class="gem-count">-50</span>
+                                    </td>
+                                    <td class="history-status">
+                                        <span class="gem-status used">사용완료</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-05-01</span> 
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">보석 충전</td>
+                                    <td class="history-profile">
+                                        <div class="history-profile-image">
+                                            <div class="history-profile-name">-</div>
+                                        </div>
+                                    </td>
+                                    <td class="history-gem">
+                                        <span class="gem-count">100</span>
+                                    </td>
+                                    <td class="history-status">
+                                        <span class="gem-status charged">충전완료</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-03-01</span> 
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">슈퍼좋아요 발송</td>
+                                    <td class="history-profile">
+                                        <div class="history-profile-image">
+                                            <img src="./images/profile/pro_01.png" alt="프로필 이미지">
+                                            <div class="history-profile-name">너랑나랑</div>
+                                        </div>
+                                    </td>
+                                    <td class="history-gem">
+                                        <span class="gem-count">-50</span>
+                                    </td>
+                                    <td class="history-status">
+                                        <span class="gem-status used">사용완료</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-02-12</span> 
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">슈퍼좋아요 발송</td>
+                                    <td class="history-profile">
+                                        <div class="history-profile-image">
+                                            <img src="./images/profile/pro_01.png" alt="프로필 이미지">
+                                            <div class="history-profile-name">너랑나랑</div>
+                                        </div>
+                                    </td>
+                                    <td class="history-gem">
+                                        <span class="gem-count">-50</span>
+                                    </td>
+                                    <td class="history-status">
+                                        <span class="gem-status used">사용완료</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="history-date">
+                                        <span class="date-text">2024-02-10</span> 
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">보석 충전</td>
+                                    <td class="history-profile">
+                                        <div class="history-profile-image">
+                                            <div class="history-profile-name">-</div>
+                                        </div>
+                                    </td>
+                                    <td class="history-gem">
+                                        <span class="gem-count">100</span>
+                                    </td>
+                                    <td class="history-status">
+                                        <span class="gem-status charged">충전완료</span>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+
+                <!-- 결제내역 탭 -->
+                <div class="tab-pane" id="payment">
+                    
+                    <div class="date-filter">
+                        <div class="date-btn-container">
+                            <button class="date-btn active" data-days="all">전체</button>
+                            <button class="date-btn" data-days="1">오늘</button>
+                            <button class="date-btn" data-days="7">일주일</button>
+                            <button class="date-btn" data-days="30">한달</button>
+                            <button class="date-btn" data-days="custom">기간선택</button>
+                        </div>
+                        <div class="date-range-container">
+                            <div class="date-range-title">기간 선택</div>
+                            <div class="date-range">
+                                <input type="date" class="date-input" id="paymentStartDate">
+                                <span>~</span>
+                                <input type="date" class="date-input" id="paymentEndDate">
+                            </div>
+                            <button class="date-search-btn" id="paymentDateSearch">검색</button>
+                        </div>
+                    </div>
+                    <!-- 검색 결과 수 표시 추가 -->
+                    <div class="search-result-count">
+                        <span class="count-text">검색결과 총 <span class="count-number">0</span>개</span>
+                    </div>
+                    <div class="table-container">
+                        <table class="history-table" id="paymentHistoryTable">
+                            <thead>
+                                <tr>
+                                    <th class="history-order-number">주문번호</th>
+                                    <th class="history-date">결제일시</th>
+                                    <th class="history-item">상품명</th>
+                                    <th class="history-payment-method">결제수단</th>
+                                    <th class="history-payment-amount">결제금액</th>
+                                    <th class="history-status">상태</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="history-order-number">12345665690</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2024-05-13</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">25,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567890</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-05-12</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">25,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567890</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-05-08</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">36,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567880</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-04-20</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">29,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567890</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-04-20</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">29,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567890</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-04-10</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">29,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567890</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-03-20</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">29,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567890</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-03-21</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">29,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567890</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-04-01</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">29,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567890</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-01-20</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">29,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567890</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2025-01-01</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">29,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567890</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2024-12-20</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">29,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567890</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2024-12-20</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">29,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                <tr>
+                                    <td class="history-order-number">1234567890</td>
+                                    <td class="history-date">
+                                        <span class="date-text">2024-09-20</span>
+                                        <span class="time-text">12:00:00</span>
+                                    </td>
+                                    <td class="history-item">프리미엄 멤버십 30일</td>
+                                    <td class="history-payment-method">신용카드</td>
+                                    <td class="history-payment-amount">29,000원</td>
+                                    <td class="history-status">결제완료</td>
+                                </tr>
+                                
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- 푸터 -->
@@ -162,7 +652,7 @@
             <div class="footer-info">
                 <div class="footer-links">
                     <ul>
-                        <li><a href="./rules/privacy-policy.html" target="_blank" rel="noopener noreferrer">개인정보처리방침</a></li>
+                        <li><a href="./rules/privacy-policy.html" target="_blank" rel="noopener noreferrer">인정보처리방침</a></li>
                         <li><a href="./rules/terms-of-service.html" target="_blank" rel="noopener noreferrer">이용약관</a></li>
                         <li><a href="./rules/location-service.html" target="_blank" rel="noopener noreferrer">위치기반서비스이용약관</a></li>
                         <li><a href="./rules/youth-protection.html" target="_blank" rel="noopener noreferrer">청소년보호정책</a></li>

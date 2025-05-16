@@ -112,9 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <span class="file-name">${file.name}</span>
                             </div>
                         `;
-                    };
-                    reader.readAsDataURL(file);
-                } else {
+                };
+                reader.readAsDataURL(file);
+            } else {
                     fileItem.innerHTML = `
                         <div class="file-preview-container">
                             <i class="fas fa-file"></i>
@@ -161,9 +161,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         confirmButtonText: '확인',
                         confirmButtonColor: '#3085d6'
                     });
-                }
-            });
+            }
         });
+    });
     }
 
     // 폼 제출
@@ -201,9 +201,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 Array.from(files).forEach(file => {
                     if (fileNames.includes(file.name)) {
-                        formData.append('files[]', file);
+                formData.append('files[]', file);
                     }
-                });
+            });
             }
 
             try {
